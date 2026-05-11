@@ -72,6 +72,16 @@ export function LessonPanel({
             ))}
           </div>
         ) : null}
+        {lesson.examples?.length ? (
+          <div className="lesson-examples" aria-label="Python code examples">
+            {lesson.examples.map((example, index) => (
+              <figure key={`${lesson.id}-example-${index}`}>
+                <pre><code className="language-python">{example.code}</code></pre>
+                {example.caption && <figcaption><InlineText text={example.caption} /></figcaption>}
+              </figure>
+            ))}
+          </div>
+        ) : null}
         <VisualExplainer lesson={lesson} />
         {lesson.quiz && <QuizCard quiz={lesson.quiz} onComplete={() => onComplete(lesson.id)} />}
         {runnable && (

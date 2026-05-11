@@ -496,6 +496,51 @@ button:disabled {
   border-top: 1px solid #eee;
 }
 
+.lesson-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.lesson-examples figure {
+  margin: 0;
+  flex: 1 1 300px;
+  max-width: 720px;
+  background: #111;
+  border: 1px solid #111;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lesson-examples pre {
+  margin: 0;
+  padding: 16px;
+  overflow: auto;
+  background: #111;
+  color: #f5f5ef;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.lesson-examples code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-weight: 500;
+  white-space: pre;
+}
+
+.lesson-examples figcaption {
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  color: #666;
+  border-top: 1px solid #2a2a2a;
+  background: #fff;
+}
+
 .visual-explainer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);

@@ -38,6 +38,11 @@ export type LessonImage = {
   caption?: string;
 };
 
+export type LessonCodeExample = {
+  code: string;
+  caption?: string;
+};
+
 export type Lesson = {
   id: string;
   kind: LessonKind;
@@ -48,6 +53,7 @@ export type Lesson = {
   concepts: string[];
   body: string[];
   images?: LessonImage[];
+  examples?: LessonCodeExample[];
   quiz?: QuizQuestion;
   exercise?: CodeExercise;
   challenge?: DatasetChallenge;
