@@ -299,7 +299,6 @@ button:disabled {
   .lesson-title-row,
   .lesson-body,
   .visual-explainer,
-  .download-row,
   .activity-panel,
   .completed-note {
     max-width: 980px;
@@ -452,7 +451,6 @@ button:disabled {
 }
 
 .hint-strip,
-.download-row,
 .runner-actions {
   display: flex;
   flex-wrap: wrap;
@@ -511,8 +509,7 @@ button:disabled {
 }
 
 .visual-lane,
-.visual-explainer.three-step > div,
-.visual-explainer.data-flow > div {
+.visual-explainer.three-step > div {
   min-height: 104px;
   border: 1px solid #d8d8d0;
   border-radius: 7px;
@@ -531,8 +528,7 @@ button:disabled {
 }
 
 .visual-lane strong,
-.visual-explainer.three-step strong,
-.visual-explainer.data-flow strong {
+.visual-explainer.three-step strong {
   display: block;
   margin-top: 6px;
   color: #111;
@@ -540,8 +536,7 @@ button:disabled {
 }
 
 .visual-lane p,
-.visual-explainer.three-step p,
-.visual-explainer.data-flow p {
+.visual-explainer.three-step p {
   margin: 6px 0 0;
   color: #222;
   line-height: 1.4;
@@ -557,8 +552,7 @@ button:disabled {
   text-align: center;
 }
 
-.visual-explainer.three-step,
-.visual-explainer.data-flow {
+.visual-explainer.three-step {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -631,7 +625,6 @@ button:disabled {
 }
 
 .quiz-options button,
-.download-row button,
 .runner-actions button,
 .primary-action {
   display: inline-flex;
@@ -677,10 +670,6 @@ button:disabled {
 
 .primary-action:disabled {
   opacity: 0.45;
-}
-
-.download-row button {
-  background: #fff;
 }
 
 .code-editor {
@@ -942,8 +931,7 @@ button:disabled {
   }
 
   .visual-explainer,
-  .visual-explainer.three-step,
-  .visual-explainer.data-flow {
+  .visual-explainer.three-step {
     grid-template-columns: 1fr;
   }
 

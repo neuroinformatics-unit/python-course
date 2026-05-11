@@ -8,7 +8,7 @@ export const validateCodeSubmission = (
   code: string,
   output = "",
   plotCount = 0,
-): { passed: boolean; missing: string[] } => {
+): { passed: boolean; missing: string[]; missingCode: string[]; missingOutput: string[] } => {
   const expectedIncludes = "expectedIncludes" in exercise ? exercise.expectedIncludes ?? [] : [];
   const expectedOutput = exercise.expectedOutputContains ?? [];
   const missingCode = expectedIncludes.filter((fragment) => !code.includes(fragment));
