@@ -1,21 +1,21 @@
 import { RotateCcw } from "lucide-react";
 import { calculatePercentComplete, type ProgressState } from "../lib/progress";
-import type { Quest } from "../data/types";
+import type { Course } from "../data/types";
 
 type Props = {
-  quests: Quest[];
+  courses: Course[];
   progress: ProgressState;
   onReset: () => void;
 };
 
-export function ProgressHeader({ quests, progress, onReset }: Props) {
-  const percent = calculatePercentComplete(quests, progress.completedLessons);
+export function ProgressHeader({ courses, progress, onReset }: Props) {
+  const percent = calculatePercentComplete(courses, progress.completedLessons);
 
   return (
     <header className="progress-header">
       <div>
-        <p className="eyebrow">Python Quest</p>
-        <h1>Choose a path, run code, unlock the next challenge.</h1>
+        <p className="eyebrow">Python Course</p>
+        <h1>Course progress</h1>
       </div>
       <div className="progress-stats" aria-label="Learning progress">
         <span title="Experience points">

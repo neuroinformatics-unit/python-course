@@ -4,6 +4,7 @@ import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
 import type { CodeExercise, DatasetChallenge } from "../data/types";
+import { codingbatLinks } from "../data/codingbatLinks";
 import { validateCodeSubmission } from "../lib/exerciseValidation";
 import {
   createPlotCaptureCode,
@@ -86,6 +87,7 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
   const expectedPlotCount = item.expectedPlotCount ?? 0;
   const plotMissing = runState === "done" && expectedPlotCount > plots.length;
   const editorId = `${item.id}-editor`;
+  const codingbatUrl = codingbatLinks[item.id];
 
   return (
     <section className="activity-panel code-panel">
@@ -98,6 +100,11 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
           <p>
             <InlineText text={"prompt" in item ? item.prompt : item.mission} />
           </p>
+          {codingbatUrl && (
+            <p className="codingbat-link">
+              <a href={codingbatUrl} target="_blank" rel="noreferrer">Open related CodingBat exercise</a>
+            </p>
+          )}
         </div>
       </div>
       {"hints" in item && (
@@ -109,7 +116,7 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
           ))}
         </div>
       )}
-      <label className="sr-only" htmlFor={editorId}>Python code editor</label>
+      <label className="sr-only" htmlFor={editorId}>Python exercise editor</label>
       <Editor
         value={code}
         onValueChange={setCode}

@@ -1,4 +1,5 @@
 import type { PyodideRuntime } from "../vite-env";
+import { resolvePublicAssetPath } from "./assets";
 
 const pyodideVersion = "0.26.4";
 const indexURL = `https://cdn.jsdelivr.net/pyodide/v${pyodideVersion}/full/`;
@@ -62,7 +63,7 @@ export const mountDatasets = async (
 ): Promise<void> => {
   for (const path of datasetPaths) {
     if (mountedDatasets.has(path)) continue;
-    const response = await fetch(path);
+    const response = await fetch(resolvePublicAssetPath(path));
     if (!response.ok) throw new Error(`Could not load dataset ${path}`);
     const data = new Uint8Array(await response.arrayBuffer());
     runtime.FS.mkdirTree("/data");
@@ -80,19 +81,19 @@ try:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    _python_quest_plots = []
-    def _python_quest_show():
-        global _python_quest_plots
+    _python_course_plots = []
+    def _python_course_show():
+        global _python_course_plots
         buffer = BytesIO()
         plt.savefig(buffer, format="png", bbox_inches="tight")
         buffer.seek(0)
-        _python_quest_plots.append(base64.b64encode(buffer.read()).decode("utf-8"))
+        _python_course_plots.append(base64.b64encode(buffer.read()).decode("utf-8"))
         plt.close()
-    plt.show = _python_quest_show
+    plt.show = _python_course_show
 except Exception:
-    _python_quest_plots = []
+    _python_course_plots = []
 `;
 
 export const readPlotImagesCode = `
-_python_quest_plots
+_python_course_plots
 `;

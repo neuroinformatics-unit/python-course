@@ -1,38 +1,38 @@
 import type { CSSProperties } from "react";
-import type { Quest } from "../data/types";
-import { isQuestUnlocked, type ProgressState } from "../lib/progress";
+import type { Course } from "../data/types";
+import { isCourseUnlocked, type ProgressState } from "../lib/progress";
 import { InlineText } from "./InlineText";
 
 type Props = {
-  quests: Quest[];
+  courses: Course[];
   progress: ProgressState;
   onSelectLesson: (lessonId: string) => void;
 };
 
-export function QuestMap({ quests, progress, onSelectLesson }: Props) {
+export function CourseMap({ courses, progress, onSelectLesson }: Props) {
   return (
-    <nav className="quest-map" aria-label="Quest map">
+    <nav className="course-map" aria-label="Course map">
       <div className="map-title">
         <span>Course Home</span>
       </div>
-      <div className="quest-list">
-        {quests.map((quest, index) => {
-          const unlocked = isQuestUnlocked(quests, progress.completedLessons, index);
-          const completedCount = quest.lessons.filter((lesson) =>
+      <div className="course-list">
+        {courses.map((course, index) => {
+          const unlocked = isCourseUnlocked(courses, progress.completedLessons, index);
+          const completedCount = course.lessons.filter((lesson) =>
             progress.completedLessons.includes(lesson.id),
           ).length;
-          const complete = completedCount === quest.lessons.length;
+          const complete = completedCount === course.lessons.length;
 
           return (
-            <section className="quest-node" key={quest.id} style={{ "--quest-accent": quest.accent } as CSSProperties}>
-              <div className="quest-node-header">
+            <section className="course-node" key={course.id} style={{ "--course-accent": course.accent } as CSSProperties}>
+              <div className="course-node-header">
                 <strong>
-                  {quest.number}. {quest.title}
+                  {course.number}. {course.title}
                 </strong>
-                <small>{complete ? quest.badge : `${completedCount}/${quest.lessons.length} lessons`}</small>
+                <small>{complete ? course.badge : `${completedCount}/${course.lessons.length} lessons`}</small>
               </div>
               <div className="home-lesson-list">
-                {quest.lessons.map((lesson) => {
+                {course.lessons.map((lesson) => {
                   const isComplete = progress.completedLessons.includes(lesson.id);
                   return (
                     <button

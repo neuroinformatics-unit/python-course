@@ -41,6 +41,8 @@ export type LessonImage = {
 export type LessonCodeExample = {
   code: string;
   caption?: string;
+  packages?: string[];
+  insertAfter?: number;
 };
 
 export type Lesson = {
@@ -59,7 +61,7 @@ export type Lesson = {
   challenge?: DatasetChallenge;
 };
 
-export type Quest = {
+export type Course = {
   id: string;
   number: number;
   title: string;

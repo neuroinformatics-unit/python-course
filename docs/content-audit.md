@@ -1,13 +1,13 @@
 # Content Coverage Audit
 
-This site remixes the source decks into quests rather than reproducing slide order. The original slide files remain source material only.
+This site remixes the source decks into courses rather than reproducing slide order. The original slide files remain source material only.
 
 ## Covered From Python Club Sessions
 
 - Session 1: why Python, programming concepts, GUI vs CLI, terminal basics, scripts, `print`, arithmetic operators (incl. `**`), variables, VS Code/Jupyter workflow, interactive mode, core data types, casting, `type()`, type errors.
 - Session 2: lists, dictionaries, tuples, sets, mutability, indexing, slicing/range indexing, negative indexing, tuple unpacking, `len`, `list()/set()` conversion, `dict.keys()/values()/items()`, user-defined functions, arguments, defaults, return values (incl. multiple), keyword/positional calls, importing from another file.
 - Session 3: comments, multiline strings/docstrings (numpydoc-style), standard libraries (`statistics`, `math`, `random`, `glob`), package installation, NumPy/pandas/matplotlib introduction, loops (`for`, accumulator, `range`, `enumerate`), comparison operators (all six), `if`/`elif`/`else`, `in`, methods, relu/compare_len function exercises, control-flow exercise.
-- Session 4: responsible AI use for beginners, power operator `**`, NumPy array operations (incl. multi-array same-shape ops), array shape, multidimensional indexing, range-indexing on arrays, masks, `np.random.randint`, pandas DataFrames (`read_csv`, `.head()`, `.unique()`, `.value_counts()`, quality masking, `groupby`, column selection, `.iloc`), matplotlib scatter/plot with labels, climate data capstone (hottest/coldest year and month).
+- Session 4: responsible AI use for beginners, power operator `**`, NumPy array operations (incl. multi-array same-shape ops), array shape, multidimensional indexing, range-indexing on arrays, masks, `np.random.randint`, pandas DataFrames (`read_csv`, `.head()`, `.unique()`, `.value_counts()`, quality masking, `groupby`, column selection, `.iloc`), matplotlib scatter/plot with labels, climate data exam (hottest/coldest year and month).
 - Python Club exam: public hospitals, street trees, vaccination data, and weather data represented as final dataset missions.
 
 ## Covered From OSW Intro Python
@@ -32,5 +32,5 @@ All `expectedOutputContains` values were verified against the shipped data files
 | hospital-mission | `18`, `21146.8` | ✓ |
 | street-tree-mission | `66904` | ✓ |
 | vaccination-mission | `Richmond Valley - Coastal`, `2 Year olds`, `76.164` | ✓ |
-| weather-capstone | `2023`, `2018`, `1`, `7` | ✓ |
+| weather-exam | `2023`, `2018`, `1`, `7` | ✓ |
 | glob-docs | `4` | ✓ (4 CSVs in `/data`) |

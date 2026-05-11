@@ -1,54 +1,54 @@
-import type { Quest } from "../data/types";
+import type { Course } from "../data/types";
 
 export type ProgressState = {
   completedLessons: string[];
   exerciseAttempts: Record<string, number>;
-  currentQuestId: string;
+  currentCourseId: string;
   xp: number;
   badges: string[];
 };
 
-const storageKey = "python-quest-progress-v1";
+const storageKey = "python-course-progress-v1";
 
-export const createInitialProgress = (quests: Quest[]): ProgressState => ({
+export const createInitialProgress = (courses: Course[]): ProgressState => ({
   completedLessons: [],
   exerciseAttempts: {},
-  currentQuestId: quests[0]?.id ?? "",
+  currentCourseId: courses[0]?.id ?? "",
   xp: 0,
   badges: [],
 });
 
-export const getLessonXp = (quests: Quest[], lessonId: string): number => {
-  for (const quest of quests) {
-    const lesson = quest.lessons.find((item) => item.id === lessonId);
+export const getLessonXp = (courses: Course[], lessonId: string): number => {
+  for (const course of courses) {
+    const lesson = course.lessons.find((item) => item.id === lessonId);
     if (lesson) return lesson.xp;
   }
   return 0;
 };
 
-export const getQuestForLesson = (quests: Quest[], lessonId: string): Quest | undefined =>
-  quests.find((quest) => quest.lessons.some((lesson) => lesson.id === lessonId));
+export const getCourseForLesson = (courses: Course[], lessonId: string): Course | undefined =>
+  courses.find((course) => course.lessons.some((lesson) => lesson.id === lessonId));
 
 export const completeLesson = (
   state: ProgressState,
-  quests: Quest[],
+  courses: Course[],
   lessonId: string,
 ): ProgressState => {
   if (state.completedLessons.includes(lessonId)) return state;
 
   const completedLessons = [...state.completedLessons, lessonId];
-  const quest = getQuestForLesson(quests, lessonId);
-  const questComplete =
-    quest?.lessons.every((lesson) => completedLessons.includes(lesson.id)) ?? false;
-  const badges = questComplete && quest ? Array.from(new Set([...state.badges, quest.badge])) : state.badges;
-  const nextQuest = getNextUnlockedQuestId(quests, completedLessons, state.currentQuestId);
+  const course = getCourseForLesson(courses, lessonId);
+  const courseComplete =
+    course?.lessons.every((lesson) => completedLessons.includes(lesson.id)) ?? false;
+  const badges = courseComplete && course ? Array.from(new Set([...state.badges, course.badge])) : state.badges;
+  const nextCourse = getNextUnlockedCourseId(courses, completedLessons, state.currentCourseId);
 
   return {
     ...state,
     completedLessons,
-    xp: state.xp + getLessonXp(quests, lessonId),
+    xp: state.xp + getLessonXp(courses, lessonId),
     badges,
-    currentQuestId: nextQuest,
+    currentCourseId: nextCourse,
   };
 };
 
@@ -60,34 +60,34 @@ export const recordAttempt = (state: ProgressState, exerciseId: string): Progres
   },
 });
 
-export const isQuestUnlocked = (
-  _quests: Quest[],
+export const isCourseUnlocked = (
+  _courses: Course[],
   _completedLessons: string[],
-  _questIndex: number,
+  _courseIndex: number,
 ): boolean => {
   return true;
 };
 
-export const getNextUnlockedQuestId = (
-  quests: Quest[],
+export const getNextUnlockedCourseId = (
+  courses: Course[],
   completedLessons: string[],
-  fallbackQuestId: string,
+  fallbackCourseId: string,
 ): string => {
-  const firstIncompleteUnlocked = quests.find((quest, index) => {
-    if (!isQuestUnlocked(quests, completedLessons, index)) return false;
-    return quest.lessons.some((lesson) => !completedLessons.includes(lesson.id));
+  const firstIncompleteUnlocked = courses.find((course, index) => {
+    if (!isCourseUnlocked(courses, completedLessons, index)) return false;
+    return course.lessons.some((lesson) => !completedLessons.includes(lesson.id));
   });
 
-  return firstIncompleteUnlocked?.id ?? quests.at(-1)?.id ?? fallbackQuestId;
+  return firstIncompleteUnlocked?.id ?? courses.at(-1)?.id ?? fallbackCourseId;
 };
 
-export const calculatePercentComplete = (quests: Quest[], completedLessons: string[]): number => {
-  const total = quests.reduce((sum, quest) => sum + quest.lessons.length, 0);
+export const calculatePercentComplete = (courses: Course[], completedLessons: string[]): number => {
+  const total = courses.reduce((sum, course) => sum + course.lessons.length, 0);
   return total === 0 ? 0 : Math.round((completedLessons.length / total) * 100);
 };
 
-export const loadProgress = (quests: Quest[], storage: Storage = window.localStorage): ProgressState => {
-  const fallback = createInitialProgress(quests);
+export const loadProgress = (courses: Course[], storage: Storage = window.localStorage): ProgressState => {
+  const fallback = createInitialProgress(courses);
   try {
     const raw = storage.getItem(storageKey);
     if (!raw) return fallback;
@@ -95,7 +95,10 @@ export const loadProgress = (quests: Quest[], storage: Storage = window.localSto
     return {
       completedLessons: Array.isArray(parsed.completedLessons) ? parsed.completedLessons : [],
       exerciseAttempts: parsed.exerciseAttempts ?? {},
-      currentQuestId: parsed.currentQuestId ?? fallback.currentQuestId,
+      currentCourseId:
+        parsed.currentCourseId ??
+        (parsed as Partial<ProgressState> & { currentcourseId?: string }).currentcourseId ??
+        fallback.currentCourseId,
       xp: typeof parsed.xp === "number" ? parsed.xp : 0,
       badges: Array.isArray(parsed.badges) ? parsed.badges : [],
     };
@@ -108,8 +111,8 @@ export const saveProgress = (state: ProgressState, storage: Storage = window.loc
   storage.setItem(storageKey, JSON.stringify(state));
 };
 
-export const resetProgress = (quests: Quest[], storage: Storage = window.localStorage): ProgressState => {
-  const fresh = createInitialProgress(quests);
+export const resetProgress = (courses: Course[], storage: Storage = window.localStorage): ProgressState => {
+  const fresh = createInitialProgress(courses);
   saveProgress(fresh, storage);
   return fresh;
 };

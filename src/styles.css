@@ -64,6 +64,17 @@ button:disabled {
   font-size: 1em;
   font-weight: inherit;
   white-space: normal;
+
+.codingbat-link {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+}
+
+.codingbat-link a {
+  color: #111;
+  text-decoration: underline;
+  font-weight: 700;
+}
 }
 
 .app-shell {
@@ -234,21 +245,21 @@ button:disabled {
   background: #f5f5f5;
 }
 
-.home-workspace .quest-map {
+.home-workspace .course-map {
   position: static;
   max-width: none;
 }
 
-.home-workspace .quest-list {
+.home-workspace .course-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
-.home-workspace .quest-node {
+.home-workspace .course-node {
   align-content: start;
 }
 
-.quest-node-header {
+.course-node-header {
   margin-bottom: 10px;
 }
 
@@ -306,12 +317,12 @@ button:disabled {
 }
 
 /* Legacy multi-column layout is intentionally disabled for the slide format. */
-.workspace > .quest-map,
+.workspace > .course-map,
 .workspace > .lesson-area {
   align-items: start;
 }
 
-.quest-map {
+.course-map {
   position: sticky;
   top: 18px;
   border: 1px solid #d8d8d0;
@@ -343,12 +354,12 @@ button:disabled {
   text-decoration: underline;
 }
 
-.quest-list {
+.course-list {
   display: grid;
   gap: 8px;
 }
 
-.quest-node {
+.course-node {
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -362,21 +373,21 @@ button:disabled {
   text-align: left;
 }
 
-.quest-node:disabled {
+.course-node:disabled {
   opacity: 0.48;
 }
 
-.quest-node.active {
+.course-node.active {
   outline: 2px solid #111;
   background: #f4f4ef;
 }
 
-.quest-node strong,
-.quest-node small {
+.course-node strong,
+.course-node small {
   display: block;
 }
 
-.quest-node small {
+.course-node small {
   margin-top: 2px;
   color: #111;
 }
@@ -385,7 +396,7 @@ button:disabled {
   min-width: 0;
 }
 
-.quest-hero {
+.course-hero {
   display: flex;
   justify-content: space-between;
   gap: 18px;
@@ -397,13 +408,13 @@ button:disabled {
   box-shadow: none;
 }
 
-.quest-hero h2 {
+.course-hero h2 {
   margin: 4px 0;
   font-size: clamp(1.8rem, 4vw, 3.2rem);
   letter-spacing: 0;
 }
 
-.quest-hero p:last-child {
+.course-hero p:last-child {
   max-width: 720px;
   margin: 0;
   color: #222;
@@ -462,21 +473,35 @@ button:disabled {
   display: grid;
   gap: 10px;
   margin-top: 14px;
-  border-left: 3px solid #d0d0c8;
-  padding-left: 16px;
+}
+
+.example-runner {
+  margin: 0;
+  border: 1px solid #111;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.example-caption {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #333;
 }
 
 .lesson-figures {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 16px;
   margin-top: 20px;
 }
 
 .lesson-figures figure {
   margin: 0;
-  flex: 1 1 300px;
-  max-width: 720px;
+  width: 100%;
   background: #fff;
   border: 1px solid #d8d8d0;
   border-radius: 8px;
@@ -898,22 +923,22 @@ button:disabled {
     justify-content: flex-start;
   }
 
-  .quest-map {
+  .course-map {
     position: static;
   }
 
-  .quest-list {
+  .course-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 680px) {
-  .quest-list,
+  .course-list,
   .quiz-options {
     grid-template-columns: 1fr;
   }
 
-  .quest-hero {
+  .course-hero {
     align-items: flex-start;
     flex-direction: column;
   }

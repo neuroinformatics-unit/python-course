@@ -1,6 +1,6 @@
 # (no title)
 
-- Question
+- question
 - light = "green"
 - if light == "green":
 - print("Go")

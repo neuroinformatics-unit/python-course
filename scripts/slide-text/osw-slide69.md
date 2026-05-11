@@ -1,6 +1,6 @@
 # (no title)
 
-- Question
+- question
 - What does my_dict['a_number'] return?
 - my_dict =
 - {'a_number': 1,

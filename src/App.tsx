@@ -1,18 +1,18 @@
 import { useMemo, useState } from "react";
-import { quests } from "./data/curriculum";
+import { courses } from "./data/curriculum";
 import { useProgress } from "./hooks";
 import { LessonPanel } from "./components/LessonPanel";
 import { ProgressHeader } from "./components/ProgressHeader";
-import { QuestMap } from "./components/QuestMap";
+import { CourseMap } from "./components/CourseMap";
 import "./styles.css";
 
 export default function App() {
   const { progress, actions } = useProgress();
   const lessonRefs = useMemo(
     () =>
-      quests.flatMap((quest) =>
-        quest.lessons.map((lesson) => ({
-          quest,
+      courses.flatMap((course) =>
+        course.lessons.map((lesson) => ({
+          course,
           lesson,
         })),
       ),
@@ -30,7 +30,7 @@ export default function App() {
   const openLesson = (lessonId: string) => {
     const ref = lessonRefs.find(({ lesson }) => lesson.id === lessonId);
     if (ref) {
-      actions.selectQuest(ref.quest.id);
+      actions.selectCourse(ref.course.id);
       setActiveLessonId(lessonId);
     }
   };
@@ -45,7 +45,7 @@ export default function App() {
     <div className="app-shell">
       {activeRef ? (
         <LessonPanel
-          quest={activeRef.quest}
+          course={activeRef.course}
           lesson={activeRef.lesson}
           position={{ current: activeIndex + 1, total: lessonRefs.length }}
           progress={progress}
@@ -57,15 +57,15 @@ export default function App() {
         />
       ) : (
         <>
-        <ProgressHeader quests={quests} progress={progress} onReset={actions.reset} />
+        <ProgressHeader courses={courses} progress={progress} onReset={actions.reset} />
         <div className="workspace home-workspace">
           <section className="home-intro">
             <p className="eyebrow">Course Home</p>
             <h1>Choose a lesson</h1>
             <p>Open one slide at a time. You can return here whenever you want to jump to a different topic.</p>
           </section>
-        <QuestMap
-          quests={quests}
+        <CourseMap
+          courses={courses}
           progress={progress}
           onSelectLesson={openLesson}
         />

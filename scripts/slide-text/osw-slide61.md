@@ -1,12 +1,12 @@
 # (no title)
 
-- Question
+- question
 - my_list = [1, "two", 3.0, "dog"]
 - print(my_list[4])
 - >> Traceback (most recent call last):
 - File "<stdin>", line 1, in <module>
 - IndexError: list index out of range
-- What happens if you request my_list[4]?
+- What happens if you recourse my_list[4]?
 
 ## Notes
 

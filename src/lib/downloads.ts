@@ -1,12 +1,12 @@
 import type { Lesson } from "../data/types";
 
 export const createScriptText = (lesson: Lesson): string => {
-  const code = lesson.exercise?.starterCode ?? lesson.challenge?.starterCode ?? "print('Hello from Python Quest')";
-  return `# ${lesson.title}\n# Generated from Python Quest\n\n${code}\n`;
+  const code = lesson.exercise?.starterCode ?? lesson.challenge?.starterCode ?? "print('Hello from Python Course')";
+  return `# ${lesson.title}\n# Generated from Python Course\n\n${code}\n`;
 };
 
 export const createNotebookText = (lesson: Lesson): string => {
-  const code = lesson.exercise?.starterCode ?? lesson.challenge?.starterCode ?? "print('Hello from Python Quest')";
+  const code = lesson.exercise?.starterCode ?? lesson.challenge?.starterCode ?? "print('Hello from Python Course')";
   return JSON.stringify(
     {
       cells: [
