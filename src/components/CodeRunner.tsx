@@ -1,10 +1,10 @@
-import { AlertTriangle, CheckCircle2, Loader2, Play, RotateCcw, Terminal } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ExternalLink, Loader2, Play, RotateCcw, Terminal } from "lucide-react";
 import { useMemo, useState } from "react";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
 import type { CodeExercise, DatasetChallenge } from "../data/types";
-import { codingbatLinks } from "../data/codingbatLinks";
+import { codingbatLinks, codingbatSourceLinks } from "../data/codingbatLinks";
 import { validateCodeSubmission } from "../lib/exerciseValidation";
 import {
   createPlotCaptureCode,
@@ -37,6 +37,35 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
     if ("dataset" in item) return [item.dataset];
     return item.datasetPaths ?? [];
   }, [item]);
+  const codingbatUrl = getCodingbatUrl(item.id);
+  const codingbatSourceUrl = getCodingbatSourceUrl(item.id);
+
+  if (codingbatUrl) {
+    return (
+      <section className="activity-panel code-panel codingbat-panel">
+        <div className="activity-heading">
+          <ExternalLink size={18} aria-hidden="true" />
+          <div>
+            <h3>
+              <InlineText text={item.title} />
+            </h3>
+            <p>
+              <InlineText text={"prompt" in item ? item.prompt : item.mission} />
+            </p>
+          </div>
+        </div>
+        <div className="codingbat-actions">
+          <a href={codingbatUrl} target="_blank" rel="noreferrer noopener">
+            <ExternalLink size={16} aria-hidden="true" />
+            Open CodingBat exercise
+          </a>
+          <button type="button" className="primary-action" onClick={onComplete}>
+            Complete lesson
+          </button>
+        </div>
+      </section>
+    );
+  }
 
   const runCode = async () => {
     setRunState("loading");
@@ -87,7 +116,6 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
   const expectedPlotCount = item.expectedPlotCount ?? 0;
   const plotMissing = runState === "done" && expectedPlotCount > plots.length;
   const editorId = `${item.id}-editor`;
-  const codingbatUrl = codingbatLinks[item.id];
 
   return (
     <section className="activity-panel code-panel">
@@ -100,9 +128,9 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
           <p>
             <InlineText text={"prompt" in item ? item.prompt : item.mission} />
           </p>
-          {codingbatUrl && (
-            <p className="codingbat-link">
-              <a href={codingbatUrl} target="_blank" rel="noreferrer">Open related CodingBat exercise</a>
+          {codingbatSourceUrl && (
+            <p className="codingbat-source-link">
+              Inspired by a <a href={codingbatSourceUrl} target="_blank" rel="noreferrer noopener">CodingBat problem</a>.
             </p>
           )}
         </div>
@@ -169,10 +197,8 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
               {runState === "done"
                 ? plotMissing
                   ? <InlineText text="Your code ran, but the expected plot was not detected. Make sure you create the plot and call `plt.show()`." />
-                  : validation.missingCode.length > 0 && validation.missingOutput.length === 0
-                  ? "Your output looks right, but the checkpoint also checks that your code uses certain constructs. Re-read the mission hint for guidance."
                   : "Your code ran, but the checkpoint result was not found in the output. Compare the mission wording with what your program prints."
-                : "Run your solution when you are ready. The checkpoint checks the result, not just whether the code looks right."}
+                : "Run your solution when you are ready. The checkpoint checks the result your program prints."}
             </p>
           </div>
         </div>
@@ -195,6 +221,14 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
 
 function highlightPython(source: string) {
   return Prism.highlight(source, Prism.languages.python, "python");
+}
+
+function getCodingbatUrl(id: string) {
+  return codingbatLinks[id.replace(/-exercise$/, "")];
+}
+
+function getCodingbatSourceUrl(id: string) {
+  return codingbatSourceLinks[id.replace(/-exercise$/, "")];
 }
 
 function normalisePlots(plotResult: unknown): string[] {

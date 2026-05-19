@@ -10,11 +10,11 @@ describe("exercise validation", () => {
     expect(validateQuizAnswer(quiz!, "not the answer")).toBe(false);
   });
 
-  it("reports missing code fragments", () => {
+  it("checks printed results without requiring exact code fragments", () => {
     const exercise = courses[0].lessons.find((lesson) => lesson.exercise)?.exercise;
     expect(exercise).toBeDefined();
     expect(validateCodeSubmission(exercise!, "result = 1\nprint(result)", "20\n").passed).toBe(true);
-    expect(validateCodeSubmission(exercise!, "result = 1").missing).toContain("print");
+    expect(validateCodeSubmission(exercise!, "answer = 20", "20\n").passed).toBe(true);
     expect(validateCodeSubmission(exercise!, "result = 1\nprint(result)", "12\n").passed).toBe(false);
   });
 

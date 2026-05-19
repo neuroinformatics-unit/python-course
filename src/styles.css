@@ -64,17 +64,6 @@ button:disabled {
   font-size: 1em;
   font-weight: inherit;
   white-space: normal;
-
-.codingbat-link {
-  margin: 6px 0 0;
-  font-size: 0.92rem;
-}
-
-.codingbat-link a {
-  color: #111;
-  text-decoration: underline;
-  font-weight: 700;
-}
 }
 
 .app-shell {
@@ -251,7 +240,7 @@ button:disabled {
 }
 
 .home-workspace .course-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -260,12 +249,18 @@ button:disabled {
 }
 
 .course-node-header {
-  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
 }
 
 .home-lesson-list {
   display: grid;
   gap: 6px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ececec;
 }
 
 .home-lesson-list button {
@@ -373,7 +368,7 @@ button:disabled {
   text-align: left;
 }
 
-.course-node:disabled {
+.course-node.locked {
   opacity: 0.48;
 }
 
@@ -390,6 +385,55 @@ button:disabled {
 .course-node small {
   margin-top: 2px;
   color: #111;
+}
+
+.course-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #111;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.course-toggle:disabled,
+.course-start-button:disabled {
+  cursor: not-allowed;
+}
+
+.course-toggle-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #d8d8d0;
+  border-radius: 6px;
+  background: #fff;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.course-start-button {
+  min-height: 36px;
+  border: 1px solid #111;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  padding: 7px 14px;
+  font-weight: 850;
+}
+
+.course-toggle:hover .course-toggle-icon,
+.course-start-button:hover {
+  border-color: #111;
+}
+
+.course-start-button:hover:not(:disabled) {
+  background: #333;
 }
 
 .lesson-area {
@@ -696,6 +740,7 @@ button:disabled {
 
 .quiz-options button,
 .runner-actions button,
+.codingbat-actions a,
 .primary-action {
   display: inline-flex;
   align-items: center;
@@ -708,6 +753,7 @@ button:disabled {
   color: #111;
   padding: 8px 12px;
   font-weight: 800;
+  text-decoration: none;
 }
 
 .quiz-options button.selected {
@@ -740,6 +786,32 @@ button:disabled {
 
 .primary-action:disabled {
   opacity: 0.45;
+}
+
+.codingbat-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.codingbat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.codingbat-actions .primary-action {
+  margin-top: 0;
+}
+
+.codingbat-source-link {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.codingbat-source-link a {
+  color: #111;
 }
 
 .code-editor {

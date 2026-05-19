@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, type CSSProperties } from "react";
 import type { Course, Lesson, LessonCodeExample } from "../data/types";
 import { resolvePublicAssetPath } from "../lib/assets";
 import type { ProgressState } from "../lib/progress";
@@ -34,6 +34,7 @@ export function LessonPanel({
 }: Props) {
   const complete = progress.completedLessons.includes(lesson.id);
   const runnable = lesson.exercise ?? lesson.challenge;
+  const autoCompletesOnView = !lesson.quiz && !runnable;
   const screenshotExamples = lesson.examples?.length ? lesson.examples : getCodeExamplesForLesson(lesson.id);
   const anchoredExamples = screenshotExamples.filter((example) => typeof example.insertAfter === "number");
   const trailingExamples = screenshotExamples.filter((example) => typeof example.insertAfter !== "number");
@@ -57,6 +58,12 @@ export function LessonPanel({
       ...trailingExamples.map((example) => ({ type: "code" as const, value: example }))
     );
   }
+
+  useEffect(() => {
+    if (autoCompletesOnView && !complete) {
+      onComplete(lesson.id);
+    }
+  }, [autoCompletesOnView, complete, lesson.id, onComplete]);
 
   return (
     <main className="slide-stage">
@@ -111,11 +118,6 @@ export function LessonPanel({
             onAttempt={() => onAttempt(runnable.id)}
             onComplete={() => onComplete(lesson.id)}
           />
-        )}
-        {!lesson.quiz && !runnable && (
-          <button type="button" className="primary-action" onClick={() => onComplete(lesson.id)}>
-            Mark lesson complete
-          </button>
         )}
         {complete && <p className="completed-note">Completed</p>}
       </article>

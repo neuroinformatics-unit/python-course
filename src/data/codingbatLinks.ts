@@ -21,5 +21,9 @@ export const codingbatLinks: Record<string, string> = {
   "cb-parrot-trouble": "https://codingbat.com/prob/p166884",
   "cb-near-hundred": "https://codingbat.com/prob/p124676",
   "cb-love6": "https://codingbat.com/prob/p100958",
+};
+
+export const codingbatSourceLinks: Record<string, string> = {
+  ...codingbatLinks,
   "cb-q2-deduplicate": "https://codingbat.com/prob/p266419",
 };
