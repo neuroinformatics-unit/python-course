@@ -1,5 +1,5 @@
 import { AlertTriangle, CheckCircle2, ExternalLink, Loader2, Play, RotateCcw, Terminal } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
@@ -39,6 +39,17 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
   }, [item]);
   const codingbatUrl = getCodingbatUrl(item.id);
   const codingbatSourceUrl = getCodingbatSourceUrl(item.id);
+  const validation = validateCodeSubmission(item, code, lastOutput, plots.length);
+  const canComplete = runState === "done" && validation.passed;
+  const expectedPlotCount = item.expectedPlotCount ?? 0;
+  const plotMissing = runState === "done" && expectedPlotCount > plots.length;
+  const editorId = `${item.id}-editor`;
+
+  useEffect(() => {
+    if (codingbatUrl || canComplete) {
+      onComplete();
+    }
+  }, [canComplete, codingbatUrl, onComplete]);
 
   if (codingbatUrl) {
     return (
@@ -59,9 +70,6 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
             <ExternalLink size={16} aria-hidden="true" />
             Open CodingBat exercise
           </a>
-          <button type="button" className="primary-action" onClick={onComplete}>
-            Complete lesson
-          </button>
         </div>
       </section>
     );
@@ -110,12 +118,6 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
       setMessage(error instanceof Error ? error.message : "Python could not run this code.");
     }
   };
-
-  const validation = validateCodeSubmission(item, code, lastOutput, plots.length);
-  const canComplete = runState === "done" && validation.passed;
-  const expectedPlotCount = item.expectedPlotCount ?? 0;
-  const plotMissing = runState === "done" && expectedPlotCount > plots.length;
-  const editorId = `${item.id}-editor`;
 
   return (
     <section className="activity-panel code-panel">
@@ -208,13 +210,10 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
           <CheckCircle2 size={20} aria-hidden="true" />
           <div>
             <strong>Checkpoint matched.</strong>
-            <p>The output fits the mission. You can mark the lesson complete.</p>
+            <p>The output fits the mission.</p>
           </div>
         </div>
       )}
-      <button type="button" className="primary-action" disabled={!canComplete} onClick={onComplete}>
-        Complete lesson
-      </button>
     </section>
   );
 }

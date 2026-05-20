@@ -10,7 +10,6 @@ test("opens the course map and completes a reading checkpoint", async ({ page })
   await openModule(page, /Module 1: Python Foundations/);
   await page.getByRole("button", { name: /Why Python/ }).click();
   await expect(page.getByRole("heading", { name: /Why Python/ })).toBeVisible();
-  await expect(page.getByText("Completed")).toBeVisible();
 
   await page.getByRole("button", { name: "Home" }).click();
   await expect(page.getByTitle("Experience points")).toContainText("20 XP");
@@ -20,7 +19,6 @@ test("persists local progress after reload", async ({ page }) => {
   await page.goto("/");
   await openModule(page, /Module 1: Python Foundations/);
   await page.getByRole("button", { name: /Why Python/ }).click();
-  await expect(page.getByText("Completed")).toBeVisible();
   await page.reload();
   await expect(page.getByTitle("Experience points")).toContainText("20 XP");
 });
@@ -55,7 +53,7 @@ test("opens CodingBat practice off site instead of showing the local editor", as
     "href",
     "https://codingbat.com/prob/p182144",
   );
-  await expect(exercisePanel.getByRole("button", { name: "Complete lesson" })).toBeVisible();
+  await expect(exercisePanel.getByRole("button", { name: "Complete lesson" })).toHaveCount(0);
 });
 
 test("keeps translated Java practice exercises in the local editor", async ({ page }) => {

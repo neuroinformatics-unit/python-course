@@ -76,6 +76,26 @@ print(set(data))`, "Convert to a set to remove duplicates."),
 print(len(['red', 'green', 'blue', 'yellow']))
 print(len({'name': 'Ada', 'score': 91, 'group': 'A'}))`, "`len()` works on strings, lists, and dictionaries."),
       ];
+    case "tuple-unpacking-example":
+      return [
+        example(`person = ('Ada', 36)
+name, age = person
+
+print(name)
+print(age)`, "Unpacking assigns each tuple value to a name."),
+        example(`point = (10, 20, 30)
+x, y, z = point
+
+print(x)
+print(y)
+print(z)`, "The number of names must match the number of values."),
+        example(`values = (10, 20, 30, 40, 50)
+first, *middle, last = values
+
+print(first)
+print(middle)
+print(last)`, "Starred unpacking collects the extra middle values into a list."),
+      ];
     case "dictionary-lists-example":
       return [
         example(`weather = {'day': ['Mon', 'Tue'], 'temp': [21, 24]}

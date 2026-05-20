@@ -1,5 +1,5 @@
 import { Check, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { QuizQuestion } from "../data/types";
 import { validateQuizAnswer } from "../lib/exerciseValidation";
 import { InlineText } from "./InlineText";
@@ -12,6 +12,12 @@ type Props = {
 export function QuizCard({ quiz, onComplete }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
   const correct = selected ? validateQuizAnswer(quiz, selected) : false;
+
+  useEffect(() => {
+    if (correct) {
+      onComplete();
+    }
+  }, [correct, onComplete]);
 
   return (
     <section className="activity-panel">
@@ -38,9 +44,6 @@ export function QuizCard({ quiz, onComplete }: Props) {
           </span>
         </div>
       )}
-      <button type="button" className="primary-action" disabled={!correct} onClick={onComplete}>
-        Mark checkpoint complete
-      </button>
     </section>
   );
 }

@@ -259,10 +259,10 @@ export const courses: Course[] = [
           { src: "/images/session2/slide10-01.png", alt: "A set defined with curly braces", caption: "A set keeps only unique values." },
         ],
       },
-      code("create-collections", "Create Collections", "Create a list and dictionary, then print values from each.", ["list", "dict"], [
+      code("create-collections", "Create Collections", "Create a list and dictionary, then print both collections.", ["list", "dict"], [
         "Lists use square brackets. Dictionaries use curly braces with key-value pairs.",
-        "Dictionary keys must be unique and must be indexed using the correct data type."
-      ], "Create a list with `'red'`, `'green'`, and `'blue'`, and a dictionary with key `'goal'` set to `'data'`. Print `green` and `data`.", "colours = []\nprofile = {}\n\n# Replace the empty collections.\n# Print the requested values.\n", ["green", "data"], ["[", "{", "print"], [], 25),
+        "Dictionary keys must be unique. Each key points to one value."
+      ], "Create a list with `'red'`, `'green'`, and `'blue'`, and a dictionary with key `'goal'` set to `'data'`. Print the list, then print the dictionary.", "colours = []\nprofile = {}\n\n# Replace the empty collections.\n# Print both collections.\n", ["red", "green", "blue", "goal", "data"], ["[", "{", "print"], [], 25),
       {
         ...read("indexing", "Indexing", "Indexing accesses values from a collection.", ["indexing"], [
           "Python lists are zero indexed: the first element is at index `0`, the second at `1`, and so on.",
@@ -331,11 +331,14 @@ export const courses: Course[] = [
       code("len-practice", "Checkpoint: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Count each object.\n", ["6", "3", "2"], ["len", "print"], [], 20),
-      code("tuple-unpacking", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
+      read("tuple-unpacking-example", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
         "Tuple unpacking assigns each element of a tuple to a separate variable in one line.",
         "This is often used to unpack co-ordinates, pairs, or function return values.",
-        "The `*` prefix in unpacking collects remaining elements into a list."
-      ], "Unpack `coords` into `lat`, `lon`, and `altitude`, then print each on its own line.", "coords = (53.4, -1.8, 200)\n\n# Unpack and print lat, lon, altitude.\n", ["53.4", "-1.8", "200"], ["=", "print"], [], 20),
+        "The number of names on the left must match the number of values in the tuple."
+      ], 10),
+      code("tuple-unpacking", "Checkpoint: Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
+        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+      ], "Unpack `coords` into `lat`, `lon`, and `altitude`, then print each on its own line.", "coords = (53.4, -1.8, 200)\n\n# Split coords into three named variables, then print them.\n", ["53.4", "-1.8", "200"], ["=", "print"], [], 20),
       {
         ...read("dictionary-lists-example", "Dictionary of Lists", "A dictionary value can be a list.", ["dict", "list", "indexing"], [
           "A list can be a dictionary value but not a dictionary key.",

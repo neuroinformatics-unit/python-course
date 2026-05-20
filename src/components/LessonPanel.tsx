@@ -119,7 +119,6 @@ export function LessonPanel({
             onComplete={() => onComplete(lesson.id)}
           />
         )}
-        {complete && <p className="completed-note">Completed</p>}
       </article>
     </main>
   );
