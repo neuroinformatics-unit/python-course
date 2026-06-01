@@ -1,5 +1,5 @@
 import { Loader2, Play, RotateCcw } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
@@ -28,6 +28,14 @@ export function ExampleRunner({ lessonId, index, example }: Props) {
   const [plots, setPlots] = useState<string[]>([]);
   const [runState, setRunState] = useState<RunState>("idle");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setCode(normalisedCode);
+    setOutput("");
+    setPlots([]);
+    setRunState("idle");
+    setMessage("");
+  }, [normalisedCode]);
 
   const runCode = async () => {
     setRunState("loading");

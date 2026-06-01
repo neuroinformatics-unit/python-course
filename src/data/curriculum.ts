@@ -594,12 +594,6 @@ export const courses: Course[] = [
           "The variable after `for` takes each value in turn — you can name it anything.",
           "Loops are useful when the same operation should happen to each item."
         ], "Print each animal on its own line.", "animals = ['dog', 'cat', 'llama']\n\n# Loop through animals and print each one.\n", ["dog", "cat", "llama"], ["for", "print"], [], 20),
-        images: [
-          { src: "/images/session3/slide24-01.png", alt: "For loop iterating through a list and printing each item", caption: "The loop variable takes each value in turn." },
-          { src: "/images/session3/slide25-01.png", alt: "For loop with a longer list showing repeated execution", caption: "The indented body runs once for each item." },
-          { src: "/images/session3/slide27-01.png", alt: "For loop accumulating a total inside the body", caption: "Loops can build up a result across all items." },
-          { src: "/images/session3/slide28-01.png", alt: "For loop example with conditional logic inside", caption: "You can combine loops with other logic inside the body." },
-        ],
       },
       code("loop-accumulator", "Loop Accumulator", "Use a loop to build a final value.", ["for", "accumulator"], [
         "A common pattern is to start with a total and update it inside the loop.",
@@ -626,16 +620,16 @@ export const courses: Course[] = [
           "Use a colon after each condition and indent everything inside each branch.",
           "Python stops at the first true branch — later branches are skipped even if they are also true."
         ], 10),
-        images: [
-          { src: "/images/session3/slide37-01.png", alt: "If statement: if True runs code, if False skips it", caption: "`if True` runs the indented block; `if False` skips it." },
-          { src: "/images/session3/slide38-01.png", alt: "If statement combined with a comparison", caption: "Comparisons make great conditions for `if` statements." },
-          { src: "/images/session3/slide39-01.png", alt: "If-else structure showing both branches", caption: "`else` runs when the condition is `False`." },
-          { src: "/images/session3/slide40-01.png", alt: "If-elif-else structure handling three cases", caption: "`elif` adds extra branches between `if` and `else`." },
-        ],
       },
       code("if-elif-else", "Checkpoint: If, Elif, Else", "Run different code depending on a condition.", ["if", "elif", "else"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Use `if`, `elif`, and `else` to choose what to print from the value stored in `light`.", "light = 'green'\n\n# Choose the message that matches the current light.\n", ["move"], ["if", "print"], [], 20),
+      read("logical-operators-example", "Logical Operators", "Combine or flip Boolean values with `not`, `and`, and `or`.", ["not", "and", "or", "booleans"], [
+        "`not` flips a Boolean value: `not True` becomes `False`, and `not False` becomes `True`.",
+        "`and` returns `True` only when both sides are true.",
+        "`or` returns `True` when at least one side is true.",
+        "Logical operators are useful when one decision depends on more than one condition."
+      ], 10),
       code("cb-sleep-in", "Practice: `sleep_in`", "Use `not` and `or` in a return value.", ["functions", "not", "or"], [
         "Write `sleep_in(weekday, vacation)` that returns `True` when we get to sleep in.",
         "We sleep in when it is not a weekday (`not weekday`), or when we are on vacation.",
@@ -661,10 +655,10 @@ export const courses: Course[] = [
       code("membership", "Checkpoint: The `in` Keyword", "Ask whether something is in something else.", ["in", "membership"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Print whether `'a'` is in `'cat'` and whether `'cat'` is in the list.", "animals = ['dog', 'cat', 'llama']\nword = 'cat'\n\n# Print both checks.\n", ["True", "True"], ["in", "print"], [], 20),
-      code("range-and-enumerate", "`range()` and `enumerate()`", "Create counters for loops when you need them.", ["range", "enumerate"], [
+      code("range-and-enumerate", "`range()` and `enumerate()`", "Create indices for loops when you need them.", ["range", "enumerate"], [
         "`range()` creates a sequence of numbers.",
         "`enumerate()` gives both an index and a value while looping.",
-        "Use counters only when the position matters."
+        "Use indices only when the position matters."
       ], "Loop over `names`, printing each index with its matching name.", "names = ['Ada', 'Grace', 'Guido']\n\n# Include both the position and the value.\n", ["0 Ada", "1 Grace", "2 Guido"], ["enumerate", "for", "print"], [], 25),
       code("travel-exercise", "Control Flow Exercise", "Use comparisons and conditionals to choose an activity.", ["control flow"], [
         "The original exercise uses comparison operators and if statements to determine which country and activity we will engage in.",
@@ -683,7 +677,6 @@ export const courses: Course[] = [
       {
         ...read("power-operator-example", "The Power Operator `**`", "Use `**` to raise a number to a power.", ["operators", "**"], [
           "In Python, `**` is the power operator: `2 ** 3` gives `8`.",
-          "This works on plain numbers and on NumPy arrays — it applies element-wise to every value in the array.",
           "The power operator follows standard order of operations, so use brackets when the intent might be unclear."
         ], 10),
         images: [
