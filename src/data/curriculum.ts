@@ -786,7 +786,7 @@ export const courses: Course[] = [
       {
         ...read("numpy-max-argmax-example", "NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
           "NumPy is useful for operations on arrays. A numpy array is its own datatype provided by the `numpy` package — it is designed to contain (typically) numerical data arranged linearly. Arrays can be multidimensional: a 1-dimensional array may represent height measurements of people, or a 2-dimensional array may contain a (grayscale) photograph.",
-          "`np.max` returns the maximum value. `np.argmax` returns the index of the maximum value.",
+          "NumPy also provides some functions for arrays. For example, `np.max` returns the maximum value. `np.argmax` returns the index of the maximum value.",
           "These functions work efficiently on large arrays because NumPy operations run in optimised C code under the hood."
         ], 10),
         images: [
@@ -797,7 +797,7 @@ export const courses: Course[] = [
       },
       code("numpy-max-argmax", "Checkpoint: NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = [3, 9, 2, 5]\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
+      ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = hp.array([3, 9, 2, 5])\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
       {
         ...read("array-operations-example", "Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
           "Operations like `+`, `-`, `*`, and `/` apply to every element at once — no loop needed.",

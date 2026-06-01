@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { courses } from "./data/curriculum";
 import { useProgress } from "./hooks";
 import { LessonPanel } from "./components/LessonPanel";
@@ -40,6 +40,34 @@ export default function App() {
     const nextIndex = Math.min(Math.max(activeIndex + offset, 0), lessonRefs.length - 1);
     openLesson(lessonRefs[nextIndex].lesson.id);
   };
+
+  useEffect(() => {
+    const openFromHash = () => {
+      const raw = window.location.hash;
+      if (!raw.startsWith("#") || raw.length <= 1) return;
+
+      const key = decodeURIComponent(raw.slice(1));
+
+      const lessonRef = lessonRefs.find(({ lesson }) => lesson.id === key);
+      if (lessonRef) {
+        actions.selectCourse(lessonRef.course.id);
+        setActiveLessonId(lessonRef.lesson.id);
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        return;
+      }
+
+      const courseRef = lessonRefs.find(({ course }) => course.id === key);
+      if (courseRef) {
+        actions.selectCourse(courseRef.course.id);
+        setActiveLessonId(courseRef.course.lessons[0]?.id ?? null);
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    };
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, [actions, lessonRefs]);
 
   return (
     <div className="app-shell">

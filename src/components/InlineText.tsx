@@ -15,8 +15,16 @@ export function InlineText({ text }: Props) {
           const match = part.match(/^\[([^\]]+)\]\(([^\)]+)\)$/);
           if (match) {
             const [, label, href] = match;
+            const isExternal = /^https?:\/\//i.test(href);
+            const isHashLink = href.startsWith("#");
+            const openInNewTab = isExternal || isHashLink;
             return (
-              <a key={`${part}-${index}`} href={href} target="_blank" rel="noreferrer noopener">
+              <a
+                key={`${part}-${index}`}
+                href={href}
+                target={openInNewTab ? "_blank" : undefined}
+                rel={openInNewTab ? "noreferrer noopener" : undefined}
+              >
                 {label}
               </a>
             );
