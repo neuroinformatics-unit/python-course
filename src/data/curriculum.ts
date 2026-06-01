@@ -146,8 +146,9 @@ export const courses: Course[] = [
       ], 10),
       read("why-python", "Why Python?", "", ["Python", "programming"], [
         "Python is used because it is beginner friendly and abstracts away many difficult concepts.",
-        "It has a large community, so there are many packages, examples, and answers available.",
-        "It is free and open source, so participants can continue using it after the course.",
+        "There are many packages, examples, and answers available online.",
+        "Built on top of these is a scientific Python \"ecosystem\" of packages with a large community.",
+        "Python is free and open source, so you can continue using it after the course.",
         "In this website, the important loop is: read the task, write a small amount of code, run it, inspect the output, and adjust it."
       ], 20),
       {
@@ -180,7 +181,7 @@ export const courses: Course[] = [
       read("calculator-print-example", "Calculations and `print()`", "Use Python like a calculator, then make the result visible.", ["operators", "print"], [
         "Python can add, subtract, multiply, divide, and raise to a power using `+`, `-`, `*`, `/`, and `**`.",
         "In a script, Python will not necessarily show the result of a calculation unless you ask it to.",
-        "Use `print()` when you want to see a value. This is also one of the simplest debugging tools."
+        "Use `print()` when you want to see a value. This is also one of the simplest ways of checking for code problems (\"debugging\")."
       ], 10),
       code("calculator-print", "Checkpoint: Calculations and `print()`", "Use the same idea with different values.", ["operators", "print"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
@@ -201,13 +202,8 @@ export const courses: Course[] = [
       code("variables", "Checkpoint: Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Use the existing `a` and `b` values to create `c`, where `c` is their sum. Print `c`.", "a = 5\nb = 6\n\n# Create the missing variable.\n# Show its value.\n", ["11"], ["=", "print"], [], 20),
-      read("syntax-rules", "Syntax Rules", "Small marks such as quotes, brackets, colons, and indentation matter.", ["syntax", "indentation"], [
-        "Python is precise about punctuation.",
-        "Strings need matching quotation marks. Function calls need brackets. Blocks after `if`, `for`, and `def` need a colon and indentation.",
-        "A syntax error usually means Python could not understand the shape of the instruction."
-      ]),
-      read("types-overview", "Data Types", "Python treats strings, integers, floats, and booleans differently.", ["strings", "integers", "floats", "booleans"], [
-        "A string is text, usually surrounded by quotation marks.",
+      read("types-overview", "Data Types", "Python has different built-in \"data types\" (sometimes referred to as just \"types\"). These include strings, integers, floats, and booleans. Python treats each of them differently.", ["strings", "integers", "floats", "booleans"], [
+        "A string is text, and has to be surrounded by quotation marks.",
         "An integer is a whole number. A float is a number with a decimal place.",
         "A Boolean is either `True` or `False`.",
         "A lot of beginner errors are caused by using the right-looking value with the wrong type."
@@ -259,6 +255,15 @@ export const courses: Course[] = [
           { src: "/images/session2/slide10-01.png", alt: "A set defined with curly braces", caption: "A set keeps only unique values." },
         ],
       },
+      read("mutable-immutable", "Mutable vs Immutable", "Some values can be changed after creation; others cannot.", ["mutable", "immutable", "values"], [
+        "In Python, some values can be changed after creation. They can mutate.",
+        "We call values that can change mutable, and values that cannot change immutable.",
+        "This comes from the word mutate, which means \"to change\". Lists, dictionaries, and sets are mutable. Tuples are immutable."
+      ]),
+      code("mutation-demo", "Checkpoint: Mutability", "Mutate a list by changing one of its items.", ["mutable", "list"], [
+        "Changing one item inside a list mutates the list.",
+        "The same kind of item change would not work on a tuple, because tuples are immutable."
+      ], "Change the first item in `items` to `'kiwi'`, then print the mutated list.", "items = ['apple', 'banana']\n\n# Mutate the list, then print it.\n", ["['kiwi', 'banana']"], ["print"], [], 20),
       code("create-collections", "Create Collections", "Create a list and dictionary, then print both collections.", ["list", "dict"], [
         "Lists use square brackets. Dictionaries use curly braces with key-value pairs.",
         "Dictionary keys must be unique. Each key points to one value."
@@ -330,7 +335,7 @@ export const courses: Course[] = [
       },
       code("len-practice", "Checkpoint: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Count each object.\n", ["6", "3", "2"], ["len", "print"], [], 20),
+      ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Print the length of each variable.\n", ["6", "3", "2"], ["len", "print"], [], 20),
       read("tuple-unpacking-example", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
         "Tuple unpacking assigns each element of a tuple to a separate variable in one line.",
         "This is often used to unpack co-ordinates, pairs, or function return values.",
@@ -375,7 +380,7 @@ export const courses: Course[] = [
   {
     id: "functions-modules",
     number: 3,
-    title: "Functions, Modules, and Documentation",
+    title: "Functions and Modules",
     theme: "Functions",
     description: "Functions, arguments, return values, imports, standard libraries, comments, and docstrings.",
     badge: "Functions",
@@ -383,9 +388,8 @@ export const courses: Course[] = [
     lessons: [
       {
         ...read("function-concepts", "Functions", "A function is a block of code assigned to a name.", ["functions"], [
-          "A function is a block of code assigned to a keyword that will run on specified arguments.",
-          "A function may or may not return a value.",
-          "When we create a function, we define it. When we run it, we call it.",
+          "A function runs on specified arguments and may or may not return a value.",
+          "When we create a function, we \"define\" it. When we run it, we \"call\" it.",
           "Functions help avoid repeating the same code and make programs easier to read."
         ]),
         images: [
@@ -394,10 +398,11 @@ export const courses: Course[] = [
         ],
       },
       {
-        ...read("basic-function-example", "Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
+        ...read("basic-function-example", "Define and Call a Function", "Use the `def` keyword, arguments, and a function body.", ["def", "arguments"], [
           "Functions are defined using `def` followed by the function name.",
-          "Brackets then provide arguments. The body must be indented — the function ends when you stop indenting.",
-          "The function can be named anything, much like a variable."
+          "Brackets then provide arguments. The body must be [indented](https://en.wikipedia.org/wiki/Indentation_(typesetting)) — the function ends when you stop indenting.",
+          "Indentation should consist of four spaces (In rare cases, it might be a \"tab\" or a different number of spaces. You can't mix and match these though!).",
+          "The function can be named anything, much like a variable.",
         ], 10),
         images: [
           { src: "/images/session2/slide33-01.png", alt: "Code showing a def statement with function name, brackets, colon, and indented body", caption: "`def` keyword, then the name, then arguments in brackets, then an indented body." },
@@ -406,8 +411,8 @@ export const courses: Course[] = [
       code("basic-function", "Checkpoint: Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Create a function that takes a name and prints `Hello ` to that person. in the example below the function should print 'Hello Ada' .", "def hello(name):\n    # Print a greeting.\n    pass\n\nhello('Ada')\n", ["Hello Ada"], ["def", "print"], [], 20),
-      code("cb-make-abba", "Practice: `make_abba`", "Concatenate strings inside a function.", ["functions", "strings", "concatenation"], [
-        "Write `make_abba(front, back)` that returns `front + back + back + front`.",
+      code("cb-make-abba", "Practice: `make_abba`", "Concatenate (\"Chain together\") strings inside a function.", ["functions", "strings", "concatenation"], [
+        "Write `make_abba(front, back)` that takes two strings and returns `front + back + back + front`.",
         "String concatenation with `+` works inside a function just as it does anywhere else.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p182144)."
       ], "Define `make_abba(front, back)` so it returns the four-part string. Expected output: `['HiByeByeHi', 'xyyx', 'abccab']`.", "def make_abba(front, back):\n    # Return front + back + back + front.\n    pass\n\nprint([make_abba('Hi', 'Bye'), make_abba('x', 'y'), make_abba('ab', 'c')])\n", ["['HiByeByeHi', 'xyyx', 'abccab']"], ["def make_abba", "return", "print"], [], 20),
@@ -461,7 +466,7 @@ export const courses: Course[] = [
         "Return values when later code needs to use the result."
       ], "Write `add_bonus(score)` so the returned value can be printed as `85`.", "def add_bonus(score):\n    bonus = 5\n    # Return the adjusted score.\n\nfinal_score = add_bonus(80)\nprint(final_score)\n", ["85"], ["return", "print"], [], 25),
       {
-        ...quiz("calling-functions", "Calling Functions", "Arguments can be positional or keyword arguments.", ["positional", "keyword"], [
+        ...quiz("calling-functions", "Function arguments", "Arguments can be positional or keyword arguments.", ["positional", "keyword"], [
           "Positional arguments use order — the first value goes to the first parameter.",
           "Keyword arguments use the parameter name: `func(b=2)` passes `2` to the `b` parameter regardless of order.",
           "When mixing them, positional arguments must come first."
@@ -472,6 +477,11 @@ export const courses: Course[] = [
           { src: "/images/session2/slide44-01.png", alt: "Calling a function mixing positional and keyword arguments", caption: "You can mix both — positional first, keyword after." },
         ],
       },
+      code("compare-len-exercise", "Practice: Function Arguments", "Write a function combining positional and keyword arguments.", ["arguments", "defaults", "len"], [
+        "A function can have one positional argument and one keyword argument with a default.",
+        "Keyword arguments can be passed in any order.",
+        "Returning the result lets the caller use it rather than being forced to print it."
+      ], "Write `compare_len(a, b='default')` that returns the longer of the two strings. Print `lion` for `compare_len('dog', b='lion')`.", "def compare_len(a, b='default'):\n    # Return the longer string using len().\n    pass\n\nprint(compare_len('dog', b='lion'))\n", ["lion"], ["def", "len", "return", "print"], [], 25),
       code("relu-exercise", "The `relu` Function", "Write a real-world function used in machine learning.", ["functions", "if", "return"], [
         "A rectified linear unit (relu) returns the input if it is positive, and `0` otherwise.",
         "This function is used as an activation function in neural networks.",
@@ -487,11 +497,6 @@ export const courses: Course[] = [
         "If `n` is greater than `21`, the function returns double that difference.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p197466)."
       ], "Define `diff21(n)` so it returns `abs(n - 21)`, doubled when `n > 21`. Expected output: `[2, 11, 0, 8]`.", "def diff21(n):\n    # Return abs(n - 21), doubled when n > 21.\n    pass\n\nprint([diff21(19), diff21(10), diff21(21), diff21(25)])\n", ["[2, 11, 0, 8]"], ["def diff21", "return", "print"], [], 20),
-      code("compare-len-exercise", "Positional and Keyword Arguments", "Write a function combining positional and keyword arguments.", ["arguments", "defaults", "len"], [
-        "A function can have one positional argument and one keyword argument with a default.",
-        "Keyword arguments can be passed in any order.",
-        "Returning the result lets the caller use it rather than being forced to print it."
-      ], "Write `compare_len(a, b='default')` that returns the longer of the two strings. Print `lion` for `compare_len('dog', b='lion')`.", "def compare_len(a, b='default'):\n    # Return the longer string using len().\n    pass\n\nprint(compare_len('dog', b='lion'))\n", ["lion"], ["def", "len", "return", "print"], [], 25),
       code("cb-missing-char", "Practice: `missing_char`", "Use slicing inside a function to remove one character.", ["functions", "slicing", "strings"], [
         "`missing_char(s, n)` returns the string `s` with the character at index `n` removed.",
         "Use slicing to take everything before index `n` and everything after it.",
@@ -537,19 +542,6 @@ export const courses: Course[] = [
       code("standard-libraries", "Checkpoint: Standard Libraries", "Use `statistics`, `math`, and `random`.", ["statistics", "math", "random"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Print the mean of the provided list and the square root of `9409`.", "import statistics\nimport math\nvalues = [1, 2, 2, 3, 4]\n\n# Use the imported libraries to calculate both results.\n", ["2.4", "97.0"], ["statistics", "math", "print"], [], 25),
-      {
-        ...read("glob-docs-example", "Finding Files with `glob`", "Use `glob.glob()` to return matching files as a list.", ["glob", "documentation"], [
-          "`glob` is useful for searching a directory for files matching a pattern.",
-          "The search string uses `*` to specify what should match: `'*.csv'` matches all CSV files.",
-          "When you are unsure what a library can do, read the online documentation."
-        ], 10),
-        images: [
-          { src: "/images/session3/slide11-01.png", alt: "glob.glob() returning a list of matching file paths", caption: "`glob.glob('*.csv')` returns a list of all matching file paths." },
-        ],
-      },
-      code("glob-docs", "Checkpoint: Finding Files with `glob`", "Use `glob.glob()` to return matching files as a list.", ["glob", "documentation"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Use `glob` to count CSV files in `/data`.", "import glob\n\n# Count CSV files in /data.\n", ["4"], ["glob", "print"], [], 20),
       {
         ...read("comments-docstrings-example", "Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
           "Comments begin with `#` and do not affect the code. They explain *why* something is done.",
@@ -602,12 +594,6 @@ export const courses: Course[] = [
           "The variable after `for` takes each value in turn — you can name it anything.",
           "Loops are useful when the same operation should happen to each item."
         ], "Print each animal on its own line.", "animals = ['dog', 'cat', 'llama']\n\n# Loop through animals and print each one.\n", ["dog", "cat", "llama"], ["for", "print"], [], 20),
-        images: [
-          { src: "/images/session3/slide24-01.png", alt: "For loop iterating through a list and printing each item", caption: "The loop variable takes each value in turn." },
-          { src: "/images/session3/slide25-01.png", alt: "For loop with a longer list showing repeated execution", caption: "The indented body runs once for each item." },
-          { src: "/images/session3/slide27-01.png", alt: "For loop accumulating a total inside the body", caption: "Loops can build up a result across all items." },
-          { src: "/images/session3/slide28-01.png", alt: "For loop example with conditional logic inside", caption: "You can combine loops with other logic inside the body." },
-        ],
       },
       code("loop-accumulator", "Loop Accumulator", "Use a loop to build a final value.", ["for", "accumulator"], [
         "A common pattern is to start with a total and update it inside the loop.",
@@ -634,16 +620,16 @@ export const courses: Course[] = [
           "Use a colon after each condition and indent everything inside each branch.",
           "Python stops at the first true branch — later branches are skipped even if they are also true."
         ], 10),
-        images: [
-          { src: "/images/session3/slide37-01.png", alt: "If statement: if True runs code, if False skips it", caption: "`if True` runs the indented block; `if False` skips it." },
-          { src: "/images/session3/slide38-01.png", alt: "If statement combined with a comparison", caption: "Comparisons make great conditions for `if` statements." },
-          { src: "/images/session3/slide39-01.png", alt: "If-else structure showing both branches", caption: "`else` runs when the condition is `False`." },
-          { src: "/images/session3/slide40-01.png", alt: "If-elif-else structure handling three cases", caption: "`elif` adds extra branches between `if` and `else`." },
-        ],
       },
       code("if-elif-else", "Checkpoint: If, Elif, Else", "Run different code depending on a condition.", ["if", "elif", "else"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Use `if`, `elif`, and `else` to choose what to print from the value stored in `light`.", "light = 'green'\n\n# Choose the message that matches the current light.\n", ["move"], ["if", "print"], [], 20),
+      read("logical-operators-example", "Logical Operators", "Combine or flip Boolean values with `not`, `and`, and `or`.", ["not", "and", "or", "booleans"], [
+        "`not` flips a Boolean value: `not True` becomes `False`, and `not False` becomes `True`.",
+        "`and` returns `True` only when both sides are true.",
+        "`or` returns `True` when at least one side is true.",
+        "Logical operators are useful when one decision depends on more than one condition."
+      ], 10),
       code("cb-sleep-in", "Practice: `sleep_in`", "Use `not` and `or` in a return value.", ["functions", "not", "or"], [
         "Write `sleep_in(weekday, vacation)` that returns `True` when we get to sleep in.",
         "We sleep in when it is not a weekday (`not weekday`), or when we are on vacation.",
@@ -669,10 +655,10 @@ export const courses: Course[] = [
       code("membership", "Checkpoint: The `in` Keyword", "Ask whether something is in something else.", ["in", "membership"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Print whether `'a'` is in `'cat'` and whether `'cat'` is in the list.", "animals = ['dog', 'cat', 'llama']\nword = 'cat'\n\n# Print both checks.\n", ["True", "True"], ["in", "print"], [], 20),
-      code("range-and-enumerate", "`range()` and `enumerate()`", "Create counters for loops when you need them.", ["range", "enumerate"], [
+      code("range-and-enumerate", "`range()` and `enumerate()`", "Create indices for loops when you need them.", ["range", "enumerate"], [
         "`range()` creates a sequence of numbers.",
         "`enumerate()` gives both an index and a value while looping.",
-        "Use counters only when the position matters."
+        "Use indices only when the position matters."
       ], "Loop over `names`, printing each index with its matching name.", "names = ['Ada', 'Grace', 'Guido']\n\n# Include both the position and the value.\n", ["0 Ada", "1 Grace", "2 Guido"], ["enumerate", "for", "print"], [], 25),
       code("travel-exercise", "Control Flow Exercise", "Use comparisons and conditionals to choose an activity.", ["control flow"], [
         "The original exercise uses comparison operators and if statements to determine which country and activity we will engage in.",
@@ -691,7 +677,6 @@ export const courses: Course[] = [
       {
         ...read("power-operator-example", "The Power Operator `**`", "Use `**` to raise a number to a power.", ["operators", "**"], [
           "In Python, `**` is the power operator: `2 ** 3` gives `8`.",
-          "This works on plain numbers and on NumPy arrays — it applies element-wise to every value in the array.",
           "The power operator follows standard order of operations, so use brackets when the intent might be unclear."
         ], 10),
         images: [
@@ -815,7 +800,7 @@ export const courses: Course[] = [
       quiz("array-vs-list", "Array or List?", "Choose the right tool for repeated numeric operations.", ["arrays", "lists"], [
         "Lists are general-purpose collections.",
         "NumPy arrays are designed for fast numeric operations across many values."
-      ], "Which type of variable is usually better for multiplying every measurement by the same value?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support fast element-wise mathematical operations."),
+      ], "Which type of variable is usually better for multiplying every measurement by the same number?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support vectorised mathematical operations."),
       code("cb-np-sum-max", "Practice: Array Statistics", "Use `np.sum` and `np.max` on a real array.", ["numpy", "np.sum", "np.max"], [
         "Once you have a NumPy array you can summarise it with aggregation functions.",
         "`np.sum(a)` adds all elements. `np.max(a)` returns the largest.",

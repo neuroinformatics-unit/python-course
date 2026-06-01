@@ -95,7 +95,12 @@ export function LessonPanel({
                 <InlineText text={segment.value} />
               </p>
             ) : (
-              <ExampleRunner lessonId={lesson.id} index={index} example={segment.value} />
+              <ExampleRunner
+                key={`${lesson.id}-code-${index}-${segment.value.code}`}
+                lessonId={lesson.id}
+                index={index}
+                example={segment.value}
+              />
             )
           )}
         </div>

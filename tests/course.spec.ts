@@ -120,6 +120,19 @@ test("shows collection examples without duplicate screenshots", async ({ page })
   await expect(page.locator(".lesson-figures img")).toHaveCount(0);
 });
 
+test("resets runnable examples when moving between lessons", async ({ page }) => {
+  await page.goto("/");
+  await openModule(page, /Module 4: Loops and Control Flow/);
+  await page.getByRole("button", { name: /^Comparisons and Booleans read/ }).click();
+  await expect(page.getByRole("heading", { name: "Comparisons and Booleans" })).toBeVisible();
+  await expect(page.locator(".example-runner textarea").first()).toHaveValue(/print\(3 < 5\)/);
+
+  await page.getByRole("button", { name: "Next" }).click();
+  await expect(page.getByRole("heading", { name: "If, Elif, Else" })).toBeVisible();
+  await expect(page.locator(".example-runner textarea").first()).toHaveValue(/light = 'green'/);
+  await expect(page.locator(".example-runner textarea").first()).not.toHaveValue(/print\(3 < 5\)/);
+});
+
 test("allows jumping to later courses without completing prerequisites", async ({ page }) => {
   await page.goto("/");
   await openModule(page, /Module 8: exams and Working Outside the Website/);

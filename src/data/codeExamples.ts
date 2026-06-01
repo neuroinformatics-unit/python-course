@@ -108,7 +108,7 @@ print(weather['temp'][1])`, "A dictionary can hold list values."),
     return a + b
 print(add(5, 3))`, "A function can return a result."),
         example(`print(max([3, 1, 4, 1, 5]))
-print(min([3, 1, 4, 1, 5]))`, "Built-in functions are also callable objects."),
+print(min([3, 1, 4, 1, 5]))`, "Python provides some built-in functions like `min` and `max`"),
       ];
     case "basic-function-example":
       return [
@@ -182,6 +182,27 @@ def calculate_average(nums):
 
 print(calculate_average([1, 2, 3]))`, "Comments and docstrings document intent."),
       ];
+    case "for-loops":
+      return [
+        example(`animals = ['dog', 'cat', 'llama']
+
+for animal in animals:
+    print(animal)`, "The loop variable takes each value in turn."),
+        example(`numbers = [1, 2, 3, 4]
+total = 0
+
+for number in numbers:
+    total = total + number
+
+print(total)`, "A loop can build up a result across all items."),
+        example(`animals = ['dog', 'cat', 'llama']
+
+for animal in animals:
+    if animal == 'cat':
+        print('Found cat')
+    else:
+        print(animal)`, "You can combine loops with other logic inside the body."),
+      ];
     case "comparisons-booleans":
       return [
         example(`print(3 < 5)
@@ -191,20 +212,42 @@ print(5 != 3)`, "Comparisons return True or False."),
       ];
     case "if-elif-else-example":
       return [
-        example(`weather = 'rain'
-if weather == 'sun':
-    print('hat')
-elif weather == 'rain':
-    print('umbrella')
+        example(`light = 'green'
+
+if light == 'red':
+    print('stop')
+elif light == 'amber':
+    print('wait')
 else:
-    print('coat')`, "Use if, elif, and else for branching."),
-        example(`score = 82
-if score >= 85:
-    print('High')
-elif score >= 70:
+    print('move')`, "Use if, elif, and else to choose one branch."),
+        example(`score = 92
+
+if score >= 90:
+    print('Excellent')
+elif score >= 50:
     print('Pass')
 else:
-    print('Review')`, "Python stops at the first true branch."),
+    print('Review')`, "Python stops at the first matching branch, even if a later condition would also be true."),
+      ];
+    case "logical-operators-example":
+      return [
+        example(`weekday = False
+
+print(not weekday)`, "`not` flips True to False, or False to True."),
+        example(`weekday = True
+vacation = True
+
+if (not weekday) or vacation:
+    print('sleep in')
+else:
+    print('alarm')`, "`or` is true when at least one side is true."),
+        example(`age = 12
+has_ticket = True
+
+if age >= 10 and has_ticket:
+    print('enter')
+else:
+    print('wait')`, "`and` is true only when both sides are true."),
       ];
     case "membership-example":
       return [
