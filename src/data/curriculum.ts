@@ -144,7 +144,7 @@ export const courses: Course[] = [
         "Languages also reflect different opinions about how code should be written and different purposes they were designed for.",
         "Python was developed as a scripting language. Java focuses strongly on compatibility between operating systems. JavaScript was built for web development."
       ], 10),
-      read("why-python", "Why Python?", "Python is beginner friendly, widely used, free, and open source.", ["Python", "programming"], [
+      read("why-python", "Why Python?", "", ["Python", "programming"], [
         "Python is used because it is beginner friendly and abstracts away many difficult concepts.",
         "It has a large community, so there are many packages, examples, and answers available.",
         "It is free and open source, so participants can continue using it after the course.",
@@ -405,7 +405,7 @@ export const courses: Course[] = [
       },
       code("basic-function", "Checkpoint: Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Create a function that takes a name and prints `Hello Ada`.", "def hello(name):\n    # Print a greeting.\n    pass\n\nhello('Ada')\n", ["Hello Ada"], ["def", "print"], [], 20),
+      ], "Create a function that takes a name and prints `Hello ` to that person. in the example below the function should print 'Hello Ada' .", "def hello(name):\n    # Print a greeting.\n    pass\n\nhello('Ada')\n", ["Hello Ada"], ["def", "print"], [], 20),
       code("cb-make-abba", "Practice: `make_abba`", "Concatenate strings inside a function.", ["functions", "strings", "concatenation"], [
         "Write `make_abba(front, back)` that returns `front + back + back + front`.",
         "String concatenation with `+` works inside a function just as it does anywhere else.",
