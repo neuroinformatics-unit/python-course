@@ -335,7 +335,7 @@ export const courses: Course[] = [
       },
       code("len-practice", "Checkpoint: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Print the length of each value.\n", ["6", "3", "2"], ["len", "print"], [], 20),
+      ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Print the length of each variable.\n", ["6", "3", "2"], ["len", "print"], [], 20),
       read("tuple-unpacking-example", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
         "Tuple unpacking assigns each element of a tuple to a separate variable in one line.",
         "This is often used to unpack co-ordinates, pairs, or function return values.",
