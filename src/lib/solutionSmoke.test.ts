@@ -18,6 +18,7 @@ const solutions: Record<string, string> = {
   "strings-and-casting-exercise": "value = '20'\nresult = int(value) - 2\nprint(result)\n",
   "type-inspection-exercise": "number_value = 100\nword_value = 'Dog'\nflag_value = False\nprint(type(number_value))\nprint(type(word_value))\nprint(type(flag_value))\n",
   "debug-with-print-exercise": "amount = '10'\nbonus = 1\ntotal = int(amount) + bonus\nprint(total)\n",
+  "mutation-demo-exercise": "items = ['apple', 'banana']\nitems[0] = 'kiwi'\nprint(items)\n",
   "create-collections-exercise": "colours = ['red', 'green', 'blue']\nprofile = {'goal': 'data'}\nprint(colours)\nprint(profile)\n",
   "indexing-practice-exercise": "animals = ['dog', 'cat', 'llama']\ncourse = {'language': 'Python', 'level': 'intro'}\nprint(animals[1])\nprint(course['language'])\n",
   "negative-indexing-exercise": "animals = ['dog', 'cat', 'llama']\nnumbers = [10, 20, 30, 40]\nprint(animals[-1])\nprint(numbers[-2])\n",

@@ -259,6 +259,15 @@ export const courses: Course[] = [
           { src: "/images/session2/slide10-01.png", alt: "A set defined with curly braces", caption: "A set keeps only unique values." },
         ],
       },
+      read("mutable-immutable", "Mutable vs Immutable", "Some values can be changed after creation; others cannot.", ["mutable", "immutable", "values"], [
+        "In Python, some values can be changed after creation. They can mutate.",
+        "We call values that can change mutable, and values that cannot change immutable.",
+        "This comes from the word mutate, which means \"to change\". Lists, dictionaries, and sets are mutable. Tuples are immutable."
+      ]),
+      code("mutation-demo", "Checkpoint: Mutability", "Mutate a list by changing one of its items.", ["mutable", "list"], [
+        "Changing one item inside a list mutates the list.",
+        "The same kind of item change would not work on a tuple, because tuples are immutable."
+      ], "Change the first item in `items` to `'kiwi'`, then print the mutated list.", "items = ['apple', 'banana']\n\n# Mutate the list, then print it.\n", ["['kiwi', 'banana']"], ["print"], [], 20),
       code("create-collections", "Create Collections", "Create a list and dictionary, then print both collections.", ["list", "dict"], [
         "Lists use square brackets. Dictionaries use curly braces with key-value pairs.",
         "Dictionary keys must be unique. Each key points to one value."
@@ -330,7 +339,7 @@ export const courses: Course[] = [
       },
       code("len-practice", "Checkpoint: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Count each object.\n", ["6", "3", "2"], ["len", "print"], [], 20),
+      ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Print the length of each value.\n", ["6", "3", "2"], ["len", "print"], [], 20),
       read("tuple-unpacking-example", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
         "Tuple unpacking assigns each element of a tuple to a separate variable in one line.",
         "This is often used to unpack co-ordinates, pairs, or function return values.",
@@ -812,7 +821,7 @@ export const courses: Course[] = [
       quiz("array-vs-list", "Array or List?", "Choose the right tool for repeated numeric operations.", ["arrays", "lists"], [
         "Lists are general-purpose collections.",
         "NumPy arrays are designed for fast numeric operations across many values."
-      ], "Which object is usually better for multiplying every measurement by the same value?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support vectorised mathematical operations."),
+      ], "Which value is usually better for multiplying every measurement by the same number?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support vectorised mathematical operations."),
       code("cb-np-sum-max", "Practice: Array Statistics", "Use `np.sum` and `np.max` on a real array.", ["numpy", "np.sum", "np.max"], [
         "Once you have a NumPy array you can summarise it with aggregation functions.",
         "`np.sum(a)` adds all elements. `np.max(a)` returns the largest.",
