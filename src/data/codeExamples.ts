@@ -108,7 +108,7 @@ print(weather['temp'][1])`, "A dictionary can hold list values."),
     return a + b
 print(add(5, 3))`, "A function can return a result."),
         example(`print(max([3, 1, 4, 1, 5]))
-print(min([3, 1, 4, 1, 5]))`, "Built-in functions are also callable objects."),
+print(min([3, 1, 4, 1, 5]))`, "Python provides some built-in functions like `min` and `max`"),
       ];
     case "basic-function-example":
       return [
