@@ -804,7 +804,7 @@ export const courses: Course[] = [
       quiz("array-vs-list", "Array or List?", "Choose the right tool for repeated numeric operations.", ["arrays", "lists"], [
         "Lists are general-purpose collections.",
         "NumPy arrays are designed for fast numeric operations across many values."
-      ], "Which value is usually better for multiplying every measurement by the same number?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support vectorised mathematical operations."),
+      ], "Which type of variable is usually better for multiplying every measurement by the same number?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support vectorised mathematical operations."),
       code("cb-np-sum-max", "Practice: Array Statistics", "Use `np.sum` and `np.max` on a real array.", ["numpy", "np.sum", "np.max"], [
         "Once you have a NumPy array you can summarise it with aggregation functions.",
         "`np.sum(a)` adds all elements. `np.max(a)` returns the largest.",
