@@ -371,7 +371,7 @@ export const courses: Course[] = [
   {
     id: "functions-modules",
     number: 3,
-    title: "Functions, Modules, and Documentation",
+    title: "Functions and Modules",
     theme: "Functions",
     description: "Functions, arguments, return values, imports, standard libraries, comments, and docstrings.",
     badge: "Functions",
@@ -379,9 +379,8 @@ export const courses: Course[] = [
     lessons: [
       {
         ...read("function-concepts", "Functions", "A function is a block of code assigned to a name.", ["functions"], [
-          "A function is a block of code assigned to a keyword that will run on specified arguments.",
-          "A function may or may not return a value.",
-          "When we create a function, we define it. When we run it, we call it.",
+          "A function runs on specified arguments and may or may not return a value.",
+          "When we create a function, we \"define\" it. When we run it, we \"call\" it.",
           "Functions help avoid repeating the same code and make programs easier to read."
         ]),
         images: [
@@ -390,10 +389,11 @@ export const courses: Course[] = [
         ],
       },
       {
-        ...read("basic-function-example", "Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
+        ...read("basic-function-example", "Define and Call a Function", "Use the `def` keyword, arguments, and a function body.", ["def", "arguments"], [
           "Functions are defined using `def` followed by the function name.",
-          "Brackets then provide arguments. The body must be indented — the function ends when you stop indenting.",
-          "The function can be named anything, much like a variable."
+          "Brackets then provide arguments. The body must be [indented](https://en.wikipedia.org/wiki/Indentation_(typesetting)) — the function ends when you stop indenting.",
+          "Indentation should consist of four spaces (In rare cases, it might be a \"tab\" or a different number of spaces. You can't mix and match these though!).",
+          "The function can be named anything, much like a variable.",
         ], 10),
         images: [
           { src: "/images/session2/slide33-01.png", alt: "Code showing a def statement with function name, brackets, colon, and indented body", caption: "`def` keyword, then the name, then arguments in brackets, then an indented body." },
@@ -402,8 +402,8 @@ export const courses: Course[] = [
       code("basic-function", "Checkpoint: Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Create a function that takes a name and prints `Hello ` to that person. in the example below the function should print 'Hello Ada' .", "def hello(name):\n    # Print a greeting.\n    pass\n\nhello('Ada')\n", ["Hello Ada"], ["def", "print"], [], 20),
-      code("cb-make-abba", "Practice: `make_abba`", "Concatenate strings inside a function.", ["functions", "strings", "concatenation"], [
-        "Write `make_abba(front, back)` that returns `front + back + back + front`.",
+      code("cb-make-abba", "Practice: `make_abba`", "Concatenate (\"Chain together\") strings inside a function.", ["functions", "strings", "concatenation"], [
+        "Write `make_abba(front, back)` that takes two strings and returns `front + back + back + front`.",
         "String concatenation with `+` works inside a function just as it does anywhere else.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p182144)."
       ], "Define `make_abba(front, back)` so it returns the four-part string. Expected output: `['HiByeByeHi', 'xyyx', 'abccab']`.", "def make_abba(front, back):\n    # Return front + back + back + front.\n    pass\n\nprint([make_abba('Hi', 'Bye'), make_abba('x', 'y'), make_abba('ab', 'c')])\n", ["['HiByeByeHi', 'xyyx', 'abccab']"], ["def make_abba", "return", "print"], [], 20),
@@ -457,7 +457,7 @@ export const courses: Course[] = [
         "Return values when later code needs to use the result."
       ], "Write `add_bonus(score)` so the returned value can be printed as `85`.", "def add_bonus(score):\n    bonus = 5\n    # Return the adjusted score.\n\nfinal_score = add_bonus(80)\nprint(final_score)\n", ["85"], ["return", "print"], [], 25),
       {
-        ...quiz("calling-functions", "Calling Functions", "Arguments can be positional or keyword arguments.", ["positional", "keyword"], [
+        ...quiz("calling-functions", "Function arguments", "Arguments can be positional or keyword arguments.", ["positional", "keyword"], [
           "Positional arguments use order — the first value goes to the first parameter.",
           "Keyword arguments use the parameter name: `func(b=2)` passes `2` to the `b` parameter regardless of order.",
           "When mixing them, positional arguments must come first."
@@ -468,6 +468,11 @@ export const courses: Course[] = [
           { src: "/images/session2/slide44-01.png", alt: "Calling a function mixing positional and keyword arguments", caption: "You can mix both — positional first, keyword after." },
         ],
       },
+      code("compare-len-exercise", "Practice: Function Arguments", "Write a function combining positional and keyword arguments.", ["arguments", "defaults", "len"], [
+        "A function can have one positional argument and one keyword argument with a default.",
+        "Keyword arguments can be passed in any order.",
+        "Returning the result lets the caller use it rather than being forced to print it."
+      ], "Write `compare_len(a, b='default')` that returns the longer of the two strings. Print `lion` for `compare_len('dog', b='lion')`.", "def compare_len(a, b='default'):\n    # Return the longer string using len().\n    pass\n\nprint(compare_len('dog', b='lion'))\n", ["lion"], ["def", "len", "return", "print"], [], 25),
       code("relu-exercise", "The `relu` Function", "Write a real-world function used in machine learning.", ["functions", "if", "return"], [
         "A rectified linear unit (relu) returns the input if it is positive, and `0` otherwise.",
         "This function is used as an activation function in neural networks.",
@@ -483,11 +488,6 @@ export const courses: Course[] = [
         "If `n` is greater than `21`, the function returns double that difference.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p197466)."
       ], "Define `diff21(n)` so it returns `abs(n - 21)`, doubled when `n > 21`. Expected output: `[2, 11, 0, 8]`.", "def diff21(n):\n    # Return abs(n - 21), doubled when n > 21.\n    pass\n\nprint([diff21(19), diff21(10), diff21(21), diff21(25)])\n", ["[2, 11, 0, 8]"], ["def diff21", "return", "print"], [], 20),
-      code("compare-len-exercise", "Positional and Keyword Arguments", "Write a function combining positional and keyword arguments.", ["arguments", "defaults", "len"], [
-        "A function can have one positional argument and one keyword argument with a default.",
-        "Keyword arguments can be passed in any order.",
-        "Returning the result lets the caller use it rather than being forced to print it."
-      ], "Write `compare_len(a, b='default')` that returns the longer of the two strings. Print `lion` for `compare_len('dog', b='lion')`.", "def compare_len(a, b='default'):\n    # Return the longer string using len().\n    pass\n\nprint(compare_len('dog', b='lion'))\n", ["lion"], ["def", "len", "return", "print"], [], 25),
       code("cb-missing-char", "Practice: `missing_char`", "Use slicing inside a function to remove one character.", ["functions", "slicing", "strings"], [
         "`missing_char(s, n)` returns the string `s` with the character at index `n` removed.",
         "Use slicing to take everything before index `n` and everything after it.",
@@ -533,19 +533,6 @@ export const courses: Course[] = [
       code("standard-libraries", "Checkpoint: Standard Libraries", "Use `statistics`, `math`, and `random`.", ["statistics", "math", "random"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Print the mean of the provided list and the square root of `9409`.", "import statistics\nimport math\nvalues = [1, 2, 2, 3, 4]\n\n# Use the imported libraries to calculate both results.\n", ["2.4", "97.0"], ["statistics", "math", "print"], [], 25),
-      {
-        ...read("glob-docs-example", "Finding Files with `glob`", "Use `glob.glob()` to return matching files as a list.", ["glob", "documentation"], [
-          "`glob` is useful for searching a directory for files matching a pattern.",
-          "The search string uses `*` to specify what should match: `'*.csv'` matches all CSV files.",
-          "When you are unsure what a library can do, read the online documentation."
-        ], 10),
-        images: [
-          { src: "/images/session3/slide11-01.png", alt: "glob.glob() returning a list of matching file paths", caption: "`glob.glob('*.csv')` returns a list of all matching file paths." },
-        ],
-      },
-      code("glob-docs", "Checkpoint: Finding Files with `glob`", "Use `glob.glob()` to return matching files as a list.", ["glob", "documentation"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Use `glob` to count CSV files in `/data`.", "import glob\n\n# Count CSV files in /data.\n", ["4"], ["glob", "print"], [], 20),
       {
         ...read("comments-docstrings-example", "Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
           "Comments begin with `#` and do not affect the code. They explain *why* something is done.",
