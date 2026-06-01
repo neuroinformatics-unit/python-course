@@ -146,8 +146,9 @@ export const courses: Course[] = [
       ], 10),
       read("why-python", "Why Python?", "Python is beginner friendly, widely used, free, and open source.", ["Python", "programming"], [
         "Python is used because it is beginner friendly and abstracts away many difficult concepts.",
-        "It has a large community, so there are many packages, examples, and answers available.",
-        "It is free and open source, so participants can continue using it after the course.",
+        "There are many packages, examples, and answers available online.",
+        "Built on top of these is a scientific Python \"ecosystem\" of packages with a large community.",
+        "Python is free and open source, so you can continue using it after the course.",
         "In this website, the important loop is: read the task, write a small amount of code, run it, inspect the output, and adjust it."
       ], 20),
       {
@@ -180,7 +181,7 @@ export const courses: Course[] = [
       read("calculator-print-example", "Calculations and `print()`", "Use Python like a calculator, then make the result visible.", ["operators", "print"], [
         "Python can add, subtract, multiply, divide, and raise to a power using `+`, `-`, `*`, `/`, and `**`.",
         "In a script, Python will not necessarily show the result of a calculation unless you ask it to.",
-        "Use `print()` when you want to see a value. This is also one of the simplest debugging tools."
+        "Use `print()` when you want to see a value. This is also one of the simplest ways of checking for code problems (\"debugging\")."
       ], 10),
       code("calculator-print", "Checkpoint: Calculations and `print()`", "Use the same idea with different values.", ["operators", "print"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
@@ -201,13 +202,8 @@ export const courses: Course[] = [
       code("variables", "Checkpoint: Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Use the existing `a` and `b` values to create `c`, where `c` is their sum. Print `c`.", "a = 5\nb = 6\n\n# Create the missing variable.\n# Show its value.\n", ["11"], ["=", "print"], [], 20),
-      read("syntax-rules", "Syntax Rules", "Small marks such as quotes, brackets, colons, and indentation matter.", ["syntax", "indentation"], [
-        "Python is precise about punctuation.",
-        "Strings need matching quotation marks. Function calls need brackets. Blocks after `if`, `for`, and `def` need a colon and indentation.",
-        "A syntax error usually means Python could not understand the shape of the instruction."
-      ]),
-      read("types-overview", "Data Types", "Python treats strings, integers, floats, and booleans differently.", ["strings", "integers", "floats", "booleans"], [
-        "A string is text, usually surrounded by quotation marks.",
+      read("types-overview", "Data Types", "Python has different built-in \"data types\" (sometimes referred to as just \"types\"). These include strings, integers, floats, and booleans. Python treats each of them differently.", ["strings", "integers", "floats", "booleans"], [
+        "A string is text, and has to be surrounded by quotation marks.",
         "An integer is a whole number. A float is a number with a decimal place.",
         "A Boolean is either `True` or `False`.",
         "A lot of beginner errors are caused by using the right-looking value with the wrong type."
