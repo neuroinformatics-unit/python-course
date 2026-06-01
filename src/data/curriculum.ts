@@ -849,6 +849,16 @@ export const courses: Course[] = [
           { src: "/images/session4/slide22-01.png", alt: "Array range indexing selecting a column slice", caption: "`array[:, 1]` selects the entire second column." },
         ],
       },
+      code("random-int-arrays", "Random Integer Arrays", "So far, we have seen how arrays can be created based on an input list, e.g. `arr = np.array([1,2,3]). Use `np.random.randint` to generate arrays containing random integer data.", ["numpy", "random"], [
+        "`np.random.randint(low, high, size)` generates random integers between `low` (inclusive) and `high` (exclusive).",
+        "This is useful for creating test data before using real measurements.",
+        "Always print `len()` to confirm the array has the expected size."
+      ], "Create two arrays `x` and `y` of `20` random integers between `0` and `100`. Print the length of `x`.", "import numpy as np\n\n# Generate both arrays before checking the length.\nprint(len(x))\n", ["20"], ["np.random.randint", "print"], ["numpy"], 20),
+
+      code("create-arrays-ones-zeros", "Creating Arrays", "Use `np.ones` and `np.zeros` to generate arrays containing all ones or all zeros, respectively.", ["numpy", "ones", "zeros"], [
+        "`np.ones((20, 30))` and `np.zeros((20, 30))` create new 2D arrays filled with ones or zeros.",
+        "You can also create zeros with the same shape as an existing array."
+      ], "Create an array full of ones with shape `(10, 20, 30)`. Then create an array full of zeros with the same shape. Print the shape of each array.", "import numpy as np\n\n# Create the ones array.\n# Create the zeros array with the same shape.\n# Print both shapes.\n", ["(10, 20, 30)\n(10, 20, 30)"], ["np.ones", "np.zeros", "shape", "print"], ["numpy"], 20),
       code("array-range-indexing", "Checkpoint: Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Using the provided grid, print the first row, the second column, and the bottom-right 2x2 block.", "import numpy as np\ngrid = np.array([[1, 2, 3, 4],\n                 [5, 6, 7, 8],\n                 [9, 10, 11, 12]])\n\n# Use row, column, and block slices.\n", ["[1 2 3 4]", "[ 2  6 10]"], [":", "print"], ["numpy"], 25),
@@ -973,11 +983,6 @@ export const courses: Course[] = [
           { src: "/images/session4/slide43-01.png", alt: "GroupBy result showing the grouped value as the index", caption: "The grouped column becomes the index in the result." },
         ],
       },
-      code("random-int-arrays", "Random Integer Arrays", "Use `np.random.randint` to generate random integer data.", ["numpy", "random"], [
-        "`np.random.randint(low, high, size)` generates random integers between `low` (inclusive) and `high` (exclusive).",
-        "This is useful for creating test data before using real measurements.",
-        "Always print `len()` to confirm the array has the expected size."
-      ], "Create two arrays `x` and `y` of `20` random integers between `0` and `100`. Print the length of `x`.", "import numpy as np\n\n# Generate both arrays before checking the length.\nprint(len(x))\n", ["20"], ["np.random.randint", "print"], ["numpy"], 20),
       {
         ...read("random-scatter-example", "Scatter Plots", "Create random x/y values and plot them.", ["matplotlib", "scatter"], [
           "Matplotlib is the most popular plotting library in Python and creates Matlab-like plots.",
