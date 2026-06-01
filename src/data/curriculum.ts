@@ -755,12 +755,18 @@ export const courses: Course[] = [
     badge: "NumPy",
     accent: "#111111",
     lessons: [
-      read("packages", "Third-Party Packages", "Packages add functionality that does not come with base Python.", ["pip", "packages"], [
-        "There are many community-created libraries.",
-        "pip is used in the terminal to install Python packages.",
-        "NumPy, pandas, and matplotlib are common packages for scientific/data work.",
-        "In this website, packages are loaded in the browser when an exercise needs them."
-      ]),
+      {
+        ...read("packages", "Third-Party Packages", "Packages add functionality that does not come with base Python.", ["pip", "packages"], [
+          "There are many community-created libraries.",
+          "pip is used in the terminal to install Python packages.",
+          "NumPy, pandas, and matplotlib are common packages for scientific/data work.",
+          "Packages developed by the NIU are also a (smaller, domain-focused) part of this ecosystem.",
+          "For this course, packages are loaded in the browser when an exercise needs them."
+        ]),
+        images: [
+          { src: "https://zenodo.org/records/17436793/files/Scientific-Python-Ecosystem.png", alt: "Scientific Python ecosystem diagram showing connected third-party packages", caption: "The scientific Python ecosystem includes many connected third-party packages such as NumPy, pandas, and matplotlib." },
+        ],
+      },
       {
         ...read("import-aliases", "Import Aliases", "Use `as` to rename a package when importing.", ["import", "as"], [
           "The `as` keyword allows you to rename a library when you import it.",
@@ -772,16 +778,14 @@ export const courses: Course[] = [
           { src: "/images/session3/slide18-01.png", alt: "Using np.array after importing numpy as np", caption: "After `import numpy as np`, use `np.` to access NumPy functions." },
         ],
       },
-      workshop("install-command-reading", "Reading Install Commands", "Recognise package commands before using them locally.", ["pip", "conda"], [
-        "Inside this website, package loading is handled for you.",
-        "Outside the website, install commands belong in a terminal, not inside a Python script.",
-        "Use `python -m pip install package_name` for pip installs, and `conda install package_name` inside a conda environment.",
-        "pip installs Python packages only. conda can also install non-Python dependencies.",
-        "Two useful pip commands beyond install: `pip uninstall package_name` and `pip install package_name --upgrade`."
+      workshop("install-command-reading", "Installing packages", "Read install commands before using them locally.", ["pip", "conda"], [
+        "For this course, package installing and loading is handled for you.",
+        "Beyond this course, you will need to install third-party Python packages yourself, using commands such as `pip install` or `conda install`.",
+        "We will talk more about where and how to install packages in [Module 8](#exams-support)."
       ]),
       {
         ...read("numpy-max-argmax-example", "NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
-          "NumPy is useful for operations on arrays. A numpy array is a class — it has attributes and methods as well as functions that act on it.",
+          "NumPy is useful for operations on arrays. A numpy array is its own datatype provided by the `numpy` package — it is designed to contain (typically) numerical data arranged linearly. Arrays can be multidimensional: a 1-dimensional array may represent height measurements of people, or a 2-dimensional array may contain a (grayscale) photograph.",
           "`np.max` returns the maximum value. `np.argmax` returns the index of the maximum value.",
           "These functions work efficiently on large arrays because NumPy operations run in optimised C code under the hood."
         ], 10),
@@ -796,7 +800,6 @@ export const courses: Course[] = [
       ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = [3, 9, 2, 5]\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
       {
         ...read("array-operations-example", "Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
-          "A NumPy array is a class useful for mathematical operations on an entire collection.",
           "Operations like `+`, `-`, `*`, and `/` apply to every element at once — no loop needed.",
           "We can also perform operations between two arrays with the same shape — each element is paired up."
         ], 10),
@@ -812,7 +815,7 @@ export const courses: Course[] = [
       quiz("array-vs-list", "Array or List?", "Choose the right tool for repeated numeric operations.", ["arrays", "lists"], [
         "Lists are general-purpose collections.",
         "NumPy arrays are designed for fast numeric operations across many values."
-      ], "Which object is usually better for multiplying every measurement by the same value?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support vectorised mathematical operations."),
+      ], "Which type of variable is usually better for multiplying every measurement by the same value?", ["A NumPy array", "A plain string", "A dictionary key", "A module name"], "A NumPy array", "Arrays support fast element-wise mathematical operations."),
       code("cb-np-sum-max", "Practice: Array Statistics", "Use `np.sum` and `np.max` on a real array.", ["numpy", "np.sum", "np.max"], [
         "Once you have a NumPy array you can summarise it with aggregation functions.",
         "`np.sum(a)` adds all elements. `np.max(a)` returns the largest.",
