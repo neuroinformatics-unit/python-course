@@ -70,6 +70,7 @@ const code = (
   expectedIncludes: string[] = ["print"],
   packages: string[] = [],
   xp = 20,
+  expectedPlotCount = 0,
 ): Lesson => ({
   id,
   kind: "code",
@@ -85,6 +86,7 @@ const code = (
     starterCode,
     expectedIncludes,
     expectedOutputContains,
+    expectedPlotCount,
     packages,
   },
 });
@@ -994,8 +996,8 @@ export const courses: Course[] = [
         ],
       },
       code("plot-labels", "Checkpoint: Plot Labels", "Add labels so a plot can be interpreted.", ["matplotlib", "labels"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Using the provided `years` and `values`, create a labelled plot, call `plt.show()`, then print the provided `status` value.", "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\nstatus = 'labelled'\n\n# Build the plot, make it readable, display it, then report completion.\n", ["labelled"], ["plt.plot", "plt.xlabel", "plt.ylabel", "plt.title", "plt.show", "status"], ["matplotlib"], 25),
+        "Now solve a similar task yourself. The checkpoint checks that your code creates a plot."
+      ], "Using the provided `years` and `values`, create a labelled plot, then call `plt.show()`.", "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\n\n", [], ["plt.plot", "plt.xlabel", "plt.ylabel", "plt.title", "plt.show"], ["matplotlib"], 25, 1),
       dataset("weather-plot", "Plot Climate Data", "Plot mean maximum temperature by year.", ["matplotlib", "groupby"], [
         "After cleaning and grouping the data, plot the yearly values.",
         "The plot is used to inspect the result, not just decorate the page.",
