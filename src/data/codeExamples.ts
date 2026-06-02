@@ -331,9 +331,6 @@ print(temps[temps > 24])`, "You can apply the mask inline.", ["numpy"]),
 data = {'city': ['Sydney', 'Perth'], 'rain_mm': [12, 4], 'season': ['summer', 'winter']}
 df = pd.DataFrame(data)
 print(df)`, "Build a DataFrame from a dictionary.", ["pandas"]),
-        example(`import pandas as pd
-df = pd.DataFrame({'city': ['Sydney', 'Perth'], 'rain_mm': [12, 4], 'season': ['summer', 'winter']})
-print(df[['city', 'rain_mm']])`, "Select a smaller table with two columns.", ["pandas"]),
       ];
     case "column-selection-example":
       return [
@@ -351,9 +348,9 @@ print(df['rain_mm'].mean())`, "Columns can be used in calculations.", ["pandas"]
       return [
         example(`import pandas as pd
 df = pd.DataFrame({'city': ['Sydney', 'Perth', 'Darwin'], 'rain_mm': [12, 4, 18]})
+print("the first two rows of the dataframe")
 print(df.iloc[:2])
-print(df.iloc[0, 1])
-print(df.iloc[1:, 0:2])`, "Use iloc for position-based indexing.", ["pandas"]),
+`, "Use iloc for position-based indexing.", ["pandas"]),
       ];
     case "dataframe-masking-example":
       return [

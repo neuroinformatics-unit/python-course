@@ -8,6 +8,7 @@ import {
   createPlotCaptureCode,
   getPyodide,
   loadPackages,
+  mountDatasets,
   readPlotImagesCode,
 } from "../lib/pyodide";
 import { InlineText } from "./InlineText";
@@ -56,6 +57,11 @@ export function ExampleRunner({ lessonId, index, example }: Props) {
       if (example.packages?.length) {
         setMessage(`Loading ${example.packages.join(", ")}...`);
         await loadPackages(runtime, example.packages);
+      }
+
+      if (example.datasetPaths?.length) {
+        setMessage("Loading dataset...");
+        await mountDatasets(runtime, example.datasetPaths);
       }
 
       setRunState("running");
