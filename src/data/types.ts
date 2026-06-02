@@ -50,7 +50,6 @@ export type Lesson = {
   kind: LessonKind;
   title: string;
   summary: string;
-  xp: number;
   /** Tag-like keywords once shown as chips above the body. No longer rendered — kept on the type so the existing data helpers don't need to be re-threaded. */
   concepts: string[];
   body: string[];
@@ -67,13 +66,6 @@ export type Course = {
   title: string;
   theme: string;
   description: string;
-  badge: string;
   accent: string;
   lessons: Lesson[];
-};
-
-export type Badge = {
-  id: string;
-  title: string;
-  description: string;
 };

@@ -19,6 +19,7 @@ type Props = {
   onHome: () => void;
   onPrevious: () => void;
   onNext: () => void;
+  onSelectLesson: (lessonId: string) => void;
 };
 
 export function LessonPanel({
@@ -31,6 +32,7 @@ export function LessonPanel({
   onHome,
   onPrevious,
   onNext,
+  onSelectLesson,
 }: Props) {
   const complete = progress.completedLessons.includes(lesson.id);
   const runnable = lesson.exercise ?? lesson.challenge;
@@ -66,10 +68,41 @@ export function LessonPanel({
   }, [autoCompletesOnView, complete, lesson.id, onComplete]);
 
   return (
-    <main className="slide-stage">
+    <main className="slide-stage lesson-view">
+      <aside className="lesson-sidebar" aria-label={`Module ${course.number} lessons`}>
+        <div className="lesson-sidebar-heading">
+          <p className="eyebrow">Module {course.number}</p>
+          <h2>{course.title}</h2>
+        </div>
+        <div className="sidebar-lesson-list">
+          {course.lessons.map((item) => {
+            const itemComplete = progress.completedLessons.includes(item.id);
+            const active = item.id === lesson.id;
+
+            return (
+              <button
+                type="button"
+                key={item.id}
+                className={active ? "active" : ""}
+                onClick={() => onSelectLesson(item.id)}
+              >
+                <span>
+                  <InlineText text={item.title} />
+                </span>
+                <small>{itemComplete ? "complete" : item.kind}</small>
+              </button>
+            );
+          })}
+        </div>
+      </aside>
       <article className={`lesson-card slide-card ${complete ? "complete" : ""}`} style={{ "--course-accent": course.accent } as CSSProperties}>
         <header className="slide-toolbar">
-          <button type="button" onClick={onHome}>Home</button>
+          <div className="slide-toolbar-left">
+            <a className="niu-brand" href="https://neuroinformatics.dev" target="_blank" rel="noopener noreferrer">
+              <img src={resolvePublicAssetPath("/images/niu_logo.png")} alt="NIU" />
+            </a>
+            <button type="button" onClick={onHome}>Home</button>
+          </div>
           <span>
             Module {course.number}: {course.title} · Slide {position.current} of {position.total}
           </span>
@@ -80,7 +113,7 @@ export function LessonPanel({
         </header>
 
         <div className="lesson-title-row">
-          <p className="eyebrow">{lesson.kind} · {lesson.xp} XP</p>
+          <p className="eyebrow">{lesson.kind}</p>
           <h1>
             <InlineText text={lesson.title} />
           </h1>

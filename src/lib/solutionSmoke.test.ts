@@ -77,6 +77,7 @@ const solutions: Record<string, string> = {
   "cb-np-sum-max-exercise": "import numpy as np\na = np.array([3, 1, 4, 1, 5, 9, 2, 6])\nprint(np.sum(a))\nprint(np.max(a))\n",
   "shape-and-indexing-exercise": "import numpy as np\ngrid = np.array([[1, 2, 3], [4, 5, 6]])\nprint(grid.shape)\nprint(grid[1, 2])\n",
   "array-range-indexing-exercise": "import numpy as np\ngrid = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])\nprint(grid[0, :])\nprint(grid[:, 1])\nprint(grid[1:, 2:])\n",
+  "create-arrays-ones-zeros-exercise": "import numpy as np\nones = np.ones((10, 20, 30))\nzeros = np.zeros(ones.shape)\nprint(ones.shape)\nprint(zeros.shape)\n",
   "masks-exercise": "import numpy as np\ntemperatures = np.array([18, 22, 26, 31, 19])\nprint(temperatures[temperatures > 25])\n",
   "cb-np-mask-exercise": "import numpy as np\ntemps = np.array([36.6, 37.2, 38.1, 36.9, 37.8])\nprint(temps[temps > 37.0])\n",
   "dataframes-exercise": "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace'], 'score': [91, 76], 'group': ['A', 'B']})\nprint(df[['name', 'score']])\n",

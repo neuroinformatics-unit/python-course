@@ -4,8 +4,6 @@ export type ProgressState = {
   completedLessons: string[];
   exerciseAttempts: Record<string, number>;
   currentCourseId: string;
-  xp: number;
-  badges: string[];
 };
 
 const storageKey = "python-course-progress-v1";
@@ -14,17 +12,7 @@ export const createInitialProgress = (courses: Course[]): ProgressState => ({
   completedLessons: [],
   exerciseAttempts: {},
   currentCourseId: courses[0]?.id ?? "",
-  xp: 0,
-  badges: [],
 });
-
-export const getLessonXp = (courses: Course[], lessonId: string): number => {
-  for (const course of courses) {
-    const lesson = course.lessons.find((item) => item.id === lessonId);
-    if (lesson) return lesson.xp;
-  }
-  return 0;
-};
 
 export const getCourseForLesson = (courses: Course[], lessonId: string): Course | undefined =>
   courses.find((course) => course.lessons.some((lesson) => lesson.id === lessonId));
@@ -37,17 +25,11 @@ export const completeLesson = (
   if (state.completedLessons.includes(lessonId)) return state;
 
   const completedLessons = [...state.completedLessons, lessonId];
-  const course = getCourseForLesson(courses, lessonId);
-  const courseComplete =
-    course?.lessons.every((lesson) => completedLessons.includes(lesson.id)) ?? false;
-  const badges = courseComplete && course ? Array.from(new Set([...state.badges, course.badge])) : state.badges;
   const nextCourse = getNextUnlockedCourseId(courses, completedLessons, state.currentCourseId);
 
   return {
     ...state,
     completedLessons,
-    xp: state.xp + getLessonXp(courses, lessonId),
-    badges,
     currentCourseId: nextCourse,
   };
 };
@@ -99,8 +81,6 @@ export const loadProgress = (courses: Course[], storage: Storage = window.localS
         parsed.currentCourseId ??
         (parsed as Partial<ProgressState> & { currentcourseId?: string }).currentcourseId ??
         fallback.currentCourseId,
-      xp: typeof parsed.xp === "number" ? parsed.xp : 0,
-      badges: Array.isArray(parsed.badges) ? parsed.badges : [],
     };
   } catch {
     return fallback;

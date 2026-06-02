@@ -8,13 +8,12 @@ const read = (
   summary: string,
   concepts: string[],
   body: string[],
-  xp = 10,
+  _legacyPoints = 10,
 ): Lesson => ({
   id,
   kind: "read",
   title,
   summary,
-  xp,
   concepts,
   body,
 });
@@ -25,13 +24,12 @@ const workshop = (
   summary: string,
   concepts: string[],
   body: string[],
-  xp = 10,
+  _legacyPoints = 10,
 ): Lesson => ({
   id,
   kind: "workshop",
   title,
   summary,
-  xp,
   concepts,
   body,
 });
@@ -46,13 +44,12 @@ const quiz = (
   options: string[],
   answer: string,
   explanation: string,
-  xp = 15,
+  _legacyPoints = 15,
 ): Lesson => ({
   id,
   kind: "quiz",
   title,
   summary,
-  xp,
   concepts,
   body,
   quiz: { id: `${id}-quiz`, prompt, options, answer, explanation },
@@ -69,13 +66,12 @@ const code = (
   expectedOutputContains: string[],
   expectedIncludes: string[] = ["print"],
   packages: string[] = [],
-  xp = 20,
+  _legacyPoints = 20,
 ): Lesson => ({
   id,
   kind: "code",
   title,
   summary,
-  xp,
   concepts,
   body,
   exercise: {
@@ -102,13 +98,12 @@ const dataset = (
   packages: string[],
   hints: string[],
   expectedPlotCount = 0,
-  xp = 25,
+  _legacyPoints = 25,
 ): Lesson => ({
   id,
   kind: "dataset",
   title,
   summary,
-  xp,
   concepts,
   body,
   challenge: {
@@ -131,7 +126,6 @@ export const courses: Course[] = [
     title: "Python Foundations",
     theme: "Basics",
     description: "What Python is, variables, values, data types, and the basic run/check loop.",
-    badge: "Foundations",
     accent: "#111111",
     lessons: [
       read("what-is-programming", "What Is Programming?", "Programming means giving a computer precise instructions it can run.", ["programming", "instructions"], [
@@ -239,7 +233,6 @@ export const courses: Course[] = [
     title: "Collections and Indexing",
     theme: "Collections",
     description: "Lists, dictionaries, tuples, sets, indexing, slicing, tuple unpacking, conversion, and `len()`.",
-    badge: "Collections",
     accent: "#111111",
     lessons: [
       {
@@ -383,7 +376,6 @@ export const courses: Course[] = [
     title: "Functions and Modules",
     theme: "Functions",
     description: "Functions, arguments, return values, imports, standard libraries, comments, and docstrings.",
-    badge: "Functions",
     accent: "#111111",
     lessons: [
       {
@@ -584,7 +576,6 @@ export const courses: Course[] = [
     title: "Loops and Control Flow",
     theme: "Control",
     description: "Loops, comparisons, booleans, conditionals, membership checks, list and dictionary comprehensions.",
-    badge: "Control",
     accent: "#111111",
     lessons: [
       {
@@ -737,7 +728,6 @@ export const courses: Course[] = [
     title: "Packages and NumPy",
     theme: "Packages",
     description: "Third-party packages, aliases, NumPy arrays, operations, shape, indexing, masks.",
-    badge: "NumPy",
     accent: "#111111",
     lessons: [
       {
@@ -878,7 +868,6 @@ export const courses: Course[] = [
     title: "Pandas and Plotting",
     theme: "Data",
     description: "DataFrames, exploration, CSV/Excel files, iloc, masking, grouping, and matplotlib plots.",
-    badge: "Data",
     accent: "#111111",
     lessons: [
       {
@@ -1014,7 +1003,6 @@ export const courses: Course[] = [
     title: "Errors, Objects, and Code Structure",
     theme: "Engineering",
     description: "Methods, objects, classes, inheritance, errors, exceptions, files, clean code, and project structure.",
-    badge: "Engineering",
     accent: "#111111",
     lessons: [
       {
@@ -1098,7 +1086,6 @@ export const courses: Course[] = [
     title: "exams and Working Outside the Website",
     theme: "Practice",
     description: "Larger assignments, dataset missions, responsible AI use, and setup guidance for continuing in an IDE with Jupyter and conda.",
-    badge: "Finish",
     accent: "#111111",
     lessons: [
       read("conda-environments", "Conda Environments", "Use conda to create isolated Python environments for each project.", ["conda", "environments", "packages"], [

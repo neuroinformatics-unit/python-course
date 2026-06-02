@@ -9,30 +9,21 @@ import {
 } from "./progress";
 
 describe("progress helpers", () => {
-  it("starts with all courses available and no XP", () => {
+  it("starts with all courses available and no completed lessons", () => {
     const state = createInitialProgress(courses);
     expect(state.currentCourseId).toBe("python-foundations");
-    expect(state.xp).toBe(0);
+    expect(state.completedLessons).toEqual([]);
     expect(isCourseUnlocked(courses, state.completedLessons, 0)).toBe(true);
     expect(isCourseUnlocked(courses, state.completedLessons, 1)).toBe(true);
     expect(isCourseUnlocked(courses, state.completedLessons, courses.length - 1)).toBe(true);
   });
 
-  it("completes lessons once and awards XP once", () => {
+  it("completes lessons once", () => {
     const initial = createInitialProgress(courses);
     const first = completeLesson(initial, courses, "why-python");
     const second = completeLesson(first, courses, "why-python");
     expect(first.completedLessons).toEqual(["why-python"]);
-    expect(first.xp).toBe(20);
-    expect(second.xp).toBe(20);
-  });
-
-  it("awards a badge after all course lessons are complete", () => {
-    const state = courses[0].lessons.reduce(
-      (current, lesson) => completeLesson(current, courses, lesson.id),
-      createInitialProgress(courses),
-    );
-    expect(state.badges).toContain("Foundations");
+    expect(second.completedLessons).toEqual(["why-python"]);
   });
 
   it("records attempts and calculates completion percentage", () => {

@@ -82,15 +82,19 @@ export default function App() {
           onHome={() => setActiveLessonId(null)}
           onPrevious={() => goToOffset(-1)}
           onNext={() => goToOffset(1)}
+          onSelectLesson={openLesson}
         />
       ) : (
         <>
         <ProgressHeader courses={courses} progress={progress} onReset={actions.reset} />
         <div className="workspace home-workspace">
           <section className="home-intro">
-            <p className="eyebrow">Course Home</p>
-            <h1>Choose a lesson</h1>
-            <p>Open one slide at a time. You can return here whenever you want to jump to a different topic.</p>
+            <p className="eyebrow">Neuroinformatics Unit</p>
+            <h1>Python Course</h1>
+            <p>
+              Build practical Python skills one focused lesson at a time. Explore the modules below,
+              open a slide, and return here whenever you want to jump to a different topic.
+            </p>
           </section>
         <CourseMap
           courses={courses}

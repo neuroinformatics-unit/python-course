@@ -1,4 +1,6 @@
 :root {
+  --brand: #03A062;
+  --brand-hover: #028a55;
   color: #111;
   background: #fff;
   font-size: 17px;
@@ -57,6 +59,7 @@ button:disabled {
 
 .lesson-title-row h1 code,
 .activity-heading h3 code,
+.sidebar-lesson-list span code,
 .home-lesson-list span code {
   border: 0;
   background: transparent;
@@ -72,17 +75,21 @@ button:disabled {
   flex-direction: column;
   overflow: hidden;
   background: #fff;
-  padding: 18px 24px;
+  padding: 0;
 }
 
 .progress-header {
-  max-width: 1320px;
   width: 100%;
-  margin: 0 auto 14px;
+  min-height: 78px;
+  margin: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: end;
+  gap: 18px;
+  align-items: center;
+  border-bottom: 1px solid #d8d8d0;
+  background: #fff;
+  padding: 10px 32px 8px;
+  box-shadow: 0 2px 8px rgba(17, 17, 17, 0.08);
 }
 
 .progress-header h1 {
@@ -93,13 +100,41 @@ button:disabled {
   letter-spacing: 0;
 }
 
+.progress-branding {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
 .eyebrow {
   margin: 0;
-  color: #333;
+  color: var(--brand);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.niu-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.niu-brand img {
+  width: 54px;
+  height: 54px;
+  display: block;
+}
+
+.niu-brand span {
+  border-bottom: 2px solid #111;
+  color: #111;
+  font-size: 0.98rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
 }
 
 .progress-stats {
@@ -146,12 +181,83 @@ button:disabled {
 .progress-bar span {
   display: block;
   height: 100%;
-  background: #222;
+  background: var(--brand);
   transition: width 180ms ease;
 }
 
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 24, 50, 0.38);
+  padding: 18px;
+}
+
+.confirm-dialog {
+  width: min(100%, 420px);
+  border: 1px solid #c9d2d8;
+  border-radius: 8px;
+  background: #fff;
+  padding: 22px;
+  box-shadow: 0 18px 42px rgba(6, 24, 50, 0.22);
+}
+
+.confirm-dialog h2 {
+  margin: 0;
+  color: #061832;
+  font-size: 1.32rem;
+  line-height: 1.2;
+}
+
+.confirm-dialog p {
+  margin: 10px 0 0;
+  color: #23314a;
+  line-height: 1.5;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.secondary-action,
+.danger-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 800;
+}
+
+.secondary-action {
+  border: 1px solid #d0d0c8;
+  background: #fff;
+  color: #111;
+}
+
+.danger-action {
+  border: 1px solid #b5472f;
+  background: #b5472f;
+  color: #fff;
+}
+
+.secondary-action:hover {
+  border-color: #111;
+}
+
+.danger-action:hover {
+  border-color: #8f2e1a;
+  background: #8f2e1a;
+}
+
 .workspace {
-  max-width: 1320px;
+  max-width: 1120px;
   width: 100%;
   margin: 0 auto;
   min-height: 0;
@@ -160,26 +266,30 @@ button:disabled {
 }
 
 .home-workspace {
-  padding-bottom: 28px;
+  padding: 30px 28px 42px;
 }
 
 .home-intro {
-  border: 1px solid #d8d8d0;
-  border-radius: 8px;
+  max-width: 900px;
   background: #fff;
-  padding: 22px 26px;
-  margin-bottom: 14px;
+  padding: 16px 0 28px;
+  margin-bottom: 8px;
 }
 
 .home-intro h1 {
-  margin: 4px 0 6px;
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin: 8px 0 12px;
+  color: #061832;
+  font-size: clamp(2.25rem, 4vw, 3.35rem);
+  line-height: 1.08;
+  letter-spacing: 0;
 }
 
 .home-intro p:last-child {
   margin: 0;
-  color: #111;
-  font-size: 1.1rem;
+  max-width: 800px;
+  color: #061832;
+  font-size: 1.04rem;
+  line-height: 1.65;
 }
 
 .slide-stage {
@@ -188,12 +298,87 @@ button:disabled {
   display: grid;
   place-items: stretch center;
   overflow: hidden;
+  padding: 18px 24px;
 }
 
 .slide-card {
   width: min(100%, 1120px);
   height: 100%;
   overflow: auto;
+}
+
+.lesson-view {
+  grid-template-columns: minmax(240px, 300px) minmax(0, 980px);
+  align-items: stretch;
+  justify-content: center;
+  gap: 18px;
+}
+
+.lesson-view .slide-card {
+  width: 100%;
+}
+
+.lesson-sidebar {
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid #d8d8d0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 14px;
+}
+
+.lesson-sidebar-heading {
+  padding: 2px 2px 12px;
+  border-bottom: 1px solid #ececec;
+}
+
+.lesson-sidebar-heading h2 {
+  margin: 5px 0 0;
+  color: #061832;
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.sidebar-lesson-list {
+  display: grid;
+  gap: 7px;
+  padding-top: 12px;
+}
+
+.sidebar-lesson-list button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d8d8d0;
+  border-left: 3px solid transparent;
+  border-radius: 4px;
+  background: #fff;
+  color: #111;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.sidebar-lesson-list button:hover,
+.sidebar-lesson-list button.active {
+  border-color: #b8c2c8;
+  border-left-color: var(--brand);
+  background: #f7fbf9;
+}
+
+.sidebar-lesson-list span {
+  min-width: 0;
+  font-size: 0.88rem;
+  font-weight: 780;
+  line-height: 1.25;
+}
+
+.sidebar-lesson-list small {
+  color: #47546a;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .slide-toolbar {
@@ -208,6 +393,21 @@ button:disabled {
   border-bottom: 1px solid #d8d8d0;
   background: #fff;
   padding: 8px;
+}
+
+.slide-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slide-toolbar-left .niu-brand {
+  margin-bottom: 0;
+}
+
+.slide-toolbar-left .niu-brand img {
+  width: 24px;
+  height: 24px;
 }
 
 .slide-toolbar span {
@@ -240,8 +440,8 @@ button:disabled {
 }
 
 .home-workspace .course-list {
-  grid-template-columns: 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .home-workspace .course-node {
@@ -250,7 +450,7 @@ button:disabled {
 
 .course-node-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: 10px;
 }
@@ -258,8 +458,8 @@ button:disabled {
 .home-lesson-list {
   display: grid;
   gap: 6px;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin: 0 16px 16px 47px;
+  padding-top: 14px;
   border-top: 1px solid #ececec;
 }
 
@@ -269,7 +469,7 @@ button:disabled {
   justify-content: space-between;
   gap: 10px;
   border: 1px solid #d8d8d0;
-  border-radius: 6px;
+  border-radius: 4px;
   background: #fff;
   color: #111;
   padding: 8px 10px;
@@ -318,12 +518,11 @@ button:disabled {
 }
 
 .course-map {
-  position: sticky;
-  top: 18px;
-  border: 1px solid #d8d8d0;
-  border-radius: 8px;
+  position: static;
+  border: 0;
+  border-radius: 0;
   background: #fff;
-  padding: 12px;
+  padding: 0;
   box-shadow: none;
 }
 
@@ -331,7 +530,9 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 8px 12px;
+  padding: 0 0 14px;
+  color: #061832;
+  font-size: clamp(1.55rem, 3vw, 2rem);
   font-weight: 850;
 }
 
@@ -351,21 +552,24 @@ button:disabled {
 
 .course-list {
   display: grid;
-  gap: 8px;
+  gap: 18px;
 }
 
 .course-node {
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  align-items: center;
-  border: 1px solid #deded6;
-  border-left: 4px solid #444;
-  border-radius: 8px;
+  align-items: start;
+  overflow: hidden;
+  border: 1px solid #d3d8dc;
+  border-radius: 4px;
   background: #fff;
-  padding: 12px 14px;
+  padding: 0;
   color: #111;
   text-align: left;
+  box-shadow: 0 2px 6px rgba(17, 17, 17, 0.12);
+  scroll-margin-top: 86px;
+  font: inherit;
 }
 
 .course-node.locked {
@@ -373,8 +577,29 @@ button:disabled {
 }
 
 .course-node.active {
-  outline: 2px solid #111;
-  background: #f4f4ef;
+  outline: 2px solid var(--brand);
+  background: #fff;
+}
+
+.course-node:hover:not(:disabled) {
+  border-color: #aab5ba;
+  box-shadow: 0 4px 14px rgba(17, 17, 17, 0.16);
+}
+
+.course-node:focus-visible {
+  outline: 3px solid rgba(3, 160, 98, 0.32);
+  outline-offset: 3px;
+}
+
+.course-card-media {
+  display: grid;
+  place-items: center;
+  min-height: 164px;
+  border-bottom: 1px solid #edf0f2;
+  background:
+    linear-gradient(135deg, rgba(3, 160, 98, 0.13), rgba(6, 24, 50, 0.04)),
+    #f3f4f4;
+  color: var(--brand);
 }
 
 .course-node strong,
@@ -387,19 +612,21 @@ button:disabled {
   color: #111;
 }
 
+.course-card-title,
 .course-toggle {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 0;
   min-width: 0;
   border: 0;
   background: transparent;
   color: #111;
-  padding: 0;
+  padding: 16px 16px 0;
   text-align: left;
   cursor: pointer;
 }
 
+.course-node:disabled,
 .course-toggle:disabled,
 .course-start-button:disabled {
   cursor: not-allowed;
@@ -408,32 +635,60 @@ button:disabled {
 .course-toggle-icon {
   display: inline-grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
-  border: 1px solid #d8d8d0;
-  border-radius: 6px;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border: 1px solid transparent;
+  border-radius: 4px;
   background: #fff;
+  color: var(--brand);
   font-weight: 900;
   line-height: 1;
 }
 
+.course-theme {
+  margin: 0 0 5px;
+  color: var(--brand);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.course-description {
+  display: block;
+  margin-top: 6px;
+  color: #23314a;
+  font-size: 0.92rem;
+  font-weight: 450;
+  line-height: 1.45;
+}
+
 .course-start-button {
-  min-height: 36px;
-  border: 1px solid #111;
-  border-radius: 6px;
-  background: #111;
-  color: #fff;
-  padding: 7px 14px;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  align-self: start;
+  margin: 16px 16px 0 0;
+  border: 1px solid var(--brand);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--brand);
+  padding: 6px 12px;
   font-weight: 850;
 }
 
-.course-toggle:hover .course-toggle-icon,
-.course-start-button:hover {
-  border-color: #111;
-}
-
-.course-start-button:hover:not(:disabled) {
-  background: #333;
+.course-card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 14px 16px 16px;
+  color: #47546a;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .lesson-area {
@@ -659,7 +914,7 @@ button:disabled {
 .visual-arrow {
   align-self: center;
   border-radius: 999px;
-  background: #222;
+  background: var(--brand);
   color: #fff;
   padding: 8px 10px;
   font-weight: 850;
@@ -780,8 +1035,14 @@ button:disabled {
 
 .primary-action {
   margin-top: 12px;
-  background: #111;
+  background: var(--brand);
+  border-color: var(--brand);
   color: #fff;
+}
+
+.primary-action:hover:not(:disabled) {
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
 }
 
 .primary-action:disabled {
@@ -983,12 +1244,20 @@ button:disabled {
 
 @media (max-width: 960px) {
   .app-shell {
-    padding: 14px;
+    padding: 0;
   }
 
   .progress-header,
   .workspace {
     grid-template-columns: 1fr;
+  }
+
+  .progress-header {
+    padding: 12px 18px;
+  }
+
+  .progress-branding {
+    align-items: center;
   }
 
   .progress-stats {
@@ -999,12 +1268,14 @@ button:disabled {
     position: static;
   }
 
+  .home-workspace .course-list,
   .course-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 680px) {
+  .home-workspace .course-list,
   .course-list,
   .quiz-options {
     grid-template-columns: 1fr;
@@ -1027,12 +1298,52 @@ button:disabled {
     min-height: 100vh;
     height: auto;
     overflow: visible;
-    padding: 14px;
+    padding: 0;
+  }
+
+  .niu-brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .home-workspace {
+    padding: 22px 16px 34px;
+  }
+
+  .home-intro {
+    padding-top: 8px;
+  }
+
+  .home-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .course-node-header {
+    grid-template-columns: 1fr;
+  }
+
+  .course-toggle {
+    padding-right: 16px;
+  }
+
+  .course-card-footer,
+  .home-lesson-list {
+    margin-left: 16px;
   }
 
   .slide-stage {
     display: block;
     overflow: visible;
+    padding: 14px;
+  }
+
+  .lesson-view {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-sidebar {
+    max-height: 42vh;
   }
 
   .slide-card {
