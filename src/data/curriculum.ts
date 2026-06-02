@@ -1097,7 +1097,7 @@ export const courses: Course[] = [
   {
     id: "assignments-support",
     number: 8,
-    title: "Assignments and Working Outside the Website",
+    title: "Assignments and Working Outside this Website",
     theme: "Practice",
     description: "Larger assignments, responsible AI use, and setup guidance for continuing in an IDE with Jupyter and conda.",
     badge: "Finish",
@@ -1152,18 +1152,20 @@ export const courses: Course[] = [
       read("ai-use", "Using AI as a Beginner", "Use AI for explanation, not to skip understanding.", ["AI", "learning"], [
         "You need the skills to comprehend what the AI is saying to you.",
         "Sometimes you reach a problem the AI cannot solve. What then?",
-        "It is OK to use AI when you need something explained so that you can do it yourself."
+        "It is OK to use AI when you need something explained so that you can do it yourself.",
+        "For more guidance, read UCL ARC's [AI-assisted coding guidance](https://github-pages.arc.ucl.ac.uk/research-software-practices/tooling/ai-assisted-coding.html)."
       ]),
-      workshop("leaving-the-website", "Working Outside the Website", "Set up VS Code, Jupyter, conda, and scripts when you are ready to work locally.", ["VS Code", "conda", "Jupyter", "scripts"], [
-        "This belongs near the end because the website lets you practise Python without local setup first.",
+      workshop("leaving-the-website", "Working Outside this Website", "", ["VS Code", "conda", "Jupyter", "scripts"], [
+ 
         "When leaving the website, create a project folder, open it in VS Code or PyCharm, select the correct interpreter, and use the terminal for environment/package commands.",
         "Use conda environments to separate project dependencies. Use notebooks for exploratory work and scripts for repeatable work.",
-        "Troubleshooting checks: make sure the correct conda environment is active, check `which python` and `which pip`, and read error messages carefully."
+        "Troubleshooting checks: make sure the correct conda environment is active, check `which python` and `which pip`, and read error messages carefully.",
+        "For more information of installing anaconda see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)"
       ], 15),
       read("next-steps", "Next Steps", "Practice is the next step.", ["practice"], [
         "We have covered basic programming principles.",
         "Next step: practice. Mess around. Solve problems. Google things. Ask for help.",
-        "Useful resources include CS50, UCL ARC courses, Software Carpentry, research software engineering materials, and Exercism."
+        "Useful resources include [CS50](https://cs50.harvard.edu/python/), [UCL ARC courses](https://www.ucl.ac.uk/advanced-research-computing/education/training), [Software Carpentry](https://software-carpentry.org/), [research software engineering materials](https://github-pages.arc.ucl.ac.uk/research-software-practices/), and [Exercism](https://exercism.org/)."
       ]),
     ],
   },

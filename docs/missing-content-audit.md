@@ -36,7 +36,7 @@ The May 2026 rewrite expanded the course from ~60 lessons across 8 courses to ~9
 - `text-files`: rewritten to actually call `open()`/`with`/`write`/`read`.
 - `clean-code`: Zen of Python, naming examples, bad-vs-good comments, README example.
 
-### course 8 — Assignments and Working Outside the Website
+### course 8 — Assignments and Working Outside this Website
 - `conda-environments`: create/activate, pip vs conda, reproducibility.
 - `ways-of-working`: REPL vs notebook vs script, exploratory↔reproducible continuum.
 - `weather-assignment`: expanded to full Session 4 final assignment — hottest/coldest average year and month, yearly mean plot.
