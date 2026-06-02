@@ -1041,6 +1041,10 @@ export const courses: Course[] = [
         "When the child has its own `__init__`, call `super().__init__(...)` to set up the parent's attributes too.",
         "Child classes can add new attributes and methods, or override existing ones."
       ], "Create a `Bus` class that inherits from `Vehicle`, adds a `fare` attribute, and still has `rev_engine()`. Create a bus and print its fare then call `rev_engine()`.", "class Vehicle():\n    def __init__(self, registration, colour):\n        self.registration = registration\n        self.colour = colour\n\n    def rev_engine(self):\n        print('Vroom!')\n\nclass Bus(Vehicle):\n    def __init__(self, registration, colour, fare):\n        # Reuse the parent setup, then add the new attribute.\n        pass\n\nschool_bus = Bus('B1 BUS', 'yellow', '£1.55')\nprint(school_bus.fare)\nschool_bus.rev_engine()\n", ["£1.55", "Vroom!"], ["class", "super", "print"], [], 30),
+      quiz("copying", "Deep vs Shallow Copy", "Watch out: Assignment (the `=` operation) can create two names for the same mutable object.", ["copy", "mutable"], [
+        "If `b = a` and `a` is a list, both names refer to the same list.",
+        "This matters for mutable collections and objects."
+      ], "What prints after `a=[1,2,3]; b=a; b[0]=42; print(a[0])`?", ["42", "1", "0", "Error"], "42", "Both names refer to the same list."),
       read("errors-tracebacks", "Errors and Tracebacks", "Read error messages before changing code randomly.", ["errors", "tracebacks"], [
         "**Syntax errors** happen when Python cannot parse the code — a missing colon, unmatched bracket, or wrong indentation.",
         "**Exceptions** happen while the code is running. Common ones are: `NameError` (misspelled variable), `IndexError` (index out of range), `ZeroDivisionError` (dividing by zero), `TypeError` (wrong type), `ValueError` (e.g. passing a negative number to something that expects positive numbers).",
@@ -1068,10 +1072,6 @@ export const courses: Course[] = [
         "Individual scripts get confusing quickly. Structuring code organises things and promotes reuse.",
         "You can import functions from files such as `my_funcs.py` or from folders such as `utils.my_funcs`.",
       ]),
-      quiz("copying", "Deep vs Shallow Copy", "Assignment can create two names for the same mutable object.", ["copy", "mutable"], [
-        "If `b = a` and `a` is a list, both names refer to the same list.",
-        "This matters for mutable collections and objects."
-      ], "What prints after `a=[1,2,3]; b=a; b[0]=42; print(a[0])`?", ["42", "1", "0", "Error"], "42", "Both names refer to the same list."),
     ],
   },
   {
