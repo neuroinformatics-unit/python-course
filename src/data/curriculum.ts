@@ -768,7 +768,7 @@ export const courses: Course[] = [
       workshop("install-command-reading", "Installing packages", "Read install commands before using them locally.", ["pip", "conda"], [
         "For this course, package installing and loading is handled for you.",
         "Beyond this course, you will need to install third-party Python packages yourself, using commands such as `pip install` or `conda install`.",
-        "We will talk more about where and how to install packages in [Module 8](#exams-support)."
+        "We will talk more about where and how to install packages in [Module 8](#assignments-support)."
       ]),
       {
         ...read("numpy-max-argmax-example", "NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
@@ -1088,18 +1088,18 @@ export const courses: Course[] = [
         "You can import functions from files such as `my_funcs.py` or from folders such as `utils.my_funcs`.",
         "Good names, comments, docstrings, and README files help other people understand the code."
       ]),
-      quiz("copying", "Deep vs Shallow Copy", "Assignment can create two names for the same mutable object.", ["copy", "mutable"], [
+      quiz("copying", "Deep vs Shallow Copy", "Using `=` can create two names for the same mutable object.", ["copy", "mutable"], [
         "If `b = a` and `a` is a list, both names refer to the same list.",
         "This matters for mutable collections and objects."
       ], "What prints after `a=[1,2,3]; b=a; b[0]=42; print(a[0])`?", ["42", "1", "0", "Error"], "42", "Both names refer to the same list."),
     ],
   },
   {
-    id: "exams-support",
+    id: "assignments-support",
     number: 8,
-    title: "exams and Working Outside the Website",
+    title: "Assignments and Working Outside the Website",
     theme: "Practice",
-    description: "Larger assignments, dataset missions, responsible AI use, and setup guidance for continuing in an IDE with Jupyter and conda.",
+    description: "Larger assignments, responsible AI use, and setup guidance for continuing in an IDE with Jupyter and conda.",
     badge: "Finish",
     accent: "#111111",
     lessons: [
@@ -1124,21 +1124,21 @@ export const courses: Course[] = [
         "Write a function that takes the dictionary and an index.",
         "Use NumPy to determine the index of the student with the highest attendance percentage."
       ], "Use `np.argmax` to find the row with the highest attendance, then print the record values for that student.", "import numpy as np\nstudents = {\n    'name': ['Ada', 'Grace', 'Guido'],\n    'attendance': [88, 92, 81],\n    'score': [91, 76, 84]\n}\n\n# Write a helper for reading one row from all columns.\n# Find the best attendance row, then display it.\n", ["Grace", "92"], ["def", "np.argmax", "print"], ["numpy"], 30),
-      dataset("hospital-mission", "Exam Task: Public Hospitals", "Answer two questions about the public hospitals dataset.", ["pandas", "filtering", "sum"], [
+      dataset("hospital-mission", "Assignment: Public Hospitals", "Answer two questions about the public hospitals dataset.", ["pandas", "filtering", "sum"], [
         "The column `Peer Group Name` identifies the hospital type — look for `'Psychiatric'`.",
         "The column `Remoteness area` classifies location — `'Major Cities'` is one value.",
         "The column `Number of available beds` holds bed counts; filter to `State == 'NSW'` first."
       ], `${csvBase}/public_hospital_list.csv`, "Load `public_hospital_list.csv` and print two answers: (1) how many `Psychiatric` hospitals have `Remoteness area` equal to `'Major Cities'`, and (2) the total `Number of available beds` across all `NSW` hospitals.", "import pandas as pd\npath = '/data/public_hospital_list.csv'\n\n# Q1: combine the hospital type and location filters, then count rows.\n# Q2: filter to the requested state, then total the beds column.\n", ["18", "21146.8"], ["pandas"], ["Combine two masks with `&` for Q1.", "For Q2, filter `State == 'NSW'` then call `.sum()` on `Number of available beds`."], 0, 30),
-      dataset("street-tree-mission", "Exam Task: Street Trees", "Plot the location of every street tree in Manningham.", ["matplotlib", "scatter"], [
+      dataset("street-tree-mission", "Assignment: Street Trees", "Plot the location of every street tree in Manningham.", ["matplotlib", "scatter"], [
         "The dataset has `lat` and `lon` columns giving GPS coordinates for each tree.",
         "A scatter plot with `lon` on the x-axis and `lat` on the y-axis maps the tree locations spatially."
       ], `${csvBase}/manningham_street_trees.csv`, "Load `manningham_street_trees.csv`, print `len(df)`, then create a scatter plot with `lon` on the x-axis and `lat` on the y-axis. Call `plt.show()`.", "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/manningham_street_trees.csv'\n\n# Load the data, report its size, then plot longitude against latitude.\n", ["66904"], ["pandas", "matplotlib"], ["Use `df['lon']` for x and `df['lat']` for y in `plt.scatter()`.", "Call `plt.show()` after the plot."], 1, 30),
-      dataset("vaccination-mission", "Exam Task: Vaccination Data", "Find the NSW area with the lowest childhood vaccination rate.", ["Excel", "sorting"], [
+      dataset("vaccination-mission", "Assignment: Vaccination Data", "Find the NSW area with the lowest childhood vaccination rate.", ["Excel", "sorting"], [
         "The file is an Excel spreadsheet — use `pd.read_excel(path)` to load it.",
         "The column `% Fully` holds the percentage of children fully vaccinated.",
         "Sort by `% Fully` ascending and read the first row: `SA3_Name` is the area, `Age Group` is the age bracket."
       ], `${csvBase}/childhood_vaccination_data_nsw.xlsx`, "Load `childhood_vaccination_data_nsw.xlsx`, sort by `% Fully` ascending, select the lowest row, and print that row's `SA3_Name`, `Age Group`, and `% Fully` values.", "import pandas as pd\npath = '/data/childhood_vaccination_data_nsw.xlsx'\n\n# Load the spreadsheet.\n# Put the lowest vaccination rate first.\n# Print the requested fields from that row.\n", ["Richmond Valley - Coastal", "2 Year olds", "76.164"], ["pandas", "openpyxl"], ["Use `.sort_values('% Fully')` then `.iloc[0]` to access the lowest row.", "Print individual values with `row['SA3_Name']`, `row['Age Group']`, `row['% Fully']`."], 0, 30),
-      dataset("weather-exam", "Climate Data exam", "Clean, summarise, and explore the full weather dataset.", ["read_csv", "groupby", "plot"], [
+      dataset("weather-assignment", "Assignment: Climate Data", "Clean, summarise, and explore the full weather dataset.", ["read_csv", "groupby", "plot"], [
         "Use masking to keep only rows where `Quality` is `Y`.",
         "Group by `Year` to find the hottest and coldest average years.",
         "Group by `Month` to find the hottest and coldest average months.",

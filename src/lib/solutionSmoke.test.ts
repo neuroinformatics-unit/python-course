@@ -102,11 +102,11 @@ const solutions: Record<string, string> = {
   "hospital-mission-challenge": "import pandas as pd\npath = '/data/public_hospital_list.csv'\ndf = pd.read_csv(path)\nmajor_psych = df[(df['Peer Group Name'] == 'Psychiatric') & (df['Remoteness area'] == 'Major Cities')]\nnsw = df[df['State'] == 'NSW']\nprint(len(major_psych))\nprint(nsw['Number of available beds'].sum())\n",
   "street-tree-mission-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/manningham_street_trees.csv'\ndf = pd.read_csv(path)\nprint(len(df))\nplt.scatter(df['lon'], df['lat'])\nplt.show()\n",
   "vaccination-mission-challenge": "import pandas as pd\npath = '/data/childhood_vaccination_data_nsw.xlsx'\ndf = pd.read_excel(path)\nrow = df.sort_values('% Fully').iloc[0]\nprint(row['SA3_Name'])\nprint(row['Age Group'])\nprint(row['% Fully'])\n",
-  "weather-exam-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/parramatta_daily_maximum_temperature.csv'\ndf = pd.read_csv(path)\nclean = df[df['Quality'] == 'Y']\nyearly = clean.groupby('Year')['Maximum temperature (Degree C)'].mean()\nmonthly = clean.groupby('Month')['Maximum temperature (Degree C)'].mean()\nprint(yearly.idxmax())\nprint(yearly.idxmin())\nprint(monthly.idxmax())\nprint(monthly.idxmin())\nyearly.plot()\nplt.show()\n",
+  "weather-assignment-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/parramatta_daily_maximum_temperature.csv'\ndf = pd.read_csv(path)\nclean = df[df['Quality'] == 'Y']\nyearly = clean.groupby('Year')['Maximum temperature (Degree C)'].mean()\nmonthly = clean.groupby('Month')['Maximum temperature (Degree C)'].mean()\nprint(yearly.idxmax())\nprint(yearly.idxmin())\nprint(monthly.idxmax())\nprint(monthly.idxmin())\nyearly.plot()\nplt.show()\n",
 };
 
 describe("exercise solutions", () => {
-  it("run and pass checkpoints for every puzzle, challenge, and exam", () => {
+  it("run and pass checkpoints for every puzzle, challenge, and assignment", () => {
     const items = courses.flatMap((course) =>
       course.lessons.flatMap((lesson) => [lesson.exercise, lesson.challenge].filter(Boolean)),
     ) as Array<CodeExercise | DatasetChallenge>;
