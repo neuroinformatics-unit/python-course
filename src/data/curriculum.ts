@@ -1010,8 +1010,8 @@ export const courses: Course[] = [
     accent: "#111111",
     lessons: [
       {
-        ...read("methods-example", "Methods", "A method is a function belonging to a class or datatype.", ["methods"], [
-          "A method is a function that belongs to an object. It is called using dot syntax: `object.method()`.",
+        ...read("methods-example", "Methods", "A method is a function belonging to a datatype.", ["methods"], [
+          "It is called using dot syntax: `object.method()`.",
           "Strings have methods. Lists have methods. NumPy arrays and pandas DataFrames have methods.",
           "`list.append` modifies a list in place. String methods like `.upper()` and `.lower()` return new strings."
         ], 10),
@@ -1024,12 +1024,16 @@ export const courses: Course[] = [
       code("methods", "Checkpoint: Methods", "A method is a function belonging to a class or datatype.", ["methods"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Add `cat` to `animals`, then print the updated list and the uppercase version of `word`.", "animals = ['dog']\nword = 'python'\n\n# Update the list.\n# Transform the string for display.\n", ["cat", "PYTHON"], ["append", ".upper", "print"], [], 25),
-      code("animal-class", "Creating a Class", "Use `class`, `__init__`, and `self` to create a custom object.", ["classes", "objects", "__init__", "self"], [
-        "A class is a template for creating objects.",
+      code("animal-name-class", "Creating a Class", "Use `class`, `__init__`, and `self` to create a custom data type. This is called a \"class\"", ["classes", "objects", "__init__", "self"], [
+        "As you've seen, data types represent (collections of) data and can have their own methods.",
         "`__init__` is a special method called automatically when you create a new object.",
         "`self` refers to the specific instance — it lets the object store and access its own data.",
-        "Methods added to the class can read the object's attributes via `self`."
-      ], "Create an `Animal` class with a `species` attribute and a `greet` method that prints `Hello, I'm a penguin`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, species):\n        # Store species on self.\n        pass\n\n    def greet(self):\n        # Print a greeting using self.species.\n        pass\n\npingu = Animal('penguin')\npingu.greet()\n", ["Hello, I'm a penguin"], ["class", "def", "__init__", "self", "print"], [], 30),
+        "Methods added to the class can read the instance's data (sometimes called attributes) via `self`.",
+        "This is tricky to understand at first, and looking at the example might be of particular help to understand this."
+      ], "Create an `Animal` class with a `name` attribute and a `greet` method that prints \"Hello, I'm \"+`name`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, name):\n        # Store name on self.\n       self.name = name\n\n    def greet(self):\n        # Print a greeting using self.name.\n        print(\"Hello, I am \"+self.name)\n\npingu = Animal('Pingu')\npingu.greet()\n\n# self.name is different for different instances of the class:\ngary = Animal('Gary')\ngary.greet()\n", [], [], [], 30),
+      code("animal-species-class", "Practice: creating a Class", "Practice the concepts from the previous slide", ["methods"], [
+        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+      ], "Expand the `Animal` class from the previous slide with a `species` attribute and include it in the `greet` method so it prints `Hello, I'm Pingu, I am a penguin`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, name, species):\n        # Store name AND species on self.\n        self.name = name\n\n    def greet(self):\n        # Print a greeting using both attributes.\n        pass\n\npingu = Animal('Pingu', 'Penguin')\npingu.greet()\n\n", ["Hello, I'm Pingu, I am a penguin"], ["class", "def", "__init__", "self", "print"], [], 30),
       code("objects-classes", "Objects and Classes", "Everything in Python is an object; classes create custom objects.", ["objects", "classes"], [
         "Objects have data and behaviour.",
         "A class is a template for creating objects.",
