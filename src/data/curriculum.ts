@@ -740,12 +740,18 @@ export const courses: Course[] = [
     badge: "NumPy",
     accent: "#111111",
     lessons: [
-      read("packages", "Third-Party Packages", "Packages add functionality that does not come with base Python.", ["pip", "packages"], [
-        "There are many community-created libraries.",
-        "pip is used in the terminal to install Python packages.",
-        "NumPy, pandas, and matplotlib are common packages for scientific/data work.",
-        "In this website, packages are loaded in the browser when an exercise needs them."
-      ]),
+      {
+        ...read("packages", "Third-Party Packages", "Packages add functionality that does not come with base Python.", ["pip", "packages"], [
+          "There are many community-created libraries.",
+          "pip is used in the terminal to install Python packages.",
+          "NumPy, pandas, and matplotlib are common packages for scientific/data work.",
+          "Packages developed by the NIU are also a (smaller, domain-focused) part of this ecosystem.",
+          "For this course, packages are loaded in the browser when an exercise needs them."
+        ]),
+        images: [
+          { src: "https://zenodo.org/records/17436793/files/Scientific-Python-Ecosystem.png", alt: "Scientific Python ecosystem diagram showing connected third-party packages", caption: "The scientific Python ecosystem includes many connected third-party packages such as NumPy, pandas, and matplotlib." },
+        ],
+      },
       {
         ...read("import-aliases", "Import Aliases", "Use `as` to rename a package when importing.", ["import", "as"], [
           "The `as` keyword allows you to rename a library when you import it.",
@@ -757,17 +763,15 @@ export const courses: Course[] = [
           { src: "/images/session3/slide18-01.png", alt: "Using np.array after importing numpy as np", caption: "After `import numpy as np`, use `np.` to access NumPy functions." },
         ],
       },
-      workshop("install-command-reading", "Reading Install Commands", "Recognise package commands before using them locally.", ["pip", "conda"], [
-        "Inside this website, package loading is handled for you.",
-        "Outside the website, install commands belong in a terminal, not inside a Python script.",
-        "Use `python -m pip install package_name` for pip installs, and `conda install package_name` inside a conda environment.",
-        "pip installs Python packages only. conda can also install non-Python dependencies.",
-        "Two useful pip commands beyond install: `pip uninstall package_name` and `pip install package_name --upgrade`."
+      workshop("install-command-reading", "Installing packages", "Read install commands before using them locally.", ["pip", "conda"], [
+        "For this course, package installing and loading is handled for you.",
+        "Beyond this course, you will need to install third-party Python packages yourself, using commands such as `pip install` or `conda install`.",
+        "We will talk more about where and how to install packages in [Module 8](#exams-support)."
       ]),
       {
         ...read("numpy-max-argmax-example", "NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
-          "NumPy is useful for operations on arrays. A numpy array is a class — it has attributes and methods as well as functions that act on it.",
-          "`np.max` returns the maximum value. `np.argmax` returns the index of the maximum value.",
+          "NumPy is useful for operations on arrays. A numpy array is its own datatype provided by the `numpy` package — it is designed to contain (typically) numerical data arranged linearly. Arrays can be multidimensional: a 1-dimensional array may represent height measurements of people, or a 2-dimensional array may contain a (grayscale) photograph.",
+          "NumPy also provides some functions for arrays. For example, `np.max` returns the maximum value. `np.argmax` returns the index of the maximum value.",
           "These functions work efficiently on large arrays because NumPy operations run in optimised C code under the hood."
         ], 10),
         images: [
@@ -778,10 +782,9 @@ export const courses: Course[] = [
       },
       code("numpy-max-argmax", "Checkpoint: NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = [3, 9, 2, 5]\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
+      ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = hp.array([3, 9, 2, 5])\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
       {
         ...read("array-operations-example", "Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
-          "A NumPy array is a class useful for mathematical operations on an entire collection.",
           "Operations like `+`, `-`, `*`, and `/` apply to every element at once — no loop needed.",
           "We can also perform operations between two arrays with the same shape — each element is paired up."
         ], 10),
@@ -831,6 +834,16 @@ export const courses: Course[] = [
           { src: "/images/session4/slide22-01.png", alt: "Array range indexing selecting a column slice", caption: "`array[:, 1]` selects the entire second column." },
         ],
       },
+      code("random-int-arrays", "Random Integer Arrays", "So far, we have seen how arrays can be created based on an input list, e.g. `arr = np.array([1,2,3]). Use `np.random.randint` to generate arrays containing random integer data.", ["numpy", "random"], [
+        "`np.random.randint(low, high, size)` generates random integers between `low` (inclusive) and `high` (exclusive).",
+        "This is useful for creating test data before using real measurements.",
+        "Always print `len()` to confirm the array has the expected size."
+      ], "Create two arrays `x` and `y` of `20` random integers between `0` and `100`. Print the length of `x`.", "import numpy as np\n\n# Generate both arrays before checking the length.\nprint(len(x))\n", ["20"], ["np.random.randint", "print"], ["numpy"], 20),
+
+      code("create-arrays-ones-zeros", "Creating Arrays", "Use `np.ones` and `np.zeros` to generate arrays containing all ones or all zeros, respectively.", ["numpy", "ones", "zeros"], [
+        "`np.ones((20, 30))` and `np.zeros((20, 30))` create new 2D arrays filled with ones or zeros.",
+        "You can also create zeros with the same shape as an existing array."
+      ], "Create an array full of ones with shape `(10, 20, 30)`. Then create an array full of zeros with the same shape. Print the shape of each array.", "import numpy as np\n\n# Create the ones array.\n# Create the zeros array with the same shape.\n# Print both shapes.\n", ["(10, 20, 30)\n(10, 20, 30)"], ["np.ones", "np.zeros", "shape", "print"], ["numpy"], 20),
       code("array-range-indexing", "Checkpoint: Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
         "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
       ], "Using the provided grid, print the first row, the second column, and the bottom-right 2x2 block.", "import numpy as np\ngrid = np.array([[1, 2, 3, 4],\n                 [5, 6, 7, 8],\n                 [9, 10, 11, 12]])\n\n# Use row, column, and block slices.\n", ["[1 2 3 4]", "[ 2  6 10]"], [":", "print"], ["numpy"], 25),
@@ -955,11 +968,6 @@ export const courses: Course[] = [
           { src: "/images/session4/slide43-01.png", alt: "GroupBy result showing the grouped value as the index", caption: "The grouped column becomes the index in the result." },
         ],
       },
-      code("random-int-arrays", "Random Integer Arrays", "Use `np.random.randint` to generate random integer data.", ["numpy", "random"], [
-        "`np.random.randint(low, high, size)` generates random integers between `low` (inclusive) and `high` (exclusive).",
-        "This is useful for creating test data before using real measurements.",
-        "Always print `len()` to confirm the array has the expected size."
-      ], "Create two arrays `x` and `y` of `20` random integers between `0` and `100`. Print the length of `x`.", "import numpy as np\n\n# Generate both arrays before checking the length.\nprint(len(x))\n", ["20"], ["np.random.randint", "print"], ["numpy"], 20),
       {
         ...read("random-scatter-example", "Scatter Plots", "Create random x/y values and plot them.", ["matplotlib", "scatter"], [
           "Matplotlib is the most popular plotting library in Python and creates Matlab-like plots.",
