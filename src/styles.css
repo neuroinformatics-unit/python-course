@@ -872,7 +872,7 @@ button:disabled {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 10px;
   align-items: stretch;
-  margin-top: 16px;
+  margin: 16px 28px 0;
   border: 1px solid #d8d8d0;
   border-radius: 8px;
   background: #fff;
@@ -961,7 +961,7 @@ button:disabled {
 }
 
 .activity-panel {
-  margin-top: 14px;
+  margin: 14px 28px 0;
   border: 1px solid #d8d8d0;
   border-radius: 8px;
   background: #fff;
@@ -1188,7 +1188,7 @@ button:disabled {
 }
 
 .completed-note {
-  margin: 10px 0 0;
+  margin: 10px 28px 28px;
   color: #222;
   font-weight: 700;
 }
