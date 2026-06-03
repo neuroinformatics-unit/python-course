@@ -1,2 +1,0 @@
-# Plotting our climate data
-

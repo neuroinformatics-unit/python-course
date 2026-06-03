@@ -1,2 +1,0 @@
-# Then by decade average 
-
