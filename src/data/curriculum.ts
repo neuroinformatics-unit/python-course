@@ -409,7 +409,7 @@ export const courses: Course[] = [
         "Write `make_abba(front, back)` that takes two strings and returns `front + back + back + front`.",
         "String concatenation with `+` works inside a function just as it does anywhere else.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p182144)."
-      ], "Define `make_abba(front, back)` so it returns the four-part string. Expected output: `['HiByeByeHi', 'xyyx', 'abccab']`.", "def make_abba(front, back):\n    # Return front + back + back + front.\n    pass\n\nprint([make_abba('Hi', 'Bye'), make_abba('x', 'y'), make_abba('ab', 'c')])\n", ["['HiByeByeHi', 'xyyx', 'abccab']"], ["def make_abba", "return", "print"], [], 20),
+      ], "Define `make_abba(front, back)` so it returns the four-part string.", "def make_abba(front, back):\n    # Return front + back + back + front.\n    pass\n\nprint([make_abba('Hi', 'Bye'), make_abba('x', 'y'), make_abba('ab', 'c')])\n", ["['HiByeByeHi', 'xyyx', 'abccab']"], ["def make_abba", "return", "print"], [], 20),
       {
         ...read("arguments-defaults-example", "Arguments and Defaults", "Functions can have multiple arguments and optional defaults.", ["arguments", "defaults"], [
           "Functions can have multiple arguments separated by commas.",
@@ -429,7 +429,7 @@ export const courses: Course[] = [
         "Write `string_times(s, n)` that returns the string `s` repeated `n` times.",
         "The `*` operator works on strings as well as numbers: `'Hi' * 3` gives `'HiHiHi'`.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p193507)."
-      ], "Define `string_times(s, n)` so it returns `s` repeated `n` times. Expected output: `['HiHi', 'HiHiHi', 'Code']`.", "def string_times(s, n):\n    # Return s repeated n times.\n    pass\n\nprint([string_times('Hi', 2), string_times('Hi', 3), string_times('Code', 1)])\n", ["['HiHi', 'HiHiHi', 'Code']"], ["def string_times", "return", "print"], [], 20),
+      ], "Define `string_times(s, n)` so it returns `s` repeated `n` times.", "def string_times(s, n):\n    # Return s repeated n times.\n    pass\n\nprint([string_times('Hi', 2), string_times('Hi', 3), string_times('Code', 1)])\n", ["['HiHi', 'HiHiHi', 'Code']"], ["def string_times", "return", "print"], [], 20),
       {
         ...read("return-values-example", "Return Values", "Use `return` when a function should give a value back.", ["return"], [
           "Printing displays a value to the screen. Returning gives a value back to the caller so it can be used in further calculations.",
@@ -448,12 +448,12 @@ export const courses: Course[] = [
         "Write `make_pi()` that returns the list `[3, 1, 4]`.",
         "A function does not need to take arguments — it can just return a value.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p113659)."
-      ], "Define `make_pi()` so it returns the list `[3, 1, 4]`. Expected output: `[3, 1, 4]`.", "def make_pi():\n    # Return the list [3, 1, 4].\n    pass\n\nprint(make_pi())\n", ["[3, 1, 4]"], ["def make_pi", "return", "print"], [], 15),
+      ], "Define `make_pi()` so it returns the list `[3, 1, 4]`.", "def make_pi():\n    # Return the list [3, 1, 4].\n    pass\n\nprint(make_pi())\n", ["[3, 1, 4]"], ["def make_pi", "return", "print"], [], 15),
       code("cb-monkey-trouble", "Practice: `monkey_trouble`", "Compare two booleans for equality.", ["functions", "booleans", "=="], [
         "Two monkeys are in trouble when their smile states are the same — both smiling or neither smiling.",
         "When two booleans are equal, the expression `a == b` returns `True` without needing extra keywords.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p120546)."
-      ], "Define `monkey_trouble(a_smile, b_smile)` so it returns `True` when both monkeys smile or neither smiles. Expected output: `[True, True, False]`.", "def monkey_trouble(a_smile, b_smile):\n    # Return True when the two smile values are equal.\n    pass\n\nprint([monkey_trouble(True, True), monkey_trouble(False, False), monkey_trouble(True, False)])\n", ["[True, True, False]"], ["def monkey_trouble", "return", "print"], [], 20),
+      ], "Define `monkey_trouble(a_smile, b_smile)` so it returns `True` when both monkeys smile or neither smiles.", "def monkey_trouble(a_smile, b_smile):\n    # Return True when the two smile values are equal.\n    pass\n\nprint([monkey_trouble(True, True), monkey_trouble(False, False), monkey_trouble(True, False)])\n", ["[True, True, False]"], ["def monkey_trouble", "return", "print"], [], 20),
       code("scope-practice", "Function Scope", "Values created inside a function are local to that function.", ["scope", "functions"], [
         "A function can read arguments passed into it.",
         "Variables created inside a function normally stay inside it.",
@@ -485,32 +485,32 @@ export const courses: Course[] = [
         "Normally `sum_double(a, b)` returns `a + b`.",
         "If the two values are equal, the function returns double their sum.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p141905)."
-      ], "Define `sum_double(a, b)` so it returns `a + b`, but doubles the sum when `a == b`. Expected output: `[3, 5, 8]`.", "def sum_double(a, b):\n    # Return a + b, but double the result if they are equal.\n    pass\n\nprint([sum_double(1, 2), sum_double(3, 2), sum_double(2, 2)])\n", ["[3, 5, 8]"], ["def sum_double", "return", "print"], [], 20),
+      ], "Define `sum_double(a, b)` so it returns `a + b`, but doubles the sum when `a == b`.", "def sum_double(a, b):\n    # Return a + b, but double the result if they are equal.\n    pass\n\nprint([sum_double(1, 2), sum_double(3, 2), sum_double(2, 2)])\n", ["[3, 5, 8]"], ["def sum_double", "return", "print"], [], 20),
       code("cb-diff21", "Practice: `diff21`", "Use `abs` and a conditional return.", ["functions", "abs", "if"], [
         "`diff21(n)` returns the absolute difference between `n` and `21`.",
         "If `n` is greater than `21`, the function returns double that difference.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p197466)."
-      ], "Define `diff21(n)` so it returns `abs(n - 21)`, doubled when `n > 21`. Expected output: `[2, 11, 0, 8]`.", "def diff21(n):\n    # Return abs(n - 21), doubled when n > 21.\n    pass\n\nprint([diff21(19), diff21(10), diff21(21), diff21(25)])\n", ["[2, 11, 0, 8]"], ["def diff21", "return", "print"], [], 20),
+      ], "Define `diff21(n)` so it returns `abs(n - 21)`, doubled when `n > 21`.", "def diff21(n):\n    # Return abs(n - 21), doubled when n > 21.\n    pass\n\nprint([diff21(19), diff21(10), diff21(21), diff21(25)])\n", ["[2, 11, 0, 8]"], ["def diff21", "return", "print"], [], 20),
       code("cb-missing-char", "Practice: `missing_char`", "Use slicing inside a function to remove one character.", ["functions", "slicing", "strings"], [
         "`missing_char(s, n)` returns the string `s` with the character at index `n` removed.",
         "Use slicing to take everything before index `n` and everything after it.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p149524)."
-      ], "Define `missing_char(s, n)` so it returns `s` without the character at index `n`. Expected output: `['ktten', 'itten', 'kittn']`.", "def missing_char(s, n):\n    # Return s with the character at index n removed.\n    pass\n\nprint([missing_char('kitten', 1), missing_char('kitten', 0), missing_char('kitten', 4)])\n", ["['ktten', 'itten', 'kittn']"], ["def missing_char", "return", "print"], [], 20),
+      ], "Define `missing_char(s, n)` so it returns `s` without the character at index `n`.", "def missing_char(s, n):\n    # Return s with the character at index n removed.\n    pass\n\nprint([missing_char('kitten', 1), missing_char('kitten', 0), missing_char('kitten', 4)])\n", ["['ktten', 'itten', 'kittn']"], ["def missing_char", "return", "print"], [], 20),
       code("cb-first-two", "Practice: `first_two`", "Combine slicing with a function.", ["functions", "slicing", "strings"], [
         "Write `first_two(s)` that returns the first two characters of `s`.",
         "If `s` is shorter than two characters, return the whole string.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p184816)."
-      ], "Define `first_two(s)` so it returns the first two characters of `s`. Expected output: `['He', 'ab', 'a']`.", "def first_two(s):\n    # Return the first 2 characters, or the whole string if shorter.\n    pass\n\nprint([first_two('Hello'), first_two('ab'), first_two('a')])\n", ["['He', 'ab', 'a']"], ["def first_two", "return", "print"], [], 20),
+      ], "Define `first_two(s)` so it returns the first two characters of `s`.", "def first_two(s):\n    # Return the first 2 characters, or the whole string if shorter.\n    pass\n\nprint([first_two('Hello'), first_two('ab'), first_two('a')])\n", ["['He', 'ab', 'a']"], ["def first_two", "return", "print"], [], 20),
       code("cb-extra-end", "Practice: `extra_end`", "Repeat the last two characters of a string.", ["functions", "slicing", "strings"], [
         "Write `extra_end(s)` that returns the last two characters of `s`, repeated three times.",
         "`s[-2:]` gives the last two characters; use `*` to repeat a string.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p148853)."
-      ], "Define `extra_end(s)` so it returns the last two characters repeated three times. Expected output: `['lololo', 'ababab', 'HiHiHi']`.", "def extra_end(s):\n    # Return the last 2 characters repeated 3 times.\n    pass\n\nprint([extra_end('Hello'), extra_end('ab'), extra_end('Hi')])\n", ["['lololo', 'ababab', 'HiHiHi']"], ["def extra_end", "return", "print"], [], 20),
+      ], "Define `extra_end(s)` so it returns the last two characters repeated three times.", "def extra_end(s):\n    # Return the last 2 characters repeated 3 times.\n    pass\n\nprint([extra_end('Hello'), extra_end('ab'), extra_end('Hi')])\n", ["['lololo', 'ababab', 'HiHiHi']"], ["def extra_end", "return", "print"], [], 20),
       code("cb-without-end", "Practice: `without_end`", "Wrap slicing in a function.", ["functions", "slicing", "strings"], [
         "Write `without_end(s)` that returns `s` without its first and last character.",
         "Slicing with `[1:-1]` is a clean way to do this.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p138533)."
-      ], "Define `without_end(s)` so it returns `s` without its first and last character. Expected output: `['ell', '', '']`.", "def without_end(s):\n    # Return s without the first and last character.\n    pass\n\nprint([without_end('Hello'), without_end('ab'), without_end('Hi')])\n", ["['ell', '', '']"], ["def without_end", "return", "print"], [], 20),
+      ], "Define `without_end(s)` so it returns `s` without its first and last character.", "def without_end(s):\n    # Return s without the first and last character.\n    pass\n\nprint([without_end('Hello'), without_end('ab'), without_end('Hi')])\n", ["['ell', '', '']"], ["def without_end", "return", "print"], [], 20),
       {
         ...read("imports-libraries", "Imports and Libraries", "You can import functions from files and libraries.", ["import", "from"], [
           "If you put functions in a Python file, you can import them from another file using `import filename`.",
@@ -559,17 +559,17 @@ export const courses: Course[] = [
         "Write `first_last6(nums)` that returns `True` when the first or last element of the list is `6`.",
         "Use `nums[0]` and `nums[-1]` — check them with two separate `if` statements.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p181624)."
-        ], "Define `first_last6(nums)` so it returns `True` when the first or last element is `6`. Expected output: `[True, True, False]`.", "def first_last6(nums):\n    # Check both ends of the list.\n    pass\n\nprint([first_last6([1, 2, 6]), first_last6([6, 1, 2, 3]), first_last6([1, 2, 3])])\n", ["[True, True, False]"], ["def first_last6", "return", "print"], [], 20),
+        ], "Define `first_last6(nums)` so it returns `True` when the first or last element is `6`.", "def first_last6(nums):\n    # Check both ends of the list.\n    pass\n\nprint([first_last6([1, 2, 6]), first_last6([6, 1, 2, 3]), first_last6([1, 2, 3])])\n", ["[True, True, False]"], ["def first_last6", "return", "print"], [], 20),
       code("cb-same-first-last", "Practice: `same_first_last`", "Guard a length check before indexing.", ["functions", "lists", "len"], [
         "Write `same_first_last(nums)` that returns `True` when the list is non-empty and the first element equals the last.",
         "Check `len(nums) >= 1` first to avoid an IndexError on an empty list.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p179078)."
-      ], "Define `same_first_last(nums)` matching the description. Expected output: `[False, True, True, False]`.", "def same_first_last(nums):\n    # Return False for empty lists, otherwise compare first and last.\n    pass\n\nprint([same_first_last([1, 2, 3]), same_first_last([1, 2, 3, 1]), same_first_last([1]), same_first_last([])])\n", ["[False, True, True, False]"], ["def same_first_last", "return", "print"], [], 20),
+      ], "Define `same_first_last(nums)` matching the description.", "def same_first_last(nums):\n    # Return False for empty lists, otherwise compare first and last.\n    pass\n\nprint([same_first_last([1, 2, 3]), same_first_last([1, 2, 3, 1]), same_first_last([1]), same_first_last([])])\n", ["[False, True, True, False]"], ["def same_first_last", "return", "print"], [], 20),
       code("cb-common-end", "Practice: `common_end`", "Combine list indexing across two lists in a function.", ["functions", "lists", "indexing"], [
         "Write `common_end(a, b)` that returns `True` when `a` and `b` share the same first element, or the same last element.",
         "Both lists are guaranteed to have at least one element — check the two ends with separate `if` statements.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p147755)."
-      ], "Define `common_end(a, b)` matching the description. Expected output: `[True, False, True]`.", "def common_end(a, b):\n    # Compare the two possible matching ends.\n    pass\n\nprint([common_end([1, 2, 3], [7, 3]), common_end([1, 2, 3], [7, 3, 2]), common_end([1, 2], [1, 3])])\n", ["[True, False, True]"], ["def common_end", "return", "print"], [], 20),
+      ], "Define `common_end(a, b)` matching the description.", "def common_end(a, b):\n    # Compare the two possible matching ends.\n    pass\n\nprint([common_end([1, 2, 3], [7, 3]), common_end([1, 2, 3], [7, 3, 2]), common_end([1, 2], [1, 3])])\n", ["[True, False, True]"], ["def common_end", "return", "print"], [], 20),
     ],
   },
   {
@@ -627,12 +627,12 @@ export const courses: Course[] = [
         "Write `sleep_in(weekday, vacation)` that returns `True` when we get to sleep in.",
         "We sleep in when it is not a weekday (`not weekday`), or when we are on vacation.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p173401)."
-      ], "Define `sleep_in(weekday, vacation)` so it returns `True` whenever it is not a weekday or we are on vacation. Expected output: `[True, False, True]`.", "def sleep_in(weekday, vacation):\n    # Return True when not a weekday or when on vacation.\n    pass\n\nprint([sleep_in(False, False), sleep_in(True, False), sleep_in(True, True)])\n", ["[True, False, True]"], ["def sleep_in", "return", "print"], [], 20),
+      ], "Define `sleep_in(weekday, vacation)` so it returns `True` whenever it is not a weekday or we are on vacation.", "def sleep_in(weekday, vacation):\n    # Return True when not a weekday or when on vacation.\n    pass\n\nprint([sleep_in(False, False), sleep_in(True, False), sleep_in(True, True)])\n", ["[True, False, True]"], ["def sleep_in", "return", "print"], [], 20),
       code("cb-in1to10", "Practice: `in1to10`", "Check a range with a mode flip.", ["functions", "and", "or", "not"], [
         "Write `in1to10(n, outside_mode)` that returns whether `n` is in the range 1 to 10 (inclusive).",
         "When `outside_mode` is `True`, flip the result — return `True` when `n` is outside that range.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p158497)."
-      ], "Define `in1to10(n, outside_mode)` matching the description. Expected output: `[True, False, True, False]`.", "def in1to10(n, outside_mode):\n    # Handle the normal case and the outside-mode case.\n    pass\n\nprint([in1to10(5, False), in1to10(11, False), in1to10(11, True), in1to10(5, True)])\n", ["[True, False, True, False]"], ["def in1to10", "return", "print"], [], 20),
+      ], "Define `in1to10(n, outside_mode)` matching the description.", "def in1to10(n, outside_mode):\n    # Handle the normal case and the outside-mode case.\n    pass\n\nprint([in1to10(5, False), in1to10(11, False), in1to10(11, True), in1to10(5, True)])\n", ["[True, False, True, False]"], ["def in1to10", "return", "print"], [], 20),
       {
         ...read("membership-example", "The `in` Keyword", "Ask whether something is in something else.", ["in", "membership"], [
           "You can ask Python whether something is inside something else using the `in` keyword.",
@@ -661,12 +661,12 @@ export const courses: Course[] = [
         "You and your date each have a fashion rating between 0 and 10.",
         "If either rating is 2 or less, return 0 (stay home). If either is 8 or more, return 2 (great night). Otherwise return 1.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p129125)."
-      ], "Define `date_fashion(you, date)` so it returns 0, 1, or 2 using the rules in the summary. Expected output: `[2, 0, 1]`.", "def date_fashion(you, date):\n    # 0 if either <= 2, 2 if either >= 8, 1 otherwise.\n    pass\n\nprint([date_fashion(5, 10), date_fashion(5, 2), date_fashion(5, 5)])\n", ["[2, 0, 1]"], ["def date_fashion", "return", "print"], [], 20),
+      ], "Define `date_fashion(you, date)` so it returns 0, 1, or 2 using the rules in the summary.", "def date_fashion(you, date):\n    # 0 if either <= 2, 2 if either >= 8, 1 otherwise.\n    pass\n\nprint([date_fashion(5, 10), date_fashion(5, 2), date_fashion(5, 5)])\n", ["[2, 0, 1]"], ["def date_fashion", "return", "print"], [], 20),
       code("cb-caught-speeding", "Practice: `caught_speeding`", "Pick a fine level from speed bands.", ["functions", "if", "elif"], [
         "Up to 60 mph is no ticket (0). 61–80 is a small ticket (1). 81 or more is a big ticket (2).",
         "On your birthday you get an extra 5 mph in each band.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p137202)."
-      ], "Define `caught_speeding(speed, is_birthday)` so it returns 0, 1, or 2 using the speed bands above, with a 5 mph bonus on a birthday. Expected output: `[0, 1, 1, 2]`.", "def caught_speeding(speed, is_birthday):\n    # 0/1/2 ticket; +5 mph on birthday.\n    pass\n\nprint([caught_speeding(60, False), caught_speeding(65, False), caught_speeding(85, True), caught_speeding(85, False)])\n", ["[0, 1, 1, 2]"], ["def caught_speeding", "return", "print"], [], 20),
+      ], "Define `caught_speeding(speed, is_birthday)` so it returns 0, 1, or 2 using the speed bands above, with a 5 mph bonus on a birthday.", "def caught_speeding(speed, is_birthday):\n    # 0/1/2 ticket; +5 mph on birthday.\n    pass\n\nprint([caught_speeding(60, False), caught_speeding(65, False), caught_speeding(85, True), caught_speeding(85, False)])\n", ["[0, 1, 1, 2]"], ["def caught_speeding", "return", "print"], [], 20),
       {
         ...read("power-operator-example", "The Power Operator `**`", "Use `**` to raise a number to a power.", ["operators", "**"], [
           "In Python, `**` is the power operator: `2 ** 3` gives `8`.",
@@ -688,12 +688,12 @@ export const courses: Course[] = [
         "Days are numbered 0 = Sunday through 6 = Saturday.",
         "Weekdays (1–5): return `'7:00'` normally, `'10:00'` on vacation. Weekends (0 and 6): return `'10:00'` normally, `'off'` on vacation.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p119867)."
-      ], "Define `alarm_clock(day, vacation)` so it returns the right alarm time. Expected output: `['7:00', '10:00', '10:00', 'off']`.", "def alarm_clock(day, vacation):\n    # Weekday: '7:00' or '10:00' on vacation.\n    # Weekend: '10:00' or 'off' on vacation.\n    pass\n\nprint([alarm_clock(1, False), alarm_clock(5, True), alarm_clock(0, False), alarm_clock(6, True)])\n", ["['7:00', '10:00', '10:00', 'off']"], ["def alarm_clock", "return", "print"], [], 20),
+      ], "Define `alarm_clock(day, vacation)` so it returns the right alarm time.", "def alarm_clock(day, vacation):\n    # Weekday: '7:00' or '10:00' on vacation.\n    # Weekend: '10:00' or 'off' on vacation.\n    pass\n\nprint([alarm_clock(1, False), alarm_clock(5, True), alarm_clock(0, False), alarm_clock(6, True)])\n", ["['7:00', '10:00', '10:00', 'off']"], ["def alarm_clock", "return", "print"], [], 20),
       code("cb-cigar-party", "Practice: `cigar_party`", "Combine a range check with a weekend override.", ["functions", "if", "and"], [
         "A successful cigar party needs at least 40 cigars.",
         "On a weekday there is also an upper limit of 60. On weekends there is no upper limit.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p195669)."
-      ], "Define `cigar_party(cigars, is_weekend)` so it returns `True` when the count is at least 40, with the upper limit of 60 only applied on weekdays. Expected output: `[False, True, True]`.", "def cigar_party(cigars, is_weekend):\n    # At least 40 cigars; upper limit 60 unless it is the weekend.\n    pass\n\nprint([cigar_party(30, False), cigar_party(50, False), cigar_party(70, True)])\n", ["[False, True, True]"], ["def cigar_party", "return", "print"], [], 20),
+      ], "Define `cigar_party(cigars, is_weekend)` so it returns `True` when the count is at least 40, with the upper limit of 60 only applied on weekdays.", "def cigar_party(cigars, is_weekend):\n    # At least 40 cigars; upper limit 60 unless it is the weekend.\n    pass\n\nprint([cigar_party(30, False), cigar_party(50, False), cigar_party(70, True)])\n", ["[False, True, True]"], ["def cigar_party", "return", "print"], [], 20),
       code("dict-comprehensions", "Dictionary Comprehensions", "Build a dictionary from an existing one in one line.", ["dict comprehension", "items"], [
         "A dictionary comprehension builds a new dictionary by transforming key-value pairs.",
         "Use `dict.items()` to loop over both keys and values at the same time.",
@@ -711,17 +711,17 @@ export const courses: Course[] = [
         "The parrot causes trouble when it is talking and the hour is before 7 or after 20.",
         "Write `parrot_trouble(talking, hour)` that returns `True` in those cases.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p166884)."
-      ], "Define `parrot_trouble(talking, hour)` so it returns `True` when the parrot is talking and the hour is before 7 or after 20. Expected output: `[True, False, False, True]`.", "def parrot_trouble(talking, hour):\n    # True when talking and (hour < 7 or hour > 20).\n    pass\n\nprint([parrot_trouble(True, 6), parrot_trouble(True, 7), parrot_trouble(False, 6), parrot_trouble(True, 21)])\n", ["[True, False, False, True]"], ["def parrot_trouble", "return", "print"], [], 20),
+      ], "Define `parrot_trouble(talking, hour)` so it returns `True` when the parrot is talking and the hour is before 7 or after 20.", "def parrot_trouble(talking, hour):\n    # True when talking and (hour < 7 or hour > 20).\n    pass\n\nprint([parrot_trouble(True, 6), parrot_trouble(True, 7), parrot_trouble(False, 6), parrot_trouble(True, 21)])\n", ["[True, False, False, True]"], ["def parrot_trouble", "return", "print"], [], 20),
       code("cb-near-hundred", "Practice: `near_hundred`", "Check whether a value is close to 100 or 200.", ["functions", "abs", "or"], [
         "`near_hundred(n)` returns `True` when `n` is within 10 of either 100 or 200.",
         "Use `abs` and `or` to write it as a single expression.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p124676)."
-      ], "Define `near_hundred(n)` so it returns `True` when `n` is within 10 of 100 or 200. Expected output: `[True, True, False, True, True]`.", "def near_hundred(n):\n    # True when n is within 10 of 100 or 200.\n    pass\n\nprint([near_hundred(93), near_hundred(90), near_hundred(89), near_hundred(190), near_hundred(210)])\n", ["[True, True, False, True, True]"], ["def near_hundred", "return", "print"], [], 20),
+      ], "Define `near_hundred(n)` so it returns `True` when `n` is within 10 of 100 or 200.", "def near_hundred(n):\n    # True when n is within 10 of 100 or 200.\n    pass\n\nprint([near_hundred(93), near_hundred(90), near_hundred(89), near_hundred(190), near_hundred(210)])\n", ["[True, True, False, True, True]"], ["def near_hundred", "return", "print"], [], 20),
       code("cb-love6", "Practice: `love6`", "Use `or` across several conditions.", ["functions", "or", "abs"], [
         "Two numbers love 6 if either of them is 6, or their sum is 6, or their absolute difference is 6.",
         "Use `abs` for the difference so the order of inputs does not matter.",
         "Original CodingBat problem: [CodingBat](https://codingbat.com/prob/p100958)."
-      ], "Define `love6(a, b)` so it returns `True` when either value is 6, or `a + b == 6`, or `abs(a - b) == 6`. Expected output: `[True, False, True, True]`.", "def love6(a, b):\n    # True when a or b is 6, or sum/abs(diff) is 6.\n    pass\n\nprint([love6(6, 4), love6(4, 5), love6(1, 5), love6(1, 7)])\n", ["[True, False, True, True]"], ["def love6", "return", "print"], [], 20),
+      ], "Define `love6(a, b)` so it returns `True` when either value is 6, or `a + b == 6`, or `abs(a - b) == 6`.", "def love6(a, b):\n    # True when a or b is 6, or sum/abs(diff) is 6.\n    pass\n\nprint([love6(6, 4), love6(4, 5), love6(1, 5), love6(1, 7)])\n", ["[True, False, True, True]"], ["def love6", "return", "print"], [], 20),
     ],
   },
   {
