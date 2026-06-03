@@ -1105,11 +1105,20 @@ export const courses: Course[] = [
     lessons: [
       read("conda-environments", "Conda Environments", "Use conda to create isolated Python environments for each project.", ["conda", "environments", "packages"], [
         "A virtual environment keeps a project's Python version and packages separate from other projects.",
+        "[Conda installation instructions are available here.](https://www.anaconda.com/docs/getting-started/anaconda/install/overview)",
         "Create a new environment: `conda create --name my-project python=3.12 notebook`.",
         "Activate it before working: `conda activate my-project`.",
         "You can have as many environments as you like — activate the right one before installing or running code.",
         "pip installs Python packages only. conda can also install non-Python libraries (useful for scientific packages).",
         "Environments make your work reproducible: you can share an environment file so a colleague gets exactly the same setup."
+      ]),
+      read("integrated-development-environments", "Integrated Development Environments", "Use an IDE such as VS Code to write, run, and manage Python projects on your own computer.", ["IDE", "VS Code", "Python", "projects"], [
+        "An IDE (Integrated Development Environment) gives you a code editor, project file browser, terminal, autocomplete, and debugging tools in one place.",
+        "VS Code is a popular free choice for Python work. [VS Code installation instructions are available here.](https://code.visualstudio.com/docs/setup/setup-overview)",
+        "After installing VS Code, install the Python extension so it can recognise Python files, notebooks, interpreters, and environments.",
+        "Open your project folder in VS Code, then select the conda environment you created for that project.",
+        "Use the built-in terminal for commands such as `conda activate my-project`, `pip install ...`, and `python script.py`.",
+        "The key habit is to keep each project in its own folder and use the matching environment whenever you work on it."
       ]),
       read("ways-of-working", "Ways of Working with Python", "Choose between the REPL, notebooks, and scripts depending on your task.", ["REPL", "notebooks", "scripts", "Jupyter"], [
         "There are three main ways to run Python: the REPL (interactive console), notebooks (.ipynb), and scripts (.py).",
@@ -1118,6 +1127,11 @@ export const courses: Course[] = [
         "**Scripts** run from top to bottom every time. Good for repeatable work and automation.",
         "A common workflow: explore in a notebook, then move the final steps into a script once the analysis is settled.",
         "In VS Code or PyCharm, open your project folder, select the correct conda interpreter, and use the integrated terminal for environment commands."
+      ]),
+      read("osss-readiness", "Ready for OSSS", "Completing the next assignments means you are ready for OSSS.", ["OSSS", "assignments", "readiness"], [
+        "The following assignments combine the main skills from this course: data structures, functions, NumPy, pandas, filtering, and plotting.",
+        "If you can complete them with careful use of documentation, debugging, and your own notes, you are ready for OSSS.",
+        "You do not need to memorise every command. You need to recognise the task, choose the right tool, and work through mistakes methodically."
       ]),
       code("student-assignment", "Assignment: Student Dictionary", "Use dictionaries, functions, and NumPy together.", ["dict", "function", "np.argmax"], [
         "Start with a dictionary whose values are lists.",
@@ -1162,7 +1176,7 @@ export const courses: Course[] = [
         "Troubleshooting checks: make sure the correct conda environment is active, check `which python` and `which pip`, and read error messages carefully.",
         "For more information of installing anaconda see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)"
       ], 15),
-      read("next-steps", "Next Steps", "Practice is the next step.", ["practice"], [
+      read("next-steps", "Next Steps", "", ["practice"], [
         "We have covered basic programming principles.",
         "Next step: practice. Mess around. Solve problems. Google things. Ask for help.",
         "Useful resources include [CS50](https://cs50.harvard.edu/python/), [UCL ARC courses](https://www.ucl.ac.uk/advanced-research-computing/education/training), [Software Carpentry](https://software-carpentry.org/), [research software engineering materials](https://github-pages.arc.ucl.ac.uk/research-software-practices/), and [Exercism](https://exercism.org/)."
