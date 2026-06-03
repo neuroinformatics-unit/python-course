@@ -17,6 +17,9 @@ npm run dev
 ```
 
 ## Deploying the site 
+
+run the following locally
+
 ```sh
 export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && nvm use v20.20.2
 npm run build
