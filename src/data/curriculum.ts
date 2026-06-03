@@ -67,6 +67,7 @@ const code = (
   expectedIncludes: string[] = ["print"],
   packages: string[] = [],
   _legacyPoints = 20,
+  expectedPlotCount = 0,
 ): Lesson => ({
   id,
   kind: "code",
@@ -81,6 +82,7 @@ const code = (
     starterCode,
     expectedIncludes,
     expectedOutputContains,
+    expectedPlotCount,
     packages,
   },
 });
@@ -178,7 +180,7 @@ export const courses: Course[] = [
         "Use `print()` when you want to see a value. This is also one of the simplest ways of checking for code problems (\"debugging\")."
       ], 10),
       code("calculator-print", "Checkpoint: Calculations and `print()`", "Use the same idea with different values.", ["operators", "print"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Add the two existing numbers, store the result, and print it.", "first_number = 12\nsecond_number = 8\n\n# Calculate the total.\n# Show the result.\n", ["20"], ["result", "print"], [], 20),
       read("operator-precedence-example", "Order of Operations", "Use brackets when the intended calculation is not obvious.", ["operators", "precedence"], [
         "Python follows mathematical order of operations.",
@@ -186,7 +188,7 @@ export const courses: Course[] = [
         "When a result is surprising, split the calculation into named steps."
       ], 10),
       code("operator-precedence", "Checkpoint: Order of Operations", "Use brackets when the intended calculation is not obvious.", ["operators", "precedence"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Add the two existing numbers, multiply that sum by `3`, store it as `total`, and print `total`. Use brackets so the addition happens before multiplication.", "first_number = 12\nsecond_number = 8\n\n# Make the intended order explicit.\n# Show the calculated total.\n", ["60"], ["total", "(", ")", "print"], [], 20),
       read("variables-example", "Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
         "For example, `a = 5` assigns the value `5` to `a`.",
@@ -194,7 +196,7 @@ export const courses: Course[] = [
         "A good variable name should describe the thing it stores."
       ], 10),
       code("variables", "Checkpoint: Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Use the existing `a` and `b` values to create `c`, where `c` is their sum. Print `c`.", "a = 5\nb = 6\n\n# Create the missing variable.\n# Show its value.\n", ["11"], ["=", "print"], [], 20),
       read("types-overview", "Data Types", "Python has different built-in \"data types\" (sometimes referred to as just \"types\"). These include strings, integers, floats, and booleans. Python treats each of them differently.", ["strings", "integers", "floats", "booleans"], [
         "A string is text, and has to be surrounded by quotation marks.",
@@ -295,7 +297,7 @@ export const courses: Course[] = [
         ],
       },
       code("slicing", "Checkpoint: Range Indexing and Slicing", "Use a colon to take part of a list.", ["slicing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Select the middle three values from `numbers`, then print that slice.", "numbers = [1, 2, 3, 4, 5]\n\n# Use a slice, then show the selected values.\n", ["[2, 3, 4]"], [":", "print"], [], 20),
       {
         ...read("collection-conversion-example", "Converting Collections", "Use conversion functions such as `list()` and `set()`.", ["conversion", "set"], [
@@ -310,7 +312,7 @@ export const courses: Course[] = [
         ],
       },
       code("collection-conversion", "Checkpoint: Converting Collections", "Use conversion functions such as `list()` and `set()`.", ["conversion", "set"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Remove duplicate entries from `values`, then print how many unique values remain.", "values = ['a', 'b', 'a', 'c', 'b']\n\n# Remove duplicates, then count what remains.\n", ["3"], ["set", "len", "print"], [], 20),
       code("cb-q2-deduplicate", "Practice: Remove Duplicates", "Use `set()` to keep only unique values.", ["list", "set", "sorted"], [
         "Converting a list to a set removes duplicates because sets only keep unique values.",
@@ -327,7 +329,7 @@ export const courses: Course[] = [
         ],
       },
       code("len-practice", "Checkpoint: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Print the length of each variable.\n", ["6", "3", "2"], ["len", "print"], [], 20),
       read("tuple-unpacking-example", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
         "Tuple unpacking assigns each element of a tuple to a separate variable in one line.",
@@ -335,7 +337,7 @@ export const courses: Course[] = [
         "The number of names on the left must match the number of values in the tuple."
       ], 10),
       code("tuple-unpacking", "Checkpoint: Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Unpack `coords` into `lat`, `lon`, and `altitude`, then print each on its own line.", "coords = (53.4, -1.8, 200)\n\n# Split coords into three named variables, then print them.\n", ["53.4", "-1.8", "200"], ["=", "print"], [], 20),
       {
         ...read("dictionary-lists-example", "Dictionary of Lists", "A dictionary value can be a list.", ["dict", "list", "indexing"], [
@@ -348,7 +350,7 @@ export const courses: Course[] = [
         ],
       },
       code("dictionary-lists", "Checkpoint: Dictionary of Lists", "A dictionary value can be a list.", ["dict", "list", "indexing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Using the provided dictionary of lists, print the second student name and that student's score.", "students = {\n    'name': ['Ada', 'Grace', 'Guido'],\n    'score': [91, 76, 84],\n}\n\n# Choose the matching row from each column.\n", ["Grace", "76"], ["[", "print"], [], 25),
       code("cb-q2-dict-max", "Practice: Highest Score", "Index into a dictionary of lists to find the maximum.", ["dict", "list", "max", "indexing"], [
         "A dictionary of lists lets you store table-like data.",
@@ -401,7 +403,7 @@ export const courses: Course[] = [
         ],
       },
       code("basic-function", "Checkpoint: Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Create a function that takes a name and prints `Hello ` to that person. in the example below the function should print 'Hello Ada' .", "def hello(name):\n    # Print a greeting.\n    pass\n\nhello('Ada')\n", ["Hello Ada"], ["def", "print"], [], 20),
       code("cb-make-abba", "Practice: `make_abba`", "Concatenate (\"Chain together\") strings inside a function.", ["functions", "strings", "concatenation"], [
         "Write `make_abba(front, back)` that takes two strings and returns `front + back + back + front`.",
@@ -421,7 +423,7 @@ export const courses: Course[] = [
         ],
       },
       code("arguments-defaults", "Checkpoint: Arguments and Defaults", "Functions can have multiple arguments and optional defaults.", ["arguments", "defaults"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Write `repeat_text` so it returns `text` repeated `repeats` times, with `repeats` defaulting to `2`. Use the provided function call to print the returned value.", "def repeat_text(text, repeats=2):\n    pass\n\nprint(repeat_text('ha'))\n", ["haha"], ["def", "return"], [], 25),
       code("cb-string-times", "Practice: `string_times`", "Use arguments and the `*` operator on a string.", ["functions", "arguments", "strings"], [
         "Write `string_times(s, n)` that returns the string `s` repeated `n` times.",
@@ -440,7 +442,7 @@ export const courses: Course[] = [
         ],
       },
       code("return-values", "Checkpoint: Return Values", "Use `return` when a function should give a value back.", ["return"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Return the sum and product of `3` and `4`, then print both.", "def sum_and_product(a, b):\n    pass\n\ns, p = sum_and_product(3, 4)\nprint(s)\nprint(p)\n", ["7", "12"], ["return", "print"], [], 25),
       code("cb-make-pi", "Practice: `make_pi`", "Return a fixed list literal from a function.", ["functions", "lists", "return"], [
         "Write `make_pi()` that returns the list `[3, 1, 4]`.",
@@ -532,7 +534,7 @@ export const courses: Course[] = [
         ],
       },
       code("standard-libraries", "Checkpoint: Standard Libraries", "Use `statistics`, `math`, and `random`.", ["statistics", "math", "random"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Print the mean of the provided list and the square root of `9409`.", "import statistics\nimport math\nvalues = [1, 2, 2, 3, 4]\n\n# Use the imported libraries to calculate both results.\n", ["2.4", "97.0"], ["statistics", "math", "print"], [], 25),
       {
         ...read("comments-docstrings-example", "Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
@@ -546,7 +548,7 @@ export const courses: Course[] = [
         ],
       },
       code("comments-docstrings", "Checkpoint: Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Write a function `double` with a numpydoc-style docstring listing the parameter and the return value. The function should return (not just print) `14` for input `7`. Print the result after calling it.", "def double(value):\n    \"\"\"\n    Double a number.\n\n    Parameters\n    ----------\n    value : int or float\n        # Describe the parameter here.\n\n    Returns\n    -------\n    int or float\n        # Describe the return value here.\n    \"\"\"\n    pass\n\nprint(double(7))\n", ["14"], ["\"\"\"", "Parameters", "Returns", "return", "print"], [], 25),
       workshop("function-design", "Function Design", "Keep functions small enough to test.", ["functions", "design"], [
         "A useful function usually does one job.",
@@ -613,7 +615,7 @@ export const courses: Course[] = [
         ], 10),
       },
       code("if-elif-else", "Checkpoint: If, Elif, Else", "Run different code depending on a condition.", ["if", "elif", "else"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Use `if`, `elif`, and `else` to choose what to print from the value stored in `light`.", "light = 'green'\n\n# Choose the message that matches the current light.\n", ["move"], ["if", "print"], [], 20),
       read("logical-operators-example", "Logical Operators", "Combine or flip Boolean values with `not`, `and`, and `or`.", ["not", "and", "or", "booleans"], [
         "`not` flips a Boolean value: `not True` becomes `False`, and `not False` becomes `True`.",
@@ -644,7 +646,7 @@ export const courses: Course[] = [
         ],
       },
       code("membership", "Checkpoint: The `in` Keyword", "Ask whether something is in something else.", ["in", "membership"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Print whether `'a'` is in `'cat'` and whether `'cat'` is in the list.", "animals = ['dog', 'cat', 'llama']\nword = 'cat'\n\n# Print both checks.\n", ["True", "True"], ["in", "print"], [], 20),
       code("range-and-enumerate", "`range()` and `enumerate()`", "Create indices for loops when you need them.", ["range", "enumerate"], [
         "`range()` creates a sequence of numbers.",
@@ -675,7 +677,7 @@ export const courses: Course[] = [
         ],
       },
       code("power-operator", "Checkpoint: The Power Operator `**`", "Use `**` to raise a number to a power.", ["operators", "**"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Calculate `2` to the power of `10`, then calculate `3` to the power of `4`. Print each calculated result.", "# Calculate both powers, then show the results.\n", ["1024", "81"], ["**", "print"], [], 20),
       code("list-comprehensions", "List Comprehensions", "A one-liner way to write some loops.", ["list comprehension"], [
         "List comprehensions are useful when every output item follows the same rule.",
@@ -756,7 +758,7 @@ export const courses: Course[] = [
       workshop("install-command-reading", "Installing packages", "Read install commands before using them locally.", ["pip", "conda"], [
         "For this course, package installing and loading is handled for you.",
         "Beyond this course, you will need to install third-party Python packages yourself, using commands such as `pip install` or `conda install`.",
-        "We will talk more about where and how to install packages in [Module 8](#exams-support)."
+        "We will talk more about where and how to install packages in [Module 8](#assignments-support)."
       ]),
       {
         ...read("numpy-max-argmax-example", "NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
@@ -771,8 +773,8 @@ export const courses: Course[] = [
         ],
       },
       code("numpy-max-argmax", "Checkpoint: NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = hp.array([3, 9, 2, 5])\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
+        "Now solve a similar task yourself. The checkpoint checks the output."
+      ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = [3, 9, 2, 5]\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
       {
         ...read("array-operations-example", "Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
           "Operations like `+`, `-`, `*`, and `/` apply to every element at once — no loop needed.",
@@ -785,7 +787,7 @@ export const courses: Course[] = [
         ],
       },
       code("array-operations", "Checkpoint: Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Create a NumPy array from `5`, `10`, `15`, and `20`. Calculate `scaled` by multiplying the array by `2` and subtracting `3`, then print `scaled`.", "import numpy as np\n\n# Build the array, then apply the arithmetic to every element.\nprint(scaled)\n", ["[ 7 17 27 37]"], ["np.array", "print"], ["numpy"], 25),
       quiz("array-vs-list", "Array or List?", "Choose the right tool for repeated numeric operations.", ["arrays", "lists"], [
         "Lists are general-purpose collections.",
@@ -810,7 +812,7 @@ export const courses: Course[] = [
         ],
       },
       code("shape-and-indexing", "Checkpoint: Shape and Indexing", "Create and index multidimensional arrays.", ["shape", "indexing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Create a 2x3 array containing the values `1` through `6`, print its `.shape`, then use row-column indexing to print the bottom-right value.", "import numpy as np\n\n# Build the grid.\n# Inspect its shape, then choose the required cell.\n", ["(2, 3)", "6"], ["np.array", ".shape", "print"], ["numpy"], 25),
       {
         ...read("array-range-indexing-example", "Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
@@ -835,7 +837,7 @@ export const courses: Course[] = [
         "You can also create zeros with the same shape as an existing array."
       ], "Create an array full of ones with shape `(10, 20, 30)`. Then create an array full of zeros with the same shape. Print the shape of each array.", "import numpy as np\n\n# Create the ones array.\n# Create the zeros array with the same shape.\n# Print both shapes.\n", ["(10, 20, 30)\n(10, 20, 30)"], ["np.ones", "np.zeros", "shape", "print"], ["numpy"], 20),
       code("array-range-indexing", "Checkpoint: Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Using the provided grid, print the first row, the second column, and the bottom-right 2x2 block.", "import numpy as np\ngrid = np.array([[1, 2, 3, 4],\n                 [5, 6, 7, 8],\n                 [9, 10, 11, 12]])\n\n# Use row, column, and block slices.\n", ["[1 2 3 4]", "[ 2  6 10]"], [":", "print"], ["numpy"], 25),
       {
         ...read("masks-example", "Masks", "Use comparison operators to filter arrays.", ["masks", "comparison"], [
@@ -848,7 +850,7 @@ export const courses: Course[] = [
         ],
       },
       code("masks", "Checkpoint: Masks", "Use comparison operators to filter arrays.", ["masks", "comparison"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Print temperatures greater than `25`.", "import numpy as np\ntemperatures = np.array([18, 22, 26, 31, 19])\n\n# Create and apply a mask.\n", ["[26 31]"], [">", "print"], ["numpy"], 25),
       code("cb-np-mask", "Practice: Filter an Array", "Apply a boolean mask to extract matching values.", ["numpy", "masks"], [
         "Create a comparison on an array to get a boolean mask.",
@@ -874,8 +876,7 @@ export const courses: Course[] = [
         ...read("dataframes-example", "DataFrames", "Create and inspect a pandas DataFrame.", ["pandas", "DataFrame"], [
           "Pandas is useful for working with tabular data — like Excel but in Python.",
           "A pandas DataFrame is very similar to a dictionary of lists: each key becomes a column name.",
-          "Create one with `pd.DataFrame(dictionary)` and pandas turns it into a labelled table.",
-          "Columns are selected by name, and multiple columns can be selected with a list of names."
+          "Create one with `pd.DataFrame(dictionary)` and pandas turns it into a labelled table."
         ], 10),
         images: [
           { src: "/images/session4/slide25-01.png", alt: "Creating a pandas DataFrame from a dictionary and printing it", caption: "A DataFrame is built from a dictionary — each key becomes a column." },
@@ -883,8 +884,8 @@ export const courses: Course[] = [
         ],
       },
       code("dataframes", "Checkpoint: DataFrames", "Create and inspect a pandas DataFrame.", ["pandas", "DataFrame"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Create a DataFrame with `name`, `score`, and `group` columns, then select and print only the `name` and `score` columns.", "import pandas as pd\n\n# Build the table.\n# Print the smaller table requested in the prompt.\n", ["score"], ["pd.DataFrame", "print"], ["pandas"], 25),
+        "Now solve a similar task yourself. The checkpoint checks the output."
+      ], "Create a DataFrame with `name`, `score`, and `group` columns, then print the full DataFrame.", "import pandas as pd\n\n# Build the table.\n# Print the full DataFrame.\n", ["score", "group"], ["pd.DataFrame", "print"], ["pandas"], 25),
       {
         ...read("column-selection-example", "Selecting Columns", "Select one column or a smaller table of columns.", ["columns", "DataFrame"], [
           "Use `df['column']` for one column — this returns a pandas Series.",
@@ -897,7 +898,7 @@ export const courses: Course[] = [
         ],
       },
       code("column-selection", "Checkpoint: Selecting Columns", "Select one column or a smaller table of columns.", ["columns", "DataFrame"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "From `df`, select and print the `name` column, then select and print the smaller DataFrame containing `name` and `score`.", "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace'], 'score': [91, 76], 'group': ['A', 'B']})\n\n# Select and print the requested columns.\n", ["Ada", "score"], ["[", "print"], ["pandas"], 25),
       code("cb-pd-column", "Practice: Column Mean", "Select a column and compute its mean.", ["pandas", "column", "mean"], [
         "Use `df['column']` to select a Series, then call `.mean()` to get the average.",
@@ -909,7 +910,7 @@ export const courses: Course[] = [
         "This is useful when you want the first N rows or a specific positional slice of the data."
       ], 10),
       code("iloc-indexing", "Checkpoint: Integer-Location Indexing with `iloc`", "Use `.iloc` to index rows and columns by position.", ["iloc", "indexing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Use `.iloc` to select and print the first two rows, then use `.iloc` again to print the value at row `0`, column `1`.", "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace', 'Guido'], 'score': [91, 76, 84], 'group': ['A', 'B', 'A']})\n\n# Make one row selection and one single-cell selection.\n", ["Ada", "Grace", "91"], ["iloc", "print"], ["pandas"], 25),
       {
         ...read("dataframe-masking-example", "DataFrame Masking", "Filter rows with a Boolean mask.", ["masking"], [
@@ -924,7 +925,7 @@ export const courses: Course[] = [
         ],
       },
       code("dataframe-masking", "Checkpoint: DataFrame Masking", "Filter rows with a Boolean mask.", ["masking"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Print rows where `score` is at least `80`.", "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace', 'Guido'], 'score': [91, 76, 84]})\n\n# Filter and print.\n", ["Ada", "Guido"], [">=", "print"], ["pandas"], 25),
       code("cb-pd-filter", "Practice: Filter Rows", "Apply a boolean mask to select matching rows.", ["pandas", "masking"], [
         "Create a comparison on a column to build a boolean mask, then pass it to the DataFrame.",
@@ -935,15 +936,43 @@ export const courses: Course[] = [
         "`.head()` shows the first few rows. `.unique()` shows distinct values in a column. `.value_counts()` counts how many times each value appears.",
         "These three methods together help you understand what is in the data and whether cleaning is needed."
       ], "Print the first 2 rows, the unique species values, and the count of each species.", "import pandas as pd\ndf = pd.DataFrame({\n    'species': ['oak', 'oak', 'elm', 'pine', 'elm'],\n    'height': [12, 15, 8, 20, 9]\n})\n\n# Inspect rows, distinct labels, and label counts.\n", ["oak", "elm", "pine"], ["head", "unique", "value_counts", "print"], ["pandas"], 25),
+      read("excel-files", "CSV and Excel Files", "Pandas can read CSV and Excel files.", ["read_csv", "read_excel"], [
+        "Use `pandas.read_csv('file.csv')` for CSV files.",
+        "Use `pandas.read_excel('file.xlsx')` for Excel files.",
+        "Some formats need extra packages installed in the environment."
+      ]),
       {
         ...dataset("read-clean-weather", "Read and Clean a CSV", "Use `read_csv` and a quality mask.", ["read_csv", "masking"], [
           "Use `pd.read_csv(path)` to load a CSV file into a DataFrame.",
           "Real datasets often need filtering before analysis — rows with bad data should be removed first.",
           "In the weather file, keep rows where `Quality` is `Y` using a mask."
         ], `${csvBase}/parramatta_daily_maximum_temperature.csv`, "Load the weather CSV, keep only quality checked rows, store them as `clean`, and print `len(clean)`.", "import pandas as pd\npath = '/data/parramatta_daily_maximum_temperature.csv'\n\n# Load the file, clean the rows, then count the result.\n", ["19479"], ["pandas"], ["Use `pd.read_csv(path)`.", "Filter `Quality == 'Y'`."], 0, 25),
-        images: [
-          { src: "/images/session4/slide35-01.png", alt: "pd.read_csv loading a CSV file into a DataFrame", caption: "`pd.read_csv(path)` loads a CSV into a DataFrame in one line." },
-          { src: "/images/session4/slide37-01.png", alt: "Data cleaning step: filtering rows by a quality column", caption: "Filter out low-quality rows before any analysis." },
+        examples: [
+          {
+            code: `import pandas as pd
+
+path = "/data/parramatta_daily_maximum_temperature.csv"
+df = pd.read_csv(path)
+
+print(df.head())
+print(len(df))`,
+            caption: "`pd.read_csv(path)` loads the full weather CSV into a DataFrame.",
+            packages: ["pandas"],
+            datasetPaths: [`${csvBase}/parramatta_daily_maximum_temperature.csv`],
+          },
+          {
+            code: `import pandas as pd
+
+path = "/data/parramatta_daily_maximum_temperature.csv"
+df = pd.read_csv(path)
+
+clean = df[df["Quality"] == "Y"]
+print(clean.head())
+print(len(clean))`,
+            caption: "Filter out low-quality rows before any analysis.",
+            packages: ["pandas"],
+            datasetPaths: [`${csvBase}/parramatta_daily_maximum_temperature.csv`],
+          },
         ],
       },
       {
@@ -952,9 +981,34 @@ export const courses: Course[] = [
           "In the returned grouped DataFrame, the value you grouped by becomes the row index.",
           "Chain `.mean()`, `.sum()`, or `.count()` after `groupby` to summarise each group."
         ], `${csvBase}/parramatta_daily_maximum_temperature.csv`, "After cleaning the weather data, group by `Year`, calculate the yearly mean maximum temperature, and print the final row of the grouped result.", "import pandas as pd\npath = '/data/parramatta_daily_maximum_temperature.csv'\n\n# Prepare the data, summarise by year, then show the last row.\n", ["2024", "23.323"], ["pandas"], ["Use `.groupby('Year')`.", "Average `Maximum temperature (Degree C)`."], 0, 25),
-        images: [
-          { src: "/images/session4/slide42-01.png", alt: "groupby clustering rows by a category column", caption: "`groupby` clusters rows that share the same value in a column." },
-          { src: "/images/session4/slide43-01.png", alt: "GroupBy result showing the grouped value as the index", caption: "The grouped column becomes the index in the result." },
+        examples: [
+          {
+            code: `import pandas as pd
+
+path = "/data/parramatta_daily_maximum_temperature.csv"
+df = pd.read_csv(path)
+clean = df[df["Quality"] == "Y"]
+
+yearly = clean.groupby("Year")["Maximum temperature (Degree C)"].mean()
+print(yearly.head())`,
+            caption: "`groupby` clusters rows that share the same value, then `.mean()` summarises each group.",
+            packages: ["pandas"],
+            datasetPaths: [`${csvBase}/parramatta_daily_maximum_temperature.csv`],
+          },
+          {
+            code: `import pandas as pd
+
+path = "/data/parramatta_daily_maximum_temperature.csv"
+df = pd.read_csv(path)
+clean = df[df["Quality"] == "Y"]
+
+yearly = clean.groupby("Year")["Maximum temperature (Degree C)"].mean()
+print(yearly.tail())
+print(yearly.tail(1))`,
+            caption: "The grouped column becomes the index in the result.",
+            packages: ["pandas"],
+            datasetPaths: [`${csvBase}/parramatta_daily_maximum_temperature.csv`],
+          },
         ],
       },
       {
@@ -969,7 +1023,7 @@ export const courses: Course[] = [
         ],
       },
       code("random-scatter", "Checkpoint: Scatter Plots", "Create random x/y values and plot them.", ["matplotlib", "scatter"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Create `20` random integer x values and `20` random integer y values, scatter plot them, call `plt.show()`, and print the length of `x`.", "import numpy as np\nimport matplotlib.pyplot as plt\n\n# Generate the data.\n# Plot it, display it, then confirm the sample size.\n", ["20"], ["plt.scatter", "plt.show", "len", "print"], ["numpy", "matplotlib"], 25),
       {
         ...read("plot-labels-example", "Plot Labels", "Add labels so a plot can be interpreted.", ["matplotlib", "labels"], [
@@ -983,18 +1037,13 @@ export const courses: Course[] = [
         ],
       },
       code("plot-labels", "Checkpoint: Plot Labels", "Add labels so a plot can be interpreted.", ["matplotlib", "labels"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
-      ], "Using the provided `years` and `values`, create a labelled plot, call `plt.show()`, then print the provided `status` value.", "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\nstatus = 'labelled'\n\n# Build the plot, make it readable, display it, then report completion.\n", ["labelled"], ["plt.plot", "plt.xlabel", "plt.ylabel", "plt.title", "plt.show", "status"], ["matplotlib"], 25),
+        "Now solve a similar task yourself. The checkpoint checks that your code creates a plot."
+      ], "Using the provided `years` and `values`, create a labelled plot, then call `plt.show()`.", "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\n\n", [], ["plt.plot", "plt.xlabel", "plt.ylabel", "plt.title", "plt.show"], ["matplotlib"], 25, 1),
       dataset("weather-plot", "Plot Climate Data", "Plot mean maximum temperature by year.", ["matplotlib", "groupby"], [
         "After cleaning and grouping the data, plot the yearly values.",
         "The plot is used to inspect the result, not just decorate the page.",
         "If the plot looks wrong, inspect the data before trusting the conclusion."
       ], `${csvBase}/parramatta_daily_maximum_temperature.csv`, "Clean the weather CSV, group by year, print the final row of the yearly result, plot the yearly result, and call `plt.show()`.", "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/parramatta_daily_maximum_temperature.csv'\n\n# Prepare the yearly summary, print the final row, then plot it.\n", ["2024", "23.323"], ["pandas", "matplotlib"], ["Call `plt.show()`."], 1, 30),
-      read("excel-files", "CSV and Excel Files", "Pandas can read CSV and Excel files.", ["read_csv", "read_excel"], [
-        "Use `pandas.read_csv('file.csv')` for CSV files.",
-        "Use `pandas.read_excel('file.xlsx')` for Excel files.",
-        "Some formats need extra packages installed in the environment."
-      ]),
     ],
   },
   {
@@ -1006,8 +1055,8 @@ export const courses: Course[] = [
     accent: "#111111",
     lessons: [
       {
-        ...read("methods-example", "Methods", "A method is a function belonging to a class or datatype.", ["methods"], [
-          "A method is a function that belongs to an object. It is called using dot syntax: `object.method()`.",
+        ...read("methods-example", "Methods", "A method is a function belonging to a datatype.", ["methods"], [
+          "It is called using dot syntax: `object.method()`.",
           "Strings have methods. Lists have methods. NumPy arrays and pandas DataFrames have methods.",
           "`list.append` modifies a list in place. String methods like `.upper()` and `.lower()` return new strings."
         ], 10),
@@ -1018,27 +1067,32 @@ export const courses: Course[] = [
         ],
       },
       code("methods", "Checkpoint: Methods", "A method is a function belonging to a class or datatype.", ["methods"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The checkpoint checks the output."
       ], "Add `cat` to `animals`, then print the updated list and the uppercase version of `word`.", "animals = ['dog']\nword = 'python'\n\n# Update the list.\n# Transform the string for display.\n", ["cat", "PYTHON"], ["append", ".upper", "print"], [], 25),
-      code("animal-class", "Creating a Class", "Use `class`, `__init__`, and `self` to create a custom object.", ["classes", "objects", "__init__", "self"], [
-        "A class is a template for creating objects.",
+      code("animal-name-class", "Creating a Class", "Use `class`, `__init__`, and `self` to create a custom data type. This is called a \"class\"", ["classes", "objects", "__init__", "self"], [
+        "As you've seen, data types represent (collections of) data and can have their own methods.",
         "`__init__` is a special method called automatically when you create a new object.",
-        "`self` refers to the specific instance — it lets the object store and access its own data.",
-        "Methods added to the class can read the object's attributes via `self`."
-      ], "Create an `Animal` class with a `species` attribute and a `greet` method that prints `Hello, I'm a penguin`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, species):\n        # Store species on self.\n        pass\n\n    def greet(self):\n        # Print a greeting using self.species.\n        pass\n\npingu = Animal('penguin')\npingu.greet()\n", ["Hello, I'm a penguin"], ["class", "def", "__init__", "self", "print"], [], 30),
-      code("objects-classes", "Objects and Classes", "Everything in Python is an object; classes create custom objects.", ["objects", "classes"], [
-        "Objects have data and behaviour.",
-        "A class is a template for creating objects.",
-        "Methods can use attributes stored on the object."
+        "`self` refers to the specific instance — it lets the instance store and access its own data.",
+        "Methods added to the class can read the instance's data (sometimes called attributes) via `self`.",
+        "This is tricky to understand at first, and looking at the example might be of particular help to understand this."
+      ], "Create an `Animal` class with a `name` attribute and a `greet` method that prints \"Hello, I'm \"+`name`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, name):\n        # Store name on self.\n       self.name = name\n\n    def greet(self):\n        # Print a greeting using self.name.\n        print(\"Hello, I am \"+self.name)\n\npingu = Animal('Pingu')\npingu.greet()\n\n# self.name is different for different instances of the class:\ngary = Animal('Gary')\ngary.greet()\n", [], [], [], 30),
+      code("animal-species-class", "Practice: creating a Class", "Practice the concepts from the previous slide", ["methods"], [
+        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+      ], "Expand the `Animal` class from the previous slide with a `species` attribute and include it in the `greet` method so it prints `Hello, I'm Pingu, I am a penguin`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, name, species):\n        # Store name AND species on self.\n        self.name = name\n\n    def greet(self):\n        # Print a greeting using both attributes.\n        pass\n\npingu = Animal('Pingu', 'Penguin')\npingu.greet()\n\n", ["Hello, I'm Pingu, I am a penguin"], ["class", "def", "__init__", "self", "print"], [], 30),
+      code("objects-classes", "Objects and Classes", "Instances of classes are also referred to as \"objects\". (Under the hood, everything in Python is an object.) Here is another exercise for you to practice these concepts, this time with less given code scaffolding: define a custom data type (a \"class\") and then make an instance of it (an \"object\")", ["objects", "classes"], [
       ], "Create a `Cell` class with `relative_expression()` returning `GFP_level / RFP_level`, then instantiate it with `300` and `200` and print the method result.", "class Cell:\n    def __init__(self, GFP_level, RFP_level):\n        pass\n\n# Add relative_expression and print the result.\n", ["1.5"], ["class", "def", "return", "print"], [], 30),
       code("inheritance", "Inheritance and `super()`", "Child classes inherit from parent classes and can extend them.", ["inheritance", "super"], [
         "A child class inherits all attributes and methods of the parent class.",
         "When the child has its own `__init__`, call `super().__init__(...)` to set up the parent's attributes too.",
         "Child classes can add new attributes and methods, or override existing ones."
       ], "Create a `Bus` class that inherits from `Vehicle`, adds a `fare` attribute, and still has `rev_engine()`. Create a bus and print its fare then call `rev_engine()`.", "class Vehicle():\n    def __init__(self, registration, colour):\n        self.registration = registration\n        self.colour = colour\n\n    def rev_engine(self):\n        print('Vroom!')\n\nclass Bus(Vehicle):\n    def __init__(self, registration, colour, fare):\n        # Reuse the parent setup, then add the new attribute.\n        pass\n\nschool_bus = Bus('B1 BUS', 'yellow', '£1.55')\nprint(school_bus.fare)\nschool_bus.rev_engine()\n", ["£1.55", "Vroom!"], ["class", "super", "print"], [], 30),
+      quiz("copying", "Deep vs Shallow Copy", "Watch out: Assignment (the `=` operation) can create two names for the same mutable object.", ["copy", "mutable"], [
+        "If `b = a` and `a` is a list, both names refer to the same list.",
+        "This matters for mutable collections and objects."
+      ], "What prints after `a=[1,2,3]; b=a; b[0]=42; print(a[0])`?", ["42", "1", "0", "Error"], "42", "Both names refer to the same list."),
       read("errors-tracebacks", "Errors and Tracebacks", "Read error messages before changing code randomly.", ["errors", "tracebacks"], [
         "**Syntax errors** happen when Python cannot parse the code — a missing colon, unmatched bracket, or wrong indentation.",
-        "**Exceptions** happen while the code is running. Common ones are: `NameError` (misspelled variable), `IndexError` (index out of range), `ZeroDivisionError` (dividing by zero), `TypeError` (wrong type).",
+        "**Exceptions** happen while the code is running. Common ones are: `NameError` (misspelled variable), `IndexError` (index out of range), `ZeroDivisionError` (dividing by zero), `TypeError` (wrong type), `ValueError` (e.g. passing a negative number to something that expects positive numbers).",
         "When you see a traceback, read the *last line* first — it names the error type and often says exactly what went wrong.",
         "Then look at the lines above it to trace back which function call caused the problem.",
         "The debugging habit: read the error, find the line, understand what Python is complaining about, then change one thing."
@@ -1051,17 +1105,7 @@ export const courses: Course[] = [
         "A `try` block contains code that might fail.",
         "An `except` block handles the failure.",
         "Catch specific exception types (e.g. `except ZeroDivisionError`) so that unexpected errors still surface."
-      ], "Write `find_length(x)` so it returns `len(x)`, or `None` if the object has no length.", "def find_length(x):\n    pass\n\nprint(find_length('python'))\nprint(find_length(42))\n", ["6", "None"], ["try", "except", "return"], [], 25),
-      code("text-files", "Reading and Writing Text Files", "Open files, write text, and use context managers.", ["open", "with"], [
-        "Files must be opened before reading or writing.",
-        "Use mode `'w'` to write and mode `'r'` to read.",
-        "A `with` context manager closes the file automatically when the block finishes."
-      ], "Use a context manager to write two lines about Python to `notes.txt`, then use another context manager to read the file and print its contents.", "# Write to notes.txt.\nwith open('notes.txt', 'w') as f:\n    # Write two lines.\n    pass\n\n# Read notes.txt and print its contents.\nwith open('notes.txt', 'r') as f:\n    pass\n", ["Python", "is great"], ["open", "with", "write", "read", "print"], [], 25),
-      read("file-paths", "File Paths", "A file path tells Python where a file lives.", ["paths", "files"], [
-        "A relative path is interpreted from the current working folder.",
-        "An absolute path starts from the top of the filesystem.",
-        "When a file cannot be found, check the current folder and the spelling of the path."
-      ]),
+      ], "Write `find_length(x)` so it returns `len(x)`, or `None` if calling `len` on the object throws a `TypeError`.", "def find_length(x):\n    pass\n\nprint(find_length('python'))\nprint(find_length(42))\n", ["6", "None"], ["try", "except", "return"], [], 25),
       read("clean-code", "Clean Code and Documentation", "Good names, comments, docstrings, and a README make code understandable.", ["naming", "comments", "docstrings", "README"], [
         "**Naming**: prefer `foci_per_cell = foci_number / cell_number` over `fpc = f / c`. The longer name is self-explanatory.",
         "**Comments**: explain *why*, not *what*. `# remove noise` is useful; `# run gaussian blur` just restates the function name.",
@@ -1072,29 +1116,37 @@ export const courses: Course[] = [
       read("structure-docs", "Structure and Documentation", "Organise code and document intent.", ["modules", "README", "docstrings"], [
         "Individual scripts get confusing quickly. Structuring code organises things and promotes reuse.",
         "You can import functions from files such as `my_funcs.py` or from folders such as `utils.my_funcs`.",
-        "Good names, comments, docstrings, and README files help other people understand the code."
       ]),
-      quiz("copying", "Deep vs Shallow Copy", "Assignment can create two names for the same mutable object.", ["copy", "mutable"], [
+      quiz("copying", "Deep vs Shallow Copy", "Using `=` can create two names for the same mutable object.", ["copy", "mutable"], [
         "If `b = a` and `a` is a list, both names refer to the same list.",
         "This matters for mutable collections and objects."
       ], "What prints after `a=[1,2,3]; b=a; b[0]=42; print(a[0])`?", ["42", "1", "0", "Error"], "42", "Both names refer to the same list."),
     ],
   },
   {
-    id: "exams-support",
+    id: "assignments-support",
     number: 8,
-    title: "exams and Working Outside the Website",
+    title: "Assignments and Working Outside this Website",
     theme: "Practice",
     description: "Larger assignments, dataset missions, responsible AI use, and setup guidance for continuing in an IDE with Jupyter and conda.",
     accent: "#111111",
     lessons: [
       read("conda-environments", "Conda Environments", "Use conda to create isolated Python environments for each project.", ["conda", "environments", "packages"], [
         "A virtual environment keeps a project's Python version and packages separate from other projects.",
+        "[Conda installation instructions are available here.](https://www.anaconda.com/docs/getting-started/anaconda/install/overview)",
         "Create a new environment: `conda create --name my-project python=3.12 notebook`.",
         "Activate it before working: `conda activate my-project`.",
         "You can have as many environments as you like — activate the right one before installing or running code.",
         "pip installs Python packages only. conda can also install non-Python libraries (useful for scientific packages).",
         "Environments make your work reproducible: you can share an environment file so a colleague gets exactly the same setup."
+      ]),
+      read("integrated-development-environments", "Integrated Development Environments", "Use an IDE such as VS Code to write, run, and manage Python projects on your own computer.", ["IDE", "VS Code", "Python", "projects"], [
+        "An IDE (Integrated Development Environment) gives you a code editor, project file browser, terminal, autocomplete, and debugging tools in one place.",
+        "VS Code is a popular free choice for Python work. [VS Code installation instructions are available here.](https://code.visualstudio.com/docs/setup/setup-overview)",
+        "After installing VS Code, install the Python extension so it can recognise Python files, notebooks, interpreters, and environments.",
+        "Open your project folder in VS Code, then select the conda environment you created for that project.",
+        "Use the built-in terminal for commands such as `conda activate my-project`, `pip install ...`, and `python script.py`.",
+        "The key habit is to keep each project in its own folder and use the matching environment whenever you work on it."
       ]),
       read("ways-of-working", "Ways of Working with Python", "Choose between the REPL, notebooks, and scripts depending on your task.", ["REPL", "notebooks", "scripts", "Jupyter"], [
         "There are three main ways to run Python: the REPL (interactive console), notebooks (.ipynb), and scripts (.py).",
@@ -1104,26 +1156,31 @@ export const courses: Course[] = [
         "A common workflow: explore in a notebook, then move the final steps into a script once the analysis is settled.",
         "In VS Code or PyCharm, open your project folder, select the correct conda interpreter, and use the integrated terminal for environment commands."
       ]),
+      read("osss-readiness", "Ready for OSSS", "Completing the next assignments means you are ready for OSSS.", ["OSSS", "assignments", "readiness"], [
+        "The following assignments combine the main skills from this course: data structures, functions, NumPy, pandas, filtering, and plotting.",
+        "If you can complete them with careful use of documentation, debugging, and your own notes, you are ready for OSSS.",
+        "You do not need to memorise every command. You need to recognise the task, choose the right tool, and work through mistakes methodically."
+      ]),
       code("student-assignment", "Assignment: Student Dictionary", "Use dictionaries, functions, and NumPy together.", ["dict", "function", "np.argmax"], [
         "Start with a dictionary whose values are lists.",
         "Write a function that takes the dictionary and an index.",
         "Use NumPy to determine the index of the student with the highest attendance percentage."
       ], "Use `np.argmax` to find the row with the highest attendance, then print the record values for that student.", "import numpy as np\nstudents = {\n    'name': ['Ada', 'Grace', 'Guido'],\n    'attendance': [88, 92, 81],\n    'score': [91, 76, 84]\n}\n\n# Write a helper for reading one row from all columns.\n# Find the best attendance row, then display it.\n", ["Grace", "92"], ["def", "np.argmax", "print"], ["numpy"], 30),
-      dataset("hospital-mission", "Exam Task: Public Hospitals", "Answer two questions about the public hospitals dataset.", ["pandas", "filtering", "sum"], [
+      dataset("hospital-mission", "Assignment: Public Hospitals", "Answer two questions about the public hospitals dataset.", ["pandas", "filtering", "sum"], [
         "The column `Peer Group Name` identifies the hospital type — look for `'Psychiatric'`.",
         "The column `Remoteness area` classifies location — `'Major Cities'` is one value.",
         "The column `Number of available beds` holds bed counts; filter to `State == 'NSW'` first."
       ], `${csvBase}/public_hospital_list.csv`, "Load `public_hospital_list.csv` and print two answers: (1) how many `Psychiatric` hospitals have `Remoteness area` equal to `'Major Cities'`, and (2) the total `Number of available beds` across all `NSW` hospitals.", "import pandas as pd\npath = '/data/public_hospital_list.csv'\n\n# Q1: combine the hospital type and location filters, then count rows.\n# Q2: filter to the requested state, then total the beds column.\n", ["18", "21146.8"], ["pandas"], ["Combine two masks with `&` for Q1.", "For Q2, filter `State == 'NSW'` then call `.sum()` on `Number of available beds`."], 0, 30),
-      dataset("street-tree-mission", "Exam Task: Street Trees", "Plot the location of every street tree in Manningham.", ["matplotlib", "scatter"], [
+      dataset("street-tree-mission", "Assignment: Street Trees", "Plot the location of every street tree in Manningham.", ["matplotlib", "scatter"], [
         "The dataset has `lat` and `lon` columns giving GPS coordinates for each tree.",
         "A scatter plot with `lon` on the x-axis and `lat` on the y-axis maps the tree locations spatially."
       ], `${csvBase}/manningham_street_trees.csv`, "Load `manningham_street_trees.csv`, print `len(df)`, then create a scatter plot with `lon` on the x-axis and `lat` on the y-axis. Call `plt.show()`.", "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/manningham_street_trees.csv'\n\n# Load the data, report its size, then plot longitude against latitude.\n", ["66904"], ["pandas", "matplotlib"], ["Use `df['lon']` for x and `df['lat']` for y in `plt.scatter()`.", "Call `plt.show()` after the plot."], 1, 30),
-      dataset("vaccination-mission", "Exam Task: Vaccination Data", "Find the NSW area with the lowest childhood vaccination rate.", ["Excel", "sorting"], [
+      dataset("vaccination-mission", "Assignment: Vaccination Data", "Find the NSW area with the lowest childhood vaccination rate.", ["Excel", "sorting"], [
         "The file is an Excel spreadsheet — use `pd.read_excel(path)` to load it.",
         "The column `% Fully` holds the percentage of children fully vaccinated.",
         "Sort by `% Fully` ascending and read the first row: `SA3_Name` is the area, `Age Group` is the age bracket."
       ], `${csvBase}/childhood_vaccination_data_nsw.xlsx`, "Load `childhood_vaccination_data_nsw.xlsx`, sort by `% Fully` ascending, select the lowest row, and print that row's `SA3_Name`, `Age Group`, and `% Fully` values.", "import pandas as pd\npath = '/data/childhood_vaccination_data_nsw.xlsx'\n\n# Load the spreadsheet.\n# Put the lowest vaccination rate first.\n# Print the requested fields from that row.\n", ["Richmond Valley - Coastal", "2 Year olds", "76.164"], ["pandas", "openpyxl"], ["Use `.sort_values('% Fully')` then `.iloc[0]` to access the lowest row.", "Print individual values with `row['SA3_Name']`, `row['Age Group']`, `row['% Fully']`."], 0, 30),
-      dataset("weather-exam", "Climate Data exam", "Clean, summarise, and explore the full weather dataset.", ["read_csv", "groupby", "plot"], [
+      dataset("weather-assignment", "Assignment: Climate Data", "Clean, summarise, and explore the full weather dataset.", ["read_csv", "groupby", "plot"], [
         "Use masking to keep only rows where `Quality` is `Y`.",
         "Group by `Year` to find the hottest and coldest average years.",
         "Group by `Month` to find the hottest and coldest average months.",
@@ -1134,21 +1191,38 @@ export const courses: Course[] = [
         "A script is better when the same analysis should run from top to bottom repeatedly.",
         "When moving work out of the website, keep the same habit: small changes, run often, inspect output."
       ]),
+      read("jupyter-notebooks-vscode", "Jupyter Notebooks in VS Code", "Use notebooks when you want code, output, notes, and plots together in one interactive document.", ["Jupyter", "notebooks", "VS Code", "cells"], [
+        "A Jupyter notebook is a `.ipynb` file made of cells. Code cells run Python, while Markdown cells hold notes, explanations, and headings.",
+        "Notebooks are useful for exploration because each cell can be run separately and the output appears directly below the code.",
+        "They are especially common in data analysis, where you often want to inspect tables, test small steps, and create plots as you work.",
+        "VS Code can open and run notebooks. Install the Python and Jupyter extensions, then open a `.ipynb` file in your project.",
+        "Choose the correct Python kernel at the top of the notebook. This should be the conda environment for your project.",
+        "When your notebook workflow becomes repeatable, move the final version into a script so it can be rerun from top to bottom."
+      ]),
+      read("python-scripts", "Python Scripts", "Save repeatable Python work in a `.py` file and run it from the terminal.", ["scripts", ".py", "terminal", "VS Code"], [
+        "A Python script is a plain text file ending in `.py`, such as `analysis.py` or `main.py`.",
+        "Scripts run from top to bottom, which makes them useful when you want the same analysis or task to run the same way each time.",
+        "In VS Code, create a new file, write your Python code, and save it with a `.py` ending inside your project folder.",
+        "Open the VS Code terminal, activate the correct conda environment, then run the script with `python analysis.py`.",
+        "Use `print()` while developing so you can inspect values and check that each step is working.",
+        "If your notebook has become a reliable workflow, copy the final code cells into a script and clean them into a clear top-to-bottom order."
+      ]),
       read("ai-use", "Using AI as a Beginner", "Use AI for explanation, not to skip understanding.", ["AI", "learning"], [
         "You need the skills to comprehend what the AI is saying to you.",
         "Sometimes you reach a problem the AI cannot solve. What then?",
-        "It is OK to use AI when you need something explained so that you can do it yourself."
+        "It is OK to use AI when you need something explained so that you can do it yourself.",
+        "For more guidance, read UCL ARC's [AI-assisted coding guidance](https://github-pages.arc.ucl.ac.uk/research-software-practices/tooling/ai-assisted-coding.html)."
       ]),
-      workshop("leaving-the-website", "Working Outside the Website", "Set up VS Code, Jupyter, conda, and scripts when you are ready to work locally.", ["VS Code", "conda", "Jupyter", "scripts"], [
-        "This belongs near the end because the website lets you practise Python without local setup first.",
+      workshop("leaving-the-website", "Working Outside this Website", "", ["VS Code", "conda", "Jupyter", "scripts"], [
         "When leaving the website, create a project folder, open it in VS Code or PyCharm, select the correct interpreter, and use the terminal for environment/package commands.",
         "Use conda environments to separate project dependencies. Use notebooks for exploratory work and scripts for repeatable work.",
-        "Troubleshooting checks: make sure the correct conda environment is active, check `which python` and `which pip`, and read error messages carefully."
+        "Troubleshooting checks: make sure the correct conda environment is active, check `which python` and `which pip`, and read error messages carefully.",
+        "For more information of installing anaconda see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)"
       ], 15),
-      read("next-steps", "Next Steps", "Practice is the next step.", ["practice"], [
+      read("next-steps", "Next Steps", "", ["practice"], [
         "We have covered basic programming principles.",
         "Next step: practice. Mess around. Solve problems. Google things. Ask for help.",
-        "Useful resources include CS50, UCL ARC courses, Software Carpentry, research software engineering materials, and Exercism."
+        "Useful resources include [CS50](https://cs50.harvard.edu/python/), [UCL ARC courses](https://www.ucl.ac.uk/advanced-research-computing/education/training), [Software Carpentry](https://software-carpentry.org/), [research software engineering materials](https://github-pages.arc.ucl.ac.uk/research-software-practices/), and [Exercism](https://exercism.org/)."
       ]),
     ],
   },

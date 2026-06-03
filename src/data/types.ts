@@ -42,6 +42,7 @@ export type LessonCodeExample = {
   code: string;
   caption?: string;
   packages?: string[];
+  datasetPaths?: string[];
   insertAfter?: number;
 };
 

@@ -36,10 +36,10 @@ The May 2026 rewrite expanded the course from ~60 lessons across 8 courses to ~9
 - `text-files`: rewritten to actually call `open()`/`with`/`write`/`read`.
 - `clean-code`: Zen of Python, naming examples, bad-vs-good comments, README example.
 
-### course 8 — exams and Working Outside the Website
+### course 8 — Assignments and Working Outside this Website
 - `conda-environments`: create/activate, pip vs conda, reproducibility.
 - `ways-of-working`: REPL vs notebook vs script, exploratory↔reproducible continuum.
-- `weather-exam`: expanded to full Session 4 final assignment — hottest/coldest average year and month, yearly mean plot.
+- `weather-assignment`: expanded to full Session 4 final assignment — hottest/coldest average year and month, yearly mean plot.
 
 ## Remaining Out of Scope
 
@@ -53,7 +53,7 @@ The following slide content exists but was deliberately kept out of the site for
 - **`np.random.randint` seed / reproducibility**: a natural extension to `random-int-arrays` once learners are comfortable.
 - **`pyproject.toml` / packaging**: mentioned in OSW day 2 material; beyond the scope of an intro course.
 - **Pandas `.loc` named-index slicing**: Session 4 slide 28 mentions `.iloc`; `.loc` is covered implicitly through masking.
-- **`groupby` by month (clustering by month vs year)**: Session 4 Task 12 asks learners to cluster by Month after Year. The weather exam now asks for the hottest/coldest month, which achieves the same goal.
+- **`groupby` by month (clustering by month vs year)**: Session 4 Task 12 asks learners to cluster by Month after Year. The weather assignment now asks for the hottest/coldest month, which achieves the same goal.
 
 ## Recommendation
 

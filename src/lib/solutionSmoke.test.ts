@@ -80,7 +80,7 @@ const solutions: Record<string, string> = {
   "create-arrays-ones-zeros-exercise": "import numpy as np\nones = np.ones((10, 20, 30))\nzeros = np.zeros(ones.shape)\nprint(ones.shape)\nprint(zeros.shape)\n",
   "masks-exercise": "import numpy as np\ntemperatures = np.array([18, 22, 26, 31, 19])\nprint(temperatures[temperatures > 25])\n",
   "cb-np-mask-exercise": "import numpy as np\ntemps = np.array([36.6, 37.2, 38.1, 36.9, 37.8])\nprint(temps[temps > 37.0])\n",
-  "dataframes-exercise": "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace'], 'score': [91, 76], 'group': ['A', 'B']})\nprint(df[['name', 'score']])\n",
+  "dataframes-exercise": "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace'], 'score': [91, 76], 'group': ['A', 'B']})\nprint(df)\n",
   "column-selection-exercise": "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace'], 'score': [91, 76], 'group': ['A', 'B']})\nprint(df['name'])\nprint(df[['name', 'score']])\n",
   "cb-pd-column-exercise": "import pandas as pd\ndf = pd.DataFrame({'name': ['Alice', 'Bob', 'Charlie'], 'score': [80, 90, 70]})\nprint(df['score'].mean())\n",
   "iloc-indexing-exercise": "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace', 'Guido'], 'score': [91, 76, 84], 'group': ['A', 'B', 'A']})\nprint(df.iloc[:2])\nprint(df.iloc[0, 1])\n",
@@ -91,10 +91,12 @@ const solutions: Record<string, string> = {
   "groupby-weather-challenge": "import pandas as pd\npath = '/data/parramatta_daily_maximum_temperature.csv'\ndf = pd.read_csv(path)\nclean = df[df['Quality'] == 'Y']\nyearly = clean.groupby('Year')['Maximum temperature (Degree C)'].mean()\nprint(yearly.tail(1))\n",
   "random-int-arrays-exercise": "import numpy as np\nx = np.random.randint(0, 100, 20)\ny = np.random.randint(0, 100, 20)\nprint(len(x))\n",
   "random-scatter-exercise": "import numpy as np\nimport matplotlib.pyplot as plt\nx = np.random.randint(0, 100, 20)\ny = np.random.randint(0, 100, 20)\nplt.scatter(x, y)\nplt.show()\nprint(len(x))\n",
-  "plot-labels-exercise": "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\nstatus = 'labelled'\nplt.plot(years, values)\nplt.xlabel('Year')\nplt.ylabel('Value')\nplt.title('Values by year')\nplt.show()\nprint(status)\n",
+  "plot-labels-exercise": "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\nplt.plot(years, values)\nplt.xlabel('Year')\nplt.ylabel('Value')\nplt.title('Values by year')\nplt.show()\n",
   "weather-plot-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/parramatta_daily_maximum_temperature.csv'\ndf = pd.read_csv(path)\nclean = df[df['Quality'] == 'Y']\nyearly = clean.groupby('Year')['Maximum temperature (Degree C)'].mean()\nprint(yearly.tail(1))\nyearly.plot()\nplt.show()\n",
   "methods-exercise": "animals = ['dog']\nword = 'python'\nanimals.append('cat')\nprint(animals)\nprint(word.upper())\n",
   "animal-class-exercise": "class Animal():\n    def __init__(self, species):\n        self.species = species\n\n    def greet(self):\n        print(\"Hello, I'm a \" + self.species)\n\npingu = Animal('penguin')\npingu.greet()\n",
+  "animal-name-class-exercise": "class Animal():\n    def __init__(self, name):\n        self.name = name\n\n    def greet(self):\n        print(\"Hello, I'm \" + self.name)\n\npingu = Animal('Pingu')\npingu.greet()\n",
+  "animal-species-class-exercise": "class Animal():\n    def __init__(self, name, species):\n        self.name = name\n        self.species = species.lower()\n\n    def greet(self):\n        print(\"Hello, I'm \" + self.name + \", I am a \" + self.species)\n\npingu = Animal('Pingu', 'Penguin')\npingu.greet()\n",
   "objects-classes-exercise": "class Cell:\n    def __init__(self, GFP_level, RFP_level):\n        self.GFP_level = GFP_level\n        self.RFP_level = RFP_level\n\n    def relative_expression(self):\n        return self.GFP_level / self.RFP_level\n\ncell = Cell(300, 200)\nprint(cell.relative_expression())\n",
   "inheritance-exercise": "class Vehicle():\n    def __init__(self, registration, colour):\n        self.registration = registration\n        self.colour = colour\n\n    def rev_engine(self):\n        print('Vroom!')\n\nclass Bus(Vehicle):\n    def __init__(self, registration, colour, fare):\n        super().__init__(registration, colour)\n        self.fare = fare\n\nschool_bus = Bus('B1 BUS', 'yellow', '£1.55')\nprint(school_bus.fare)\nschool_bus.rev_engine()\n",
   "try-except-exercise": "def find_length(x):\n    try:\n        return len(x)\n    except TypeError:\n        return None\n\nprint(find_length('python'))\nprint(find_length(42))\n",
@@ -103,11 +105,11 @@ const solutions: Record<string, string> = {
   "hospital-mission-challenge": "import pandas as pd\npath = '/data/public_hospital_list.csv'\ndf = pd.read_csv(path)\nmajor_psych = df[(df['Peer Group Name'] == 'Psychiatric') & (df['Remoteness area'] == 'Major Cities')]\nnsw = df[df['State'] == 'NSW']\nprint(len(major_psych))\nprint(nsw['Number of available beds'].sum())\n",
   "street-tree-mission-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/manningham_street_trees.csv'\ndf = pd.read_csv(path)\nprint(len(df))\nplt.scatter(df['lon'], df['lat'])\nplt.show()\n",
   "vaccination-mission-challenge": "import pandas as pd\npath = '/data/childhood_vaccination_data_nsw.xlsx'\ndf = pd.read_excel(path)\nrow = df.sort_values('% Fully').iloc[0]\nprint(row['SA3_Name'])\nprint(row['Age Group'])\nprint(row['% Fully'])\n",
-  "weather-exam-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/parramatta_daily_maximum_temperature.csv'\ndf = pd.read_csv(path)\nclean = df[df['Quality'] == 'Y']\nyearly = clean.groupby('Year')['Maximum temperature (Degree C)'].mean()\nmonthly = clean.groupby('Month')['Maximum temperature (Degree C)'].mean()\nprint(yearly.idxmax())\nprint(yearly.idxmin())\nprint(monthly.idxmax())\nprint(monthly.idxmin())\nyearly.plot()\nplt.show()\n",
+  "weather-assignment-challenge": "import pandas as pd\nimport matplotlib.pyplot as plt\npath = '/data/parramatta_daily_maximum_temperature.csv'\ndf = pd.read_csv(path)\nclean = df[df['Quality'] == 'Y']\nyearly = clean.groupby('Year')['Maximum temperature (Degree C)'].mean()\nmonthly = clean.groupby('Month')['Maximum temperature (Degree C)'].mean()\nprint(yearly.idxmax())\nprint(yearly.idxmin())\nprint(monthly.idxmax())\nprint(monthly.idxmin())\nyearly.plot()\nplt.show()\n",
 };
 
 describe("exercise solutions", () => {
-  it("run and pass checkpoints for every puzzle, challenge, and exam", () => {
+  it("run and pass checkpoints for every puzzle, challenge, and assignment", () => {
     const items = courses.flatMap((course) =>
       course.lessons.flatMap((lesson) => [lesson.exercise, lesson.challenge].filter(Boolean)),
     ) as Array<CodeExercise | DatasetChallenge>;
