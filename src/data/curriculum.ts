@@ -1163,6 +1163,22 @@ export const courses: Course[] = [
         "A script is better when the same analysis should run from top to bottom repeatedly.",
         "When moving work out of the website, keep the same habit: small changes, run often, inspect output."
       ]),
+      read("jupyter-notebooks-vscode", "Jupyter Notebooks in VS Code", "Use notebooks when you want code, output, notes, and plots together in one interactive document.", ["Jupyter", "notebooks", "VS Code", "cells"], [
+        "A Jupyter notebook is a `.ipynb` file made of cells. Code cells run Python, while Markdown cells hold notes, explanations, and headings.",
+        "Notebooks are useful for exploration because each cell can be run separately and the output appears directly below the code.",
+        "They are especially common in data analysis, where you often want to inspect tables, test small steps, and create plots as you work.",
+        "VS Code can open and run notebooks. Install the Python and Jupyter extensions, then open a `.ipynb` file in your project.",
+        "Choose the correct Python kernel at the top of the notebook. This should be the conda environment for your project.",
+        "When your notebook workflow becomes repeatable, move the final version into a script so it can be rerun from top to bottom."
+      ]),
+      read("python-scripts", "Python Scripts", "Save repeatable Python work in a `.py` file and run it from the terminal.", ["scripts", ".py", "terminal", "VS Code"], [
+        "A Python script is a plain text file ending in `.py`, such as `analysis.py` or `main.py`.",
+        "Scripts run from top to bottom, which makes them useful when you want the same analysis or task to run the same way each time.",
+        "In VS Code, create a new file, write your Python code, and save it with a `.py` ending inside your project folder.",
+        "Open the VS Code terminal, activate the correct conda environment, then run the script with `python analysis.py`.",
+        "Use `print()` while developing so you can inspect values and check that each step is working.",
+        "If your notebook has become a reliable workflow, copy the final code cells into a script and clean them into a clear top-to-bottom order."
+      ]),
       read("ai-use", "Using AI as a Beginner", "Use AI for explanation, not to skip understanding.", ["AI", "learning"], [
         "You need the skills to comprehend what the AI is saying to you.",
         "Sometimes you reach a problem the AI cannot solve. What then?",
