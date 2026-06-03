@@ -179,24 +179,24 @@ export const courses: Course[] = [
         "In a script, Python will not necessarily show the result of a calculation unless you ask it to.",
         "Use `print()` when you want to see a value. This is also one of the simplest ways of checking for code problems (\"debugging\")."
       ], 10),
-      code("calculator-print", "Checkpoint: Calculations and `print()`", "Use the same idea with different values.", ["operators", "print"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("calculator-print", "Practice: Calculations and `print()`", "Use the same idea with different values.", ["operators", "print"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Add the two existing numbers, store the result, and print it.", "first_number = 12\nsecond_number = 8\n\n# Calculate the total.\n# Show the result.\n", ["20"], ["result", "print"], [], 20),
       read("operator-precedence-example", "Order of Operations", "Use brackets when the intended calculation is not obvious.", ["operators", "precedence"], [
         "Python follows mathematical order of operations.",
         "Brackets make the order explicit and make code easier to check.",
         "When a result is surprising, split the calculation into named steps."
       ], 10),
-      code("operator-precedence", "Checkpoint: Order of Operations", "Use brackets when the intended calculation is not obvious.", ["operators", "precedence"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("operator-precedence", "Practice: Order of Operations", "Use brackets when the intended calculation is not obvious.", ["operators", "precedence"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Add the two existing numbers, multiply that sum by `3`, store it as `total`, and print `total`. Use brackets so the addition happens before multiplication.", "first_number = 12\nsecond_number = 8\n\n# Make the intended order explicit.\n# Show the calculated total.\n", ["60"], ["total", "(", ")", "print"], [], 20),
       read("variables-example", "Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
         "For example, `a = 5` assigns the value `5` to `a`.",
         "Variables make multi-step calculations easier to read and reuse.",
         "A good variable name should describe the thing it stores."
       ], 10),
-      code("variables", "Checkpoint: Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("variables", "Practice: Variables", "A variable is a name assigned to a value.", ["variables", "assignment"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Use the existing `a` and `b` values to create `c`, where `c` is their sum. Print `c`.", "a = 5\nb = 6\n\n# Create the missing variable.\n# Show its value.\n", ["11"], ["=", "print"], [], 20),
       read("types-overview", "Data Types", "Python has different built-in \"data types\" (sometimes referred to as just \"types\"). These include strings, integers, floats, and booleans. Python treats each of them differently.", ["strings", "integers", "floats", "booleans"], [
         "A string is text, and has to be surrounded by quotation marks.",
@@ -255,7 +255,7 @@ export const courses: Course[] = [
         "We call values that can change mutable, and values that cannot change immutable.",
         "This comes from the word mutate, which means \"to change\". Lists, dictionaries, and sets are mutable. Tuples are immutable."
       ]),
-      code("mutation-demo", "Checkpoint: Mutability", "Mutate a list by changing one of its items.", ["mutable", "list"], [
+      code("mutation-demo", "Practice: Mutability", "Mutate a list by changing one of its items.", ["mutable", "list"], [
         "Changing one item inside a list mutates the list.",
         "The same kind of item change would not work on a tuple, because tuples are immutable."
       ], "Change the first item in `items` to `'kiwi'`, then print the mutated list.", "items = ['apple', 'banana']\n\n# Mutate the list, then print it.\n", ["['kiwi', 'banana']"], ["print"], [], 20),
@@ -296,8 +296,8 @@ export const courses: Course[] = [
           { src: "/images/session2/slide18-01.png", alt: "Range indexing with both start and stop", caption: "`[1:4]` gives elements at positions 1, 2, and 3." },
         ],
       },
-      code("slicing", "Checkpoint: Range Indexing and Slicing", "Use a colon to take part of a list.", ["slicing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("slicing", "Practice: Range Indexing and Slicing", "Use a colon to take part of a list.", ["slicing"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Select the middle three values from `numbers`, then print that slice.", "numbers = [1, 2, 3, 4, 5]\n\n# Use a slice, then show the selected values.\n", ["[2, 3, 4]"], [":", "print"], [], 20),
       {
         ...read("collection-conversion-example", "Converting Collections", "Use conversion functions such as `list()` and `set()`.", ["conversion", "set"], [
@@ -311,8 +311,8 @@ export const courses: Course[] = [
           { src: "/images/session2/slide27-01.png", alt: "Converting a collection to a set using set()", caption: "`set()` removes duplicates by keeping only unique values." },
         ],
       },
-      code("collection-conversion", "Checkpoint: Converting Collections", "Use conversion functions such as `list()` and `set()`.", ["conversion", "set"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("collection-conversion", "Practice: Converting Collections", "Use conversion functions such as `list()` and `set()`.", ["conversion", "set"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Remove duplicate entries from `values`, then print how many unique values remain.", "values = ['a', 'b', 'a', 'c', 'b']\n\n# Remove duplicates, then count what remains.\n", ["3"], ["set", "len", "print"], [], 20),
       code("cb-q2-deduplicate", "Practice: Remove Duplicates", "Use `set()` to keep only unique values.", ["list", "set", "sorted"], [
         "Converting a list to a set removes duplicates because sets only keep unique values.",
@@ -328,16 +328,16 @@ export const courses: Course[] = [
           { src: "/images/session2/slide29-01.png", alt: "len() called on a list returning its item count", caption: "`len()` counts items in any collection." },
         ],
       },
-      code("len-practice", "Checkpoint: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("len-practice", "Practice: The `len()` Function", "Use `len()` on strings, lists, and dictionaries.", ["len"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Print the length of `word`, `animals`, and `settings`.", "word = 'Python'\nanimals = ['dog', 'cat', 'llama']\nsettings = {'theme': 'light', 'level': 'intro'}\n\n# Print the length of each variable.\n", ["6", "3", "2"], ["len", "print"], [], 20),
       read("tuple-unpacking-example", "Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
         "Tuple unpacking assigns each element of a tuple to a separate variable in one line.",
         "This is often used to unpack co-ordinates, pairs, or function return values.",
         "The number of names on the left must match the number of values in the tuple."
       ], 10),
-      code("tuple-unpacking", "Checkpoint: Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("tuple-unpacking", "Practice: Tuple Unpacking", "Assign tuple elements directly to named variables.", ["tuples", "unpacking"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Unpack `coords` into `lat`, `lon`, and `altitude`, then print each on its own line.", "coords = (53.4, -1.8, 200)\n\n# Split coords into three named variables, then print them.\n", ["53.4", "-1.8", "200"], ["=", "print"], [], 20),
       {
         ...read("dictionary-lists-example", "Dictionary of Lists", "A dictionary value can be a list.", ["dict", "list", "indexing"], [
@@ -349,8 +349,8 @@ export const courses: Course[] = [
           { src: "/images/session2/slide20-01.png", alt: "Dictionary whose values are lists, showing table-like structure with names and attendance", caption: "A dictionary of lists acts like a small table — each key is a column." },
         ],
       },
-      code("dictionary-lists", "Checkpoint: Dictionary of Lists", "A dictionary value can be a list.", ["dict", "list", "indexing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("dictionary-lists", "Practice: Dictionary of Lists", "A dictionary value can be a list.", ["dict", "list", "indexing"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Using the provided dictionary of lists, print the second student name and that student's score.", "students = {\n    'name': ['Ada', 'Grace', 'Guido'],\n    'score': [91, 76, 84],\n}\n\n# Choose the matching row from each column.\n", ["Grace", "76"], ["[", "print"], [], 25),
       code("cb-q2-dict-max", "Practice: Highest Score", "Index into a dictionary of lists to find the maximum.", ["dict", "list", "max", "indexing"], [
         "A dictionary of lists lets you store table-like data.",
@@ -402,8 +402,8 @@ export const courses: Course[] = [
           { src: "/images/session2/slide33-01.png", alt: "Code showing a def statement with function name, brackets, colon, and indented body", caption: "`def` keyword, then the name, then arguments in brackets, then an indented body." },
         ],
       },
-      code("basic-function", "Checkpoint: Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("basic-function", "Practice: Define and Call a Function", "Use `def`, arguments, and a function body.", ["def", "arguments"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Create a function that takes a name and prints `Hello ` to that person. in the example below the function should print 'Hello Ada' .", "def hello(name):\n    # Print a greeting.\n    pass\n\nhello('Ada')\n", ["Hello Ada"], ["def", "print"], [], 20),
       code("cb-make-abba", "Practice: `make_abba`", "Concatenate (\"Chain together\") strings inside a function.", ["functions", "strings", "concatenation"], [
         "Write `make_abba(front, back)` that takes two strings and returns `front + back + back + front`.",
@@ -422,8 +422,8 @@ export const courses: Course[] = [
           { src: "/images/session2/slide37-01.png", alt: "Calling a function using the default argument", caption: "If you omit an optional argument, Python uses the default." },
         ],
       },
-      code("arguments-defaults", "Checkpoint: Arguments and Defaults", "Functions can have multiple arguments and optional defaults.", ["arguments", "defaults"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("arguments-defaults", "Practice: Arguments and Defaults", "Functions can have multiple arguments and optional defaults.", ["arguments", "defaults"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Write `repeat_text` so it returns `text` repeated `repeats` times, with `repeats` defaulting to `2`. Use the provided function call to print the returned value.", "def repeat_text(text, repeats=2):\n    pass\n\nprint(repeat_text('ha'))\n", ["haha"], ["def", "return"], [], 25),
       code("cb-string-times", "Practice: `string_times`", "Use arguments and the `*` operator on a string.", ["functions", "arguments", "strings"], [
         "Write `string_times(s, n)` that returns the string `s` repeated `n` times.",
@@ -441,8 +441,8 @@ export const courses: Course[] = [
           { src: "/images/session2/slide40-01.png", alt: "Function returning two values at once", caption: "You can return multiple values — they come back as a tuple." },
         ],
       },
-      code("return-values", "Checkpoint: Return Values", "Use `return` when a function should give a value back.", ["return"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("return-values", "Practice: Return Values", "Use `return` when a function should give a value back.", ["return"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Return the sum and product of `3` and `4`, then print both.", "def sum_and_product(a, b):\n    pass\n\ns, p = sum_and_product(3, 4)\nprint(s)\nprint(p)\n", ["7", "12"], ["return", "print"], [], 25),
       code("cb-make-pi", "Practice: `make_pi`", "Return a fixed list literal from a function.", ["functions", "lists", "return"], [
         "Write `make_pi()` that returns the list `[3, 1, 4]`.",
@@ -533,8 +533,8 @@ export const courses: Course[] = [
           { src: "/images/session3/slide08-01.png", alt: "statistics library used to calculate the mean of a list", caption: "`statistics.mean()` is built in — no install needed." },
         ],
       },
-      code("standard-libraries", "Checkpoint: Standard Libraries", "Use `statistics`, `math`, and `random`.", ["statistics", "math", "random"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("standard-libraries", "Practice: Standard Libraries", "Use `statistics`, `math`, and `random`.", ["statistics", "math", "random"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Print the mean of the provided list and the square root of `9409`.", "import statistics\nimport math\nvalues = [1, 2, 2, 3, 4]\n\n# Use the imported libraries to calculate both results.\n", ["2.4", "97.0"], ["statistics", "math", "print"], [], 25),
       {
         ...read("comments-docstrings-example", "Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
@@ -547,8 +547,8 @@ export const courses: Course[] = [
           { src: "/images/session3/slide06-01.png", alt: "Function with a docstring using triple quotes at the top", caption: "Docstrings sit inside the function and describe what it does." },
         ],
       },
-      code("comments-docstrings", "Checkpoint: Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("comments-docstrings", "Practice: Comments and Docstrings", "Use comments and docstrings to explain code.", ["comments", "docstrings"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Write a function `double` with a numpydoc-style docstring listing the parameter and the return value. The function should return (not just print) `14` for input `7`. Print the result after calling it.", "def double(value):\n    \"\"\"\n    Double a number.\n\n    Parameters\n    ----------\n    value : int or float\n        # Describe the parameter here.\n\n    Returns\n    -------\n    int or float\n        # Describe the return value here.\n    \"\"\"\n    pass\n\nprint(double(7))\n", ["14"], ["\"\"\"", "Parameters", "Returns", "return", "print"], [], 25),
       workshop("function-design", "Function Design", "Keep functions small enough to test.", ["functions", "design"], [
         "A useful function usually does one job.",
@@ -614,8 +614,8 @@ export const courses: Course[] = [
           "Python stops at the first true branch — later branches are skipped even if they are also true."
         ], 10),
       },
-      code("if-elif-else", "Checkpoint: If, Elif, Else", "Run different code depending on a condition.", ["if", "elif", "else"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("if-elif-else", "Practice: If, Elif, Else", "Run different code depending on a condition.", ["if", "elif", "else"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Use `if`, `elif`, and `else` to choose what to print from the value stored in `light`.", "light = 'green'\n\n# Choose the message that matches the current light.\n", ["move"], ["if", "print"], [], 20),
       read("logical-operators-example", "Logical Operators", "Combine or flip Boolean values with `not`, `and`, and `or`.", ["not", "and", "or", "booleans"], [
         "`not` flips a Boolean value: `not True` becomes `False`, and `not False` becomes `True`.",
@@ -645,8 +645,8 @@ export const courses: Course[] = [
           { src: "/images/session3/slide41-02.png", alt: "in keyword checking for a substring inside a string", caption: "`in` also checks for substrings inside strings." },
         ],
       },
-      code("membership", "Checkpoint: The `in` Keyword", "Ask whether something is in something else.", ["in", "membership"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("membership", "Practice: The `in` Keyword", "Ask whether something is in something else.", ["in", "membership"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Print whether `'a'` is in `'cat'` and whether `'cat'` is in the list.", "animals = ['dog', 'cat', 'llama']\nword = 'cat'\n\n# Print both checks.\n", ["True", "True"], ["in", "print"], [], 20),
       code("range-and-enumerate", "`range()` and `enumerate()`", "Create indices for loops when you need them.", ["range", "enumerate"], [
         "`range()` creates a sequence of numbers.",
@@ -676,8 +676,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide04-01.png", alt: "Power operator example: 2 ** 3 equals 8", caption: "`**` raises the left number to the power of the right." },
         ],
       },
-      code("power-operator", "Checkpoint: The Power Operator `**`", "Use `**` to raise a number to a power.", ["operators", "**"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("power-operator", "Practice: The Power Operator `**`", "Use `**` to raise a number to a power.", ["operators", "**"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Calculate `2` to the power of `10`, then calculate `3` to the power of `4`. Print each calculated result.", "# Calculate both powers, then show the results.\n", ["1024", "81"], ["**", "print"], [], 20),
       code("list-comprehensions", "List Comprehensions", "A one-liner way to write some loops.", ["list comprehension"], [
         "List comprehensions are useful when every output item follows the same rule.",
@@ -772,8 +772,8 @@ export const courses: Course[] = [
           { src: "/images/session3/slide22-01.png", alt: "NumPy array class attributes: dtype and shape", caption: "A NumPy array is a class with attributes like `.dtype` and `.shape`." },
         ],
       },
-      code("numpy-max-argmax", "Checkpoint: NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("numpy-max-argmax", "Practice: NumPy Functions", "Use `np.max` and `np.argmax`.", ["np.max", "np.argmax"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Print the maximum value in `values`, then print the index where that maximum occurs.", "import numpy as np\nvalues = [3, 9, 2, 5]\n\n# Use the two NumPy functions from the lesson.\n", ["9", "1"], ["np.max", "np.argmax", "print"], ["numpy"], 25),
       {
         ...read("array-operations-example", "Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
@@ -786,8 +786,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide11-01.png", alt: "Array operation combining multiple steps", caption: "You can chain multiple operations just like with plain numbers." },
         ],
       },
-      code("array-operations", "Checkpoint: Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("array-operations", "Practice: Array Operations", "Perform mathematical operations on arrays.", ["arrays", "operations"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Create a NumPy array from `5`, `10`, `15`, and `20`. Calculate `scaled` by multiplying the array by `2` and subtracting `3`, then print `scaled`.", "import numpy as np\n\n# Build the array, then apply the arithmetic to every element.\nprint(scaled)\n", ["[ 7 17 27 37]"], ["np.array", "print"], ["numpy"], 25),
       quiz("array-vs-list", "Array or List?", "Choose the right tool for repeated numeric operations.", ["arrays", "lists"], [
         "Lists are general-purpose collections.",
@@ -811,8 +811,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide16-01.png", alt: "Indexing a 2D array with row and column numbers", caption: "`array[1, 2]` picks row 1, column 2." },
         ],
       },
-      code("shape-and-indexing", "Checkpoint: Shape and Indexing", "Create and index multidimensional arrays.", ["shape", "indexing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("shape-and-indexing", "Practice: Shape and Indexing", "Create and index multidimensional arrays.", ["shape", "indexing"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Create a 2x3 array containing the values `1` through `6`, print its `.shape`, then use row-column indexing to print the bottom-right value.", "import numpy as np\n\n# Build the grid.\n# Inspect its shape, then choose the required cell.\n", ["(2, 3)", "6"], ["np.array", ".shape", "print"], ["numpy"], 25),
       {
         ...read("array-range-indexing-example", "Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
@@ -836,8 +836,8 @@ export const courses: Course[] = [
         "`np.ones((20, 30))` and `np.zeros((20, 30))` create new 2D arrays filled with ones or zeros.",
         "You can also create zeros with the same shape as an existing array."
       ], "Create an array full of ones with shape `(10, 20, 30)`. Then create an array full of zeros with the same shape. Print the shape of each array.", "import numpy as np\n\n# Create the ones array.\n# Create the zeros array with the same shape.\n# Print both shapes.\n", ["(10, 20, 30)\n(10, 20, 30)"], ["np.ones", "np.zeros", "shape", "print"], ["numpy"], 20),
-      code("array-range-indexing", "Checkpoint: Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("array-range-indexing", "Practice: Array Range Indexing", "Slice rows and columns from a multidimensional array.", ["slicing", "arrays"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Using the provided grid, print the first row, the second column, and the bottom-right 2x2 block.", "import numpy as np\ngrid = np.array([[1, 2, 3, 4],\n                 [5, 6, 7, 8],\n                 [9, 10, 11, 12]])\n\n# Use row, column, and block slices.\n", ["[1 2 3 4]", "[ 2  6 10]"], [":", "print"], ["numpy"], 25),
       {
         ...read("masks-example", "Masks", "Use comparison operators to filter arrays.", ["masks", "comparison"], [
@@ -849,8 +849,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide23-01.png", alt: "Array masking: comparison creates True/False array, applied to filter values", caption: "A comparison produces a boolean mask; applying it filters the array." },
         ],
       },
-      code("masks", "Checkpoint: Masks", "Use comparison operators to filter arrays.", ["masks", "comparison"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("masks", "Practice: Masks", "Use comparison operators to filter arrays.", ["masks", "comparison"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Print temperatures greater than `25`.", "import numpy as np\ntemperatures = np.array([18, 22, 26, 31, 19])\n\n# Create and apply a mask.\n", ["[26 31]"], [">", "print"], ["numpy"], 25),
       code("cb-np-mask", "Practice: Filter an Array", "Apply a boolean mask to extract matching values.", ["numpy", "masks"], [
         "Create a comparison on an array to get a boolean mask.",
@@ -883,8 +883,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide26-01.png", alt: "DataFrame printed showing column headers and row indexes", caption: "pandas adds row numbers and labels the columns automatically." },
         ],
       },
-      code("dataframes", "Checkpoint: DataFrames", "Create and inspect a pandas DataFrame.", ["pandas", "DataFrame"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("dataframes", "Practice: DataFrames", "Create and inspect a pandas DataFrame.", ["pandas", "DataFrame"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Create a DataFrame with `name`, `score`, and `group` columns, then print the full DataFrame.", "import pandas as pd\n\n# Build the table.\n# Print the full DataFrame.\n", ["score", "group"], ["pd.DataFrame", "print"], ["pandas"], 25),
       {
         ...read("column-selection-example", "Selecting Columns", "Select one column or a smaller table of columns.", ["columns", "DataFrame"], [
@@ -897,8 +897,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide28-01.png", alt: "Selecting multiple columns with a list of column names", caption: "`df[['a', 'b']]` returns a smaller DataFrame." },
         ],
       },
-      code("column-selection", "Checkpoint: Selecting Columns", "Select one column or a smaller table of columns.", ["columns", "DataFrame"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("column-selection", "Practice: Selecting Columns", "Select one column or a smaller table of columns.", ["columns", "DataFrame"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "From `df`, select and print the `name` column, then select and print the smaller DataFrame containing `name` and `score`.", "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace'], 'score': [91, 76], 'group': ['A', 'B']})\n\n# Select and print the requested columns.\n", ["Ada", "score"], ["[", "print"], ["pandas"], 25),
       code("cb-pd-column", "Practice: Column Mean", "Select a column and compute its mean.", ["pandas", "column", "mean"], [
         "Use `df['column']` to select a Series, then call `.mean()` to get the average.",
@@ -909,8 +909,8 @@ export const courses: Course[] = [
         "The syntax is `df.iloc[row, col]` and accepts slices just like NumPy arrays.",
         "This is useful when you want the first N rows or a specific positional slice of the data."
       ], 10),
-      code("iloc-indexing", "Checkpoint: Integer-Location Indexing with `iloc`", "Use `.iloc` to index rows and columns by position.", ["iloc", "indexing"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("iloc-indexing", "Practice: Integer-Location Indexing with `iloc`", "Use `.iloc` to index rows and columns by position.", ["iloc", "indexing"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Use `.iloc` to select and print the first two rows, then use `.iloc` again to print the value at row `0`, column `1`.", "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace', 'Guido'], 'score': [91, 76, 84], 'group': ['A', 'B', 'A']})\n\n# Make one row selection and one single-cell selection.\n", ["Ada", "Grace", "91"], ["iloc", "print"], ["pandas"], 25),
       {
         ...read("dataframe-masking-example", "DataFrame Masking", "Filter rows with a Boolean mask.", ["masking"], [
@@ -924,8 +924,8 @@ export const courses: Course[] = [
           { src: "/images/session4/slide32-01.png", alt: "Applying a mask to a DataFrame to filter rows", caption: "Passing the mask to the DataFrame keeps only matching rows." },
         ],
       },
-      code("dataframe-masking", "Checkpoint: DataFrame Masking", "Filter rows with a Boolean mask.", ["masking"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("dataframe-masking", "Practice: DataFrame Masking", "Filter rows with a Boolean mask.", ["masking"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Print rows where `score` is at least `80`.", "import pandas as pd\ndf = pd.DataFrame({'name': ['Ada', 'Grace', 'Guido'], 'score': [91, 76, 84]})\n\n# Filter and print.\n", ["Ada", "Guido"], [">=", "print"], ["pandas"], 25),
       code("cb-pd-filter", "Practice: Filter Rows", "Apply a boolean mask to select matching rows.", ["pandas", "masking"], [
         "Create a comparison on a column to build a boolean mask, then pass it to the DataFrame.",
@@ -1022,8 +1022,8 @@ print(yearly.tail(1))`,
           { src: "/images/session4/slide48-01.png", alt: "Generating random data with np.random and plotting it", caption: "`np.random.randint` generates test data before using real measurements." },
         ],
       },
-      code("random-scatter", "Checkpoint: Scatter Plots", "Create random x/y values and plot them.", ["matplotlib", "scatter"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("random-scatter", "Practice: Scatter Plots", "Create random x/y values and plot them.", ["matplotlib", "scatter"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Create `20` random integer x values and `20` random integer y values, scatter plot them, call `plt.show()`, and print the length of `x`.", "import numpy as np\nimport matplotlib.pyplot as plt\n\n# Generate the data.\n# Plot it, display it, then confirm the sample size.\n", ["20"], ["plt.scatter", "plt.show", "len", "print"], ["numpy", "matplotlib"], 25),
       {
         ...read("plot-labels-example", "Plot Labels", "Add labels so a plot can be interpreted.", ["matplotlib", "labels"], [
@@ -1036,8 +1036,8 @@ print(yearly.tail(1))`,
           { src: "/images/session4/slide51-01.png", alt: "Plot of random scatter data with axis labels", caption: "The same data with labels is immediately clearer." },
         ],
       },
-      code("plot-labels", "Checkpoint: Plot Labels", "Add labels so a plot can be interpreted.", ["matplotlib", "labels"], [
-        "Now solve a similar task yourself. The checkpoint checks that your code creates a plot."
+      code("plot-labels", "Practice: Plot Labels", "Add labels so a plot can be interpreted.", ["matplotlib", "labels"], [
+        "Now solve a similar task yourself. The practice checks that your code creates a plot."
       ], "Using the provided `years` and `values`, create a labelled plot, then call `plt.show()`.", "import matplotlib.pyplot as plt\nyears = [2020, 2021, 2022]\nvalues = [21.2, 22.1, 21.8]\n\n", [], ["plt.plot", "plt.xlabel", "plt.ylabel", "plt.title", "plt.show"], ["matplotlib"], 25, 1),
       dataset("weather-plot", "Plot Climate Data", "Plot mean maximum temperature by year.", ["matplotlib", "groupby"], [
         "After cleaning and grouping the data, plot the yearly values.",
@@ -1066,8 +1066,8 @@ print(yearly.tail(1))`,
           { src: "/images/session3/slide53-01.png", alt: "List of useful string and list methods with examples", caption: "Python's built-in types come with many useful methods." },
         ],
       },
-      code("methods", "Checkpoint: Methods", "A method is a function belonging to a class or datatype.", ["methods"], [
-        "Now solve a similar task yourself. The checkpoint checks the output."
+      code("methods", "Practice: Methods", "A method is a function belonging to a class or datatype.", ["methods"], [
+        "Now solve a similar task yourself. The practice checks the output."
       ], "Add `cat` to `animals`, then print the updated list and the uppercase version of `word`.", "animals = ['dog']\nword = 'python'\n\n# Update the list.\n# Transform the string for display.\n", ["cat", "PYTHON"], ["append", ".upper", "print"], [], 25),
       code("animal-name-class", "Creating a Class", "Use `class`, `__init__`, and `self` to create a custom data type. This is called a \"class\"", ["classes", "objects", "__init__", "self"], [
         "As you've seen, data types represent (collections of) data and can have their own methods.",
@@ -1077,7 +1077,7 @@ print(yearly.tail(1))`,
         "This is tricky to understand at first, and looking at the example might be of particular help to understand this."
       ], "Create an `Animal` class with a `name` attribute and a `greet` method that prints \"Hello, I'm \"+`name`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, name):\n        # Store name on self.\n       self.name = name\n\n    def greet(self):\n        # Print a greeting using self.name.\n        print(\"Hello, I am \"+self.name)\n\npingu = Animal('Pingu')\npingu.greet()\n\n# self.name is different for different instances of the class:\ngary = Animal('Gary')\ngary.greet()\n", [], [], [], 30),
       code("animal-species-class", "Practice: creating a Class", "Practice the concepts from the previous slide", ["methods"], [
-        "Now solve a similar task yourself. The checkpoint checks the output, not whether you copied the worked example."
+        "Now solve a similar task yourself. The practice checks the output, not whether you copied the worked example."
       ], "Expand the `Animal` class from the previous slide with a `species` attribute and include it in the `greet` method so it prints `Hello, I'm Pingu, I am a penguin`. Create a `pingu` instance and call `greet()`.", "class Animal():\n    def __init__(self, name, species):\n        # Store name AND species on self.\n        self.name = name\n\n    def greet(self):\n        # Print a greeting using both attributes.\n        pass\n\npingu = Animal('Pingu', 'Penguin')\npingu.greet()\n\n", ["Hello, I'm Pingu, I am a penguin"], ["class", "def", "__init__", "self", "print"], [], 30),
       code("objects-classes", "Objects and Classes", "Instances of classes are also referred to as \"objects\". (Under the hood, everything in Python is an object.) Here is another exercise for you to practice these concepts, this time with less given code scaffolding: define a custom data type (a \"class\") and then make an instance of it (an \"object\")", ["objects", "classes"], [
       ], "Create a `Cell` class with `relative_expression()` returning `GFP_level / RFP_level`, then instantiate it with `300` and `200` and print the method result.", "class Cell:\n    def __init__(self, GFP_level, RFP_level):\n        pass\n\n# Add relative_expression and print the result.\n", ["1.5"], ["class", "def", "return", "print"], [], 30),

@@ -185,7 +185,7 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
         <div className="feedback-panel needs-work" role="status">
           <AlertTriangle size={20} aria-hidden="true" />
           <div>
-            <strong>Python stopped before the checkpoint.</strong>
+            <strong>Python stopped before the practice check.</strong>
             <p>Read the final line of the output first, then check the line number or name mentioned in the traceback.</p>
           </div>
         </div>
@@ -194,13 +194,13 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
         <div className={`feedback-panel ${runState === "done" ? "needs-work" : "waiting"}`} role="status">
           <AlertTriangle size={20} aria-hidden="true" />
           <div>
-            <strong>{runState === "done" ? "Not matched yet." : "Checkpoint waiting."}</strong>
+            <strong>{runState === "done" ? "Not matched yet." : "Practice waiting."}</strong>
             <p>
               {runState === "done"
                 ? plotMissing
                   ? <InlineText text="Your code ran, but the expected plot was not detected. Make sure you create the plot and call `plt.show()`." />
-                  : "Your code ran, but the checkpoint result was not found in the output. Compare the mission wording with what your program prints."
-                : "Run your solution when you are ready. The checkpoint checks the result your program prints."}
+                  : "Your code ran, but the practice result was not found in the output. Compare the mission wording with what your program prints."
+                : "Run your solution when you are ready. The practice checks the result your program prints."}
             </p>
           </div>
         </div>
@@ -209,7 +209,7 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
         <div className="feedback-panel ok" role="status">
           <CheckCircle2 size={20} aria-hidden="true" />
           <div>
-            <strong>Checkpoint matched.</strong>
+            <strong>Practice matched.</strong>
             <p>The output fits the mission.</p>
           </div>
         </div>

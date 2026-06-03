@@ -4,7 +4,7 @@ const openModule = async (page: Page, moduleName: RegExp) => {
   await page.getByRole("button", { name: moduleName }).click();
 };
 
-test("opens the course map and completes a reading checkpoint", async ({ page }) => {
+test("opens the course map and completes a reading practice", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("navigation", { name: "course map" })).toBeVisible();
   await openModule(page, /Module 1: Python Foundations/);
@@ -61,7 +61,7 @@ test("starts a module from its course card", async ({ page }) => {
 test("shows a runnable code cell", async ({ page }) => {
   await page.goto("/");
   await openModule(page, /Module 1: Python Foundations/);
-  await page.getByRole("button", { name: /Checkpoint: Calculations/ }).click();
+  await page.getByRole("button", { name: /Practice: Calculations/ }).click();
   const exercisePanel = page.locator(".code-panel");
   await expect(page.getByLabel("Python exercise editor")).toBeVisible();
   await expect(exercisePanel.getByRole("button", { name: "Run" })).toBeVisible();
@@ -191,7 +191,7 @@ test("loads data course pages with package-backed activities", async ({ page }) 
   });
   await page.goto("/");
   await openModule(page, /Module 5: Packages and NumPy/);
-  await page.getByRole("button", { name: /Checkpoint: Array Operations/ }).click();
-  await expect(page.locator("h1", { hasText: "Checkpoint: Array Operations" })).toBeVisible();
+  await page.getByRole("button", { name: /Practice: Array Operations/ }).click();
+  await expect(page.locator("h1", { hasText: "Practice: Array Operations" })).toBeVisible();
   await expect(page.getByText(/Create a NumPy array/)).toBeVisible();
 });

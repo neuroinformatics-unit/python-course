@@ -109,7 +109,7 @@ const solutions: Record<string, string> = {
 };
 
 describe("exercise solutions", () => {
-  it("run and pass checkpoints for every puzzle, challenge, and assignment", () => {
+  it("run and pass practice checks for every puzzle, challenge, and assignment", () => {
     const items = courses.flatMap((course) =>
       course.lessons.flatMap((lesson) => [lesson.exercise, lesson.challenge].filter(Boolean)),
     ) as Array<CodeExercise | DatasetChallenge>;
