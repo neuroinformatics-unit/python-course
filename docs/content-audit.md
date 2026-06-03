@@ -18,7 +18,7 @@ This site remixes the source decks into courses rather than reproducing slide or
 
 - Python `set` values are unique and unordered; normal sets are mutable. The site teaches the corrected behaviour rather than repeating the deck wording that implied sets are immutable/ordered.
 - Learner code cells now start from scaffolds instead of complete answers.
-- Code checkpoints use hidden output/plot expectations, so learners must produce the result rather than merely include a keyword.
+- Code practice checks use hidden output/plot expectations, so learners must produce the result rather than merely include a keyword.
 - The `dataset()` helper now takes an explicit dataset path parameter rather than inferring it by string-matching the lesson id.
 
 ## Numeric Expectations Verified (2026-05-11)

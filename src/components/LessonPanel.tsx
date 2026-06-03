@@ -36,6 +36,7 @@ export function LessonPanel({
 }: Props) {
   const complete = progress.completedLessons.includes(lesson.id);
   const runnable = lesson.exercise ?? lesson.challenge;
+  const lessonKindLabel = runnable ? "Practice" : lesson.kind;
   const autoCompletesOnView = !lesson.quiz && !runnable;
   const screenshotExamples = lesson.examples?.length ? lesson.examples : getCodeExamplesForLesson(lesson.id);
   const anchoredExamples = screenshotExamples.filter((example) => typeof example.insertAfter === "number");
@@ -78,6 +79,7 @@ export function LessonPanel({
           {course.lessons.map((item) => {
             const itemComplete = progress.completedLessons.includes(item.id);
             const active = item.id === lesson.id;
+            const itemKindLabel = item.exercise || item.challenge ? "Practice" : item.kind;
 
             return (
               <button
@@ -89,7 +91,7 @@ export function LessonPanel({
                 <span>
                   <InlineText text={item.title} />
                 </span>
-                <small>{itemComplete ? "complete" : item.kind}</small>
+                <small>{itemComplete ? "complete" : itemKindLabel}</small>
               </button>
             );
           })}
@@ -113,7 +115,7 @@ export function LessonPanel({
         </header>
 
         <div className="lesson-title-row">
-          <p className="eyebrow">{lesson.kind}</p>
+          <p className="eyebrow">{lessonKindLabel}</p>
           <h1>
             <InlineText text={lesson.title} />
           </h1>
