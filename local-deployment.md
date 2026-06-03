@@ -13,7 +13,7 @@ npm run dev
 Open the local URL shown in the terminal. Vite usually uses:
 
 ```text
-http://localhost:5173/python-course/
+http://localhost:5173/
 ```
 
 ## Preview A Production Build Locally
@@ -30,11 +30,11 @@ npm run preview
 Open the preview URL shown in the terminal. Vite usually uses:
 
 ```text
-http://localhost:4173/python-course/
+http://localhost:4173/
 ```
 
 ## Notes
 
 - Use `npm run dev` while editing.
 - Use `npm run preview` after `npm run build` to check the deploy-style build locally.
-- Keep the `/python-course/` path in the URL because the Vite base path is configured for GitHub Pages.
+- The production build is configured for the custom domain root at `https://python.neuroinformatics.dev/`.
