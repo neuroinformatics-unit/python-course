@@ -135,7 +135,7 @@ test("resets runnable examples when moving between lessons", async ({ page }) =>
 
 test("allows jumping to later courses without completing prerequisites", async ({ page }) => {
   await page.goto("/");
-  await openModule(page, /Module 8: exams and Working Outside the Website/);
+  await openModule(page, /Module 8: exams and Working Outside this Website/);
   await page.getByRole("button", { name: /Exam Task: Public Hospitals/ }).click();
   await expect(page.locator("h1", { hasText: "Exam Task: Public Hospitals" })).toBeVisible();
 });
