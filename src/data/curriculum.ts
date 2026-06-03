@@ -867,11 +867,6 @@ export const courses: Course[] = [
         "Index the array with that mask to keep only the values where the mask is `True`.",
         "Print the filtered result to verify the mask worked as expected."
       ], "Using the provided temperatures array, create a mask for readings above `37.0`, then print the values selected by that mask.", "import numpy as np\ntemps = np.array([36.6, 37.2, 38.1, 36.9, 37.8])\n\n# Build the comparison first, then apply it to the array.\n", ["[37.2 38.1 37.8]"], [">", "print"], ["numpy"], 20),
-      code("random-int-arrays", "Random Integer Arrays", "Use `np.random.randint` to generate random integer data.", ["numpy", "random"], [
-        "`np.random.randint(low, high, size)` generates random integers between `low` (inclusive) and `high` (exclusive).",
-        "This is useful for creating test data before using real measurements.",
-        "Always print `len()` to confirm the array has the expected size."
-      ], "Create two arrays `x` and `y` of `20` random integers between `0` and `100`. Print the length of `x`.", "import numpy as np\n\n# Generate both arrays before checking the length.\nprint(len(x))\n", ["20"], ["np.random.randint", "print"], ["numpy"], 20),
       read("library-name-warning", "File Name Warning", "Do not name files after libraries.", ["imports"], [
         "Do not make a file called `numpy.py`.",
         "If you do, Python may import your file instead of the real NumPy package.",
