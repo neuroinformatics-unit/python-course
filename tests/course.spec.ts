@@ -157,11 +157,12 @@ test("resets runnable examples when moving between lessons", async ({ page }) =>
   await expect(page.locator(".example-runner textarea").first()).not.toHaveValue(/print\(3 < 5\)/);
 });
 
+
 test("allows jumping to later courses without completing prerequisites", async ({ page }) => {
   await page.goto("/");
-  await openModule(page, /Module 8: exams and Working Outside this Website/);
-  await page.getByRole("button", { name: /Exam Task: Public Hospitals/ }).click();
-  await expect(page.locator("h1", { hasText: "Exam Task: Public Hospitals" })).toBeVisible();
+  await openModule(page, /Module 8: Assignments and Working Outside this Website/);
+  await page.getByRole("button", { name: /Assignment: Public Hospitals/ }).click();
+  await expect(page.locator("h1", { hasText: "Assignment: Public Hospitals" })).toBeVisible();
 });
 
 test("loads data course pages with package-backed activities", async ({ page }) => {
