@@ -194,7 +194,7 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
         <div className={`feedback-panel ${runState === "done" ? "needs-work" : "waiting"}`} role="status">
           <AlertTriangle size={20} aria-hidden="true" />
           <div>
-            <strong>{runState === "done" ? "Not matched yet." : "Practice waiting."}</strong>
+            <strong>{runState === "done" ? "Not matched yet." : "Awaiting output"}</strong>
             <p>
               {runState === "done"
                 ? plotMissing
@@ -209,7 +209,7 @@ export function CodeRunner({ item, onAttempt, onComplete }: Props) {
         <div className="feedback-panel ok" role="status">
           <CheckCircle2 size={20} aria-hidden="true" />
           <div>
-            <strong>Practice matched.</strong>
+            <strong>Correct</strong>
             <p>The output fits the mission.</p>
           </div>
         </div>

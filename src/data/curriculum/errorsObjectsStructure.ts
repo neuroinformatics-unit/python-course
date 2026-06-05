@@ -72,9 +72,5 @@ export const errorsObjectsStructure: Course = {
       "Individual scripts get confusing quickly. Structuring code organises things and promotes reuse.",
       "You can import functions from files such as `my_funcs.py` or from folders such as `utils.my_funcs`.",
     ]),
-    quiz("copying", "Deep vs Shallow Copy", "Using `=` can create two names for the same mutable object.", ["copy", "mutable"], [
-      "If `b = a` and `a` is a list, both names refer to the same list.",
-      "This matters for mutable collections and objects."
-    ], "What prints after `a=[1,2,3]; b=a; b[0]=42; print(a[0])`?", ["42", "1", "0", "Error"], "42", "Both names refer to the same list."),
   ],
 };
